@@ -30,6 +30,13 @@ body {
 	display: inline-block!important;
 }
 
+.artist {
+	width: 350px;
+	height: 150px;
+	display: inline-block!important;
+}
+
+
 .proximamente {
 	
 }

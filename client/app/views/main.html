@@ -1,20 +1,23 @@
 <div class="container main-container">
     <div class="row">
         <div class="col-md-offset-4 col-md-4 text-center">
-            <h1 class="" >Próximamente   </h1>
+            <h1 class="welcome">Próximamente</h1>
             <br/>
-            <br/>
+            <br/> 
             <small>Ingresando username y password a continuación podrás loguearte</small>
             <br/>
             <br/>
             <form method="post" class="formLogin">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="username" placeholder="username" ng-model="username">
+                    <input type="text" class="form-control" id="username" placeholder="username" ng-model="signup.user.username">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password" placeholder="password" ng-model="password">
+                    <input type="password" class="form-control" id="password" placeholder="signup.user.password" ng-model="password">
                 </div>
-                <button type="submit" class="btn btn-primary" ng-click="submit()">Ingresar</button>
+               <!--  <button type="submit" class="btn btn-primary" ng-click="submit()">Ingresar</button>-->
+
+                <a href="/login" class="btn btn-primary">Ingresar</a>
+                
             </form>
         </div>
     </div>
