@@ -9,7 +9,7 @@
  */
 
 
-angular.module('codeApp') // make sure this is set to whatever it is in your client/scripts/app.js
+angular.module('underfyApp') // make sure this is set to whatever it is in your client/scripts/app.js
   .controller('MainCtrl', function ($scope, $http, $location) { // note the added $http depedency
     
     // // Here we're creating some local references

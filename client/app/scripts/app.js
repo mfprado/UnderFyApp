@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('codeApp', [
+  .module('underfyApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
