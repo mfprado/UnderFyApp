@@ -48,6 +48,11 @@ then commit changes and to deploy:
 
 Run  `git push heroku master`
 
+## Open Heroku App
+
+On server folder run `heroku open`
+or go to [Underfy App Heroku](https://underfy.herokuapp.com/)
+
 
 
 
