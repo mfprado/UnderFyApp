@@ -26,8 +26,14 @@ body {
 }
 
 .logo {
-	width: 50px;
 	display: inline-block!important;
+	width: 50px;
+}
+
+.logoMenu {
+	display: inline-block!important;
+	width: 70px;
+	height: 50px;
 }
 
 .proximamente {

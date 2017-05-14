@@ -8,10 +8,9 @@
  * Controller of the clientApp
  */
 
- 'use strict';
 
-angular.module('clientApp') // make sure this is set to whatever it is in your client/scripts/app.js
-  .controller('MainCtrl', function ($scope, $http, $location, $locationProvider) { // note the added $http depedency
+angular.module('codeApp') // make sure this is set to whatever it is in your client/scripts/app.js
+  .controller('MainCtrl', function ($scope, $http, $location) { // note the added $http depedency
     
     // // Here we're creating some local references
     // // so that we don't have to type $scope every
