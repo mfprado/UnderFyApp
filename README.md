@@ -35,3 +35,19 @@ go to client folder an run `grunt devDist`
 now, go to server folder an run `npm start`
 
 [http://localhost:3000/](http://localhost:3000/)
+
+
+## Heroku Deploy
+throw Heroku CLI
+
+If it's the first deploy go to server folder:
+
+Run  `heroku git:remote -a underfy`
+
+then commit changes and to deploy:
+
+Run  `git push heroku master`
+
+
+
+
