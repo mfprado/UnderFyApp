@@ -16,16 +16,19 @@ This project is generated with [yo angular generator](https://github.com/yeoman/
 version 0.16.0.
 ## Download dependencies
 
+The develop will be done on client folder, so there:
+
 Run  `npm i`
 
 ## Build & development
-En client
+(client folder)
 
 Run `grunt` for building and `grunt serve` for preview.
 
 [http://localhost:9000/](http://localhost:9000/)
 
 ## Testing
+(client folder)
 
 Running `grunt test` will run the unit tests with karma.
 
@@ -44,7 +47,7 @@ If it's the first deploy go to server folder:
 
 Run  `heroku git:remote -a underfy`
 
-then commit changes and to deploy:
+Commit changes and to deploy:
 
 Run  `git push heroku master`
 
