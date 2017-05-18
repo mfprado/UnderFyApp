@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc overview
- * @name codeApp
+ * @name underfyApp
  * @description
- * # codeApp
+ * # underfyApp
  *
  * Main module of the application.
  */
@@ -21,6 +21,7 @@ angular
   ])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
