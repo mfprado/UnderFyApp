@@ -1,64 +1,53 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name clientApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the clientApp
+ * Controller of the underfyApp
  */
 
 
-angular.module('underfyApp') // make sure this is set to whatever it is in your client/scripts/app.js
-  .controller('MainCtrl', function ($scope, $http, $location) { // note the added $http depedency
+var app = angular.module('underfyApp');
+  
+
+app.controller('MainCtrl', ['$scope','$location','$rootScope','$http',function ($scope,$location,$rootScope,$http) { // note the added $http depedency
+
+    $scope.messageStatus = ''
     
-    // // Here we're creating some local references
-    // // so that we don't have to type $scope every
-    // // damn time
-    // var user,
-    //     signup;
-
-    // // Here we're creating a scope for our Signup page.
-    // // This will hold our data and methods for this page.
-    // $scope.signup = signup = {};
-
-    // // In our signup.html, we'll be using the ng-model
-    // // attribute to populate this object.
-    // signup.user = user = {};
-
-    // // This is our method that will post to our server.
-    // signup.submit = function () {
-      
-    //   // make sure all fields are filled out...
-    //   // aren't you glad you're not typing out
-    //   // $scope.signup.user.firstname everytime now??
-    //   if ( user.username && user.password ) {
-    //     // to be filled in on success
-       
-    //     var request = $http.get('/token', 'aXJvbm1hbg==');
-    //     // Just so we can confirm that the bindings are working
-    //     console.log(user);
-    //     // we'll come back to here and fill in more when ready
-    //     request.success(function (data) {
-    //         console.log("Logueo exitoso");
-    //         $locationProvider.url('login');
-    //     }
-
-
-    //   } else {
-
-    //     alert('Please fill out all form fields.');
-    //   }
-
+    $scope.signin = {};
     
-    //   // Just so we can confirm that the bindings are working
-    //   console.log(user);
-
-
-    //   request.error(function (data) {
-    //     console.log("Logueo fracaso");
-    //   });
-
-    // };
+    $scope.user ={
+        username: '',
+        password: ''
+    };
     
-  });
+    $scope.submit = function () {
+    
+        if ( $scope.user.username && $scope.user.password ) {
+     
+            $scope.messageStatus = ''
+            $http.get('../../api/token', 'aXJvbm1hbg==').then(function success(response){
+                $scope.token = response.data;
+                console.log(response.status);
+                console.log("Logueo exitoso");
+                console.log($scope.data);
+                $location.path('/login');
+                console.log($scope.user);
+            
+            }, function error(response){
+                
+                console.log("Autenticacion fracaso");
+                alert('Por favor verifique que los datos ingresados sean correctos');
+                $scope.messageStatus = 'Por favor verifique que los datos ingresados sean correctos' 
+            });
+
+
+        } else {
+            console.log('Fracaso Logueo, campos incompletos')
+            alert('Por favor complete ambos campos');
+            $scope.messageStatus = 'Por favor complete ambos campos'
+        };
+
+    }
+}]);
