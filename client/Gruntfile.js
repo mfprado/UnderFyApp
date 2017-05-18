@@ -1,4 +1,4 @@
-3// Generated on 2017-02-06 using generator-angular 0.15.1
+// Generated on 2017-02-06 using generator-angular 0.15.1
 'use strict';
 
 // # Globbing
@@ -17,13 +17,13 @@ module.exports = function (grunt) {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn',
-    configureProxies: 'grunt-connect-proxy' // <-- ADD HERE
+    configureProxies: 'grunt-connect-proxy' 
   });
 
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: '../server/dist' // <-- MODIFY
+    dist: '../server/dist' 
   };
 
   // Define the configuration for all the tasks
@@ -76,7 +76,7 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
-      proxies: [ // <-- ADD
+      proxies: [ 
         {
           context: '/api',
           host: 'localhost',
