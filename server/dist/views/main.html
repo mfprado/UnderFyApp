@@ -1,21 +1,22 @@
 <div class="container main-container">
     <div class="row">
          <br/> 
-        <h1 class="col-md-offset-3 col-md-4 text-center">Próximamente</h1>
+        <h1 class="col-md-offset-3 col-md-3 text-center">Próximamente</h1>
         <div class="col-md-offset-4 col-md-4 text-center">
             <br/>
-            <br/> 
-            <small>Ingresando username y password a continuación podrás loguearte</small>
+            <medium>Ingresando username y password a continuación podrás loguearte</medium>
+            <br/>
+            <br/>
+            <small ng-app="underfyApp"  style="color:red">{{alertMessage}}</small>
             <br/>
             <form method="post" class="formLogin">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="username" placeholder="username" ng-model="signup.user.username">
+                    <input type="text" class="form-control" id="username" placeholder="username" ng-model="user.userName">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password" placeholder="password" ng-model="password">
+                    <input type="password" class="form-control" id="password" placeholder="password" ng-model="user.password">
                 </div>
-               <!--  <button type="submit" class="btn btn-primary" ng-click="submit()">Ingresar</button>-->
-                <a href="/login" class="btn btn-primary">Ingresar</a>
+                <button type="submit" ng-app="underfyApp" ng-click="submit()" class="btn btn-primary">Ingresar</button>
                 
             </form>
         </div>

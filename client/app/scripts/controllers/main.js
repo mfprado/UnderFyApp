@@ -65,7 +65,7 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http',function (
             }, function error(response){
                 console.log("Autenticacion fracaso");
                 console.log(response);
-                $scope.alertMessage = 'Por favor verifique que los datos ingresados sean correctos' 
+                $scope.alertMessage = 'username o password incorrecto' 
             });
 
 

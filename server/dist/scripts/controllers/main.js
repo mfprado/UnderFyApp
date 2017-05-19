@@ -1,64 +1,78 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name clientApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the clientApp
+ * Controller of the underfyApp
  */
 
 
-angular.module('underfyApp') // make sure this is set to whatever it is in your client/scripts/app.js
-  .controller('MainCtrl', function ($scope, $http, $location) { // note the added $http depedency
-    
-    // // Here we're creating some local references
-    // // so that we don't have to type $scope every
-    // // damn time
-    // var user,
-    //     signup;
+var app = angular.module('underfyApp');
+  
 
-    // // Here we're creating a scope for our Signup page.
-    // // This will hold our data and methods for this page.
-    // $scope.signup = signup = {};
+app.controller('MainCtrl', ['$scope','$location','$rootScope','$http',function ($scope,$location,$rootScope,$http) { 
 
-    // // In our signup.html, we'll be using the ng-model
-    // // attribute to populate this object.
-    // signup.user = user = {};
+    $scope.alertMessage = '';
+    $scope.user ={
+        userName: '',
+        password: '',
+    };
 
-    // // This is our method that will post to our server.
-    // signup.submit = function () {
-      
-    //   // make sure all fields are filled out...
-    //   // aren't you glad you're not typing out
-    //   // $scope.signup.user.firstname everytime now??
-    //   if ( user.username && user.password ) {
-    //     // to be filled in on success
-       
-    //     var request = $http.get('/token', 'aXJvbm1hbg==');
-    //     // Just so we can confirm that the bindings are working
-    //     console.log(user);
-    //     // we'll come back to here and fill in more when ready
-    //     request.success(function (data) {
-    //         console.log("Logueo exitoso");
-    //         $locationProvider.url('login');
-    //     }
+    var data = {
+        mode: 'urlencoded',
+        urlencoded:[{
+                "key": "userName",
+                "value": "",
+                "type": "text",
+                "enabled": true
+        },{
+                "key": "password",
+                "value": "",
+                "type": "text",
+                "enabled": true
+        }]
+    }
 
-
-    //   } else {
-
-    //     alert('Please fill out all form fields.');
-    //   }
+    var req = {
+        method: 'POST',
+        url: "https://immense-taiga-71996.herokuapp.com/token",
+        header: [{
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "description": ""
+        }],
+        body: data,
+        description: ""
+    }
 
     
-    //   // Just so we can confirm that the bindings are working
-    //   console.log(user);
-
-
-    //   request.error(function (data) {
-    //     console.log("Logueo fracaso");
-    //   });
-
-    // };
+    $scope.submit = function () {
     
-  });
+        if ( $scope.user.userName && $scope.user.password ) {
+            $scope.alertMessage = ''; 
+            data.urlencoded[0].value = $scope.user.userName;
+            data.urlencoded[1].value = $scope.user.password;
+
+            console.log('json enviado en el POST: '+JSON.stringify(req));
+
+            $http.post(JSON.stringify(req)).then(function success(response){
+                console.log("Logueo exitoso");
+                console.log(response);
+                $scope.token = response.data;
+                $location.path('/login');
+            
+            }, function error(response){
+                console.log("Autenticacion fracaso");
+                console.log(response);
+                $scope.alertMessage = 'Por favor verifique que los datos ingresados sean correctos' 
+            });
+
+
+        } else {
+            console.log('Fracaso logueo, campos incompletos')
+            $scope.alertMessage = 'Por favor complete ambos campos'
+        };
+
+    }
+}]);
