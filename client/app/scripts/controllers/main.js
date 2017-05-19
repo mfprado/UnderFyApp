@@ -13,32 +13,58 @@ var app = angular.module('underfyApp');
 
 app.controller('MainCtrl', ['$scope','$location','$rootScope','$http',function ($scope,$location,$rootScope,$http) { 
 
-    var urlSharedServer="https://immense-taiga-71996.herokuapp.com/token";
-
     $scope.alertMessage = '';
-    $scope.signin = {};
     $scope.user ={
         userName: '',
         password: '',
     };
+
+    var data = {
+        mode: 'urlencoded',
+        urlencoded:[{
+                "key": "userName",
+                "value": "",
+                "type": "text",
+                "enabled": true
+        },{
+                "key": "password",
+                "value": "",
+                "type": "text",
+                "enabled": true
+        }]
+    }
+
+    var req = {
+        method: 'POST',
+        url: "https://immense-taiga-71996.herokuapp.com/token",
+        header: [{
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "description": ""
+        }],
+        body: data,
+        description: ""
+    }
+
     
     $scope.submit = function () {
     
         if ( $scope.user.userName && $scope.user.password ) {
-            console.log($scope.user);
-            $scope.alertMessage = '';
-            console.log(JSON.stringify($scope.user));
+            $scope.alertMessage = ''; 
+            data.urlencoded[0].value = $scope.user.userName;
+            data.urlencoded[1].value = $scope.user.password;
 
-            $http.post(urlSharedServer, JSON.stringify($scope.user),{'Content-Type': 'application/x-www-form-urlencoded'}).then(function success(response){
-                $scope.token = response.data;
-                console.log(response);
+            console.log('json enviado en el POST: '+JSON.stringify(req));
+
+            $http.post(JSON.stringify(req)).then(function success(response){
                 console.log("Logueo exitoso");
+                console.log(response);
+                $scope.token = response.data;
                 $location.path('/login');
             
             }, function error(response){
-                
                 console.log("Autenticacion fracaso");
-                // alert('Por favor verifique que los datos ingresados sean correctos');
+                console.log(response);
                 $scope.alertMessage = 'Por favor verifique que los datos ingresados sean correctos' 
             });
 
