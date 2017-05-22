@@ -88,7 +88,7 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              require('grunt-connect-proxy/lib/utils').proxyRequest, // <-- HERE
+              require('grunt-connect-proxy/lib/utils').proxyRequest, 
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -567,7 +567,7 @@ module.exports = function (grunt) {
    //
   // register a 'devDist' task that calls the two tasks above
   //
-  grunt.registerTask('devDist', [
+  grunt.registerTask('toDeploy', [
     'clean:dist',
     'copy:devDist',
     'copy:devDist2',
