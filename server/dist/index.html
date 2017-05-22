@@ -10,9 +10,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -35,16 +37,11 @@
   </head>
 
   <body ng-app="underfyApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Add your site or application content here -->
+    
     <body ng-cloak>
-  <ng-include src="'views/headerView.html'"></ng-include>
-  <div ng-view></div>
+        <ng-include src="'views/headerView.html'"></ng-include>
+    <div ng-view></div>
 
-   
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -59,14 +56,16 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script type="bower_components/svg-assets-cache/svg-assets-cache.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
     <!-- endbower -->
-    <!-- endbuild -->
+
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/about.js"></script>
     <!-- endbuild -->
-</body>
+  </body>
 </html>

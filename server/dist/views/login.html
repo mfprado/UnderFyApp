@@ -1,22 +1,32 @@
 <div class="container main-container">
-    <div class="row">
+    <!-- <div class="row"> -->
+    <div class="navBardemoBasicUsage" ng-app="underfyApp">
+  <md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('page1')" name="page1"> <a  href="/">       
+                <button class="btn btn-primary btn-round" >
+                    <!-- <i class="material-icons">favorite</i> With Icon -->
+                    <img src="../images/music-albums.svg"  class="logoMenu" alt="logoMenu">
+                    Albums
+
+                </button>
+                </a></md-nav-item>
+      <md-nav-item md-nav-click="goto('page2')" name="page2"><a href="/">
+                <button class="btn btn-primary btn-round" >
+                    <!-- <i class="material-icons">favorite</i> With Icon -->
+                    <img src="../images/song-playlist.svg" sizes="1000x4000" class="logoMenu" alt="logoMenu">
+                    Songs
+                </button>
+                </a></md-nav-item>
+      <md-nav-item md-nav-click="goto('page3')" name="page3">Page Three</md-nav-item>
+
         <div class="col-md-offset-40 col-md-40 text-center">
             <h1 class="proximamente">Bienvenido</h1>
             <br/>
             <br/>
             <br/>
-            <br/>
-            <!-- <a class="btn btn-primary" layout="row" layout-align="space-around center">Albums<a/>
-            <a class="btn btn-primary">Artists<a/>
-            <a class="btn btn-primary">Songs<a/>
-            <a class="btn btn-primary">Adjust<a/>
-            <a class="btn btn-primary">
-             -->
-            <!-- <img src="../images/artist.svg" sizes="1000x4000" class="logo" alt="logo"> -->
-            <!-- <svg id="search-icon" class="search-icon" viewBox="0 0 24 24"> -->
-            
             <div id="container"  layout="row" style="text-align: center">
-                <a  href="/">
+                <a  href="/">       
                 <button class="btn btn-primary btn-round" >
                     <!-- <i class="material-icons">favorite</i> With Icon -->
                     <img src="../images/music-albums.svg"  class="logoMenu" alt="logoMenu">

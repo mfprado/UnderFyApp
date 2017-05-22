@@ -2,16 +2,13 @@
 
 /**
  * @ngdoc function
- * @name codeApp.controller:LoginCtrl
+ * @name underfyApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
- * Controller of the codeApp
+ * Controller of the underfyApp
  */
-angular.module('underfyApp')
-  .controller('LoginCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+angular.module('underfyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
+  .controller('LoginCtrl', function ($scope) {
+
+    $scope.currentNavItem = 'page1';
   });
