@@ -19,49 +19,45 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http',function (
         password: '',
     };
 
-
-    // var request = require("request");
-
-// var options = { method: 'POST',
-//   url: 'https://immense-taiga-71996.herokuapp.com/token',
-//   headers: 
-//    { 'postman-token': 'f7c3ad15-4efc-ba83-1ff4-9c96451ac838',
-//      'cache-control': 'no-cache',
-//      'content-type': 'application/x-www-form-urlencoded' },
-//   form: { userName: 'ironman', password: 'pepperpots' } };
-
-// request(options, function (error, response, body) {
-//   if (error) throw new Error(error);
-
-//   console.log(body);
-// });
-
-
     var data = {
-        async: true,
-        crossDomain: true,
+        mode: 'urlencoded',
+        urlencoded:[{
+                "key": "userName",
+                "value": "",
+                "type": "text",
+                "enabled": true
+        },{
+                "key": "password",
+                "value": "",
+                "type": "text",
+                "enabled": true
+        }]
+    }
+
+    var req = {
         method: 'POST',
         url: "https://immense-taiga-71996.herokuapp.com/token",
-        headers: {
-            "content-type": "application/x-www-form-urlencoded",
-            "cache-control": "no-cache",
-        },
-        data: {
-            "userName": "",
-            "password": ""
-        }
-    };
+        header: [{
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "description": ""
+        }],
+        body: data,
+        description: ""
+    }
+
     
     $scope.submit = function () {
     
+        $location.path('/login');
         if ( $scope.user.userName && $scope.user.password ) {
             $scope.alertMessage = ''; 
-            data.data["userName"] = $scope.user.userName;
-            data.data["password"] = $scope.user.password;
+            data.urlencoded[0].value = $scope.user.userName;
+            data.urlencoded[1].value = $scope.user.password;
 
-            console.log('json enviado en el POST: '+JSON.stringify(data));
+            console.log('json enviado en el POST: '+JSON.stringify(req));
 
-            $http(data).then(function success(response){
+            $http.post(JSON.stringify(req)).then(function success(response){
                 console.log("Logueo exitoso");
                 console.log(response);
                 $scope.token = response.data;
