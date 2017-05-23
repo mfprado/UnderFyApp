@@ -12,8 +12,8 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "angular-material": "~0.11.1",
-    "svg-assets-cache": ""
+    "angular-material": "^1.1.4",
+    "svg-assets-cache.js": "svg-assets-cache#*"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

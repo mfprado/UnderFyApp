@@ -8,9 +8,9 @@
     <link rel="apple-touch-icon" sizes="76x76" href="images/favicon.png">
     <link rel="icon" type="image/ico" href="images/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic"> -->
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -22,7 +22,6 @@
     <!-- CSS Files -->
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles/material-kit.css">
-    <link rel="stylesheet" type="text/css" href="styles/material-kit.css.map">
     <link rel="stylesheet" type="text/css" href="styles/custom.css">
     <link rel="stylesheet" type="text/css" href="styles/button.css">
 
@@ -38,10 +37,12 @@
   </head>
 
   <body ng-app="underfyApp">
-    
-    <body ng-cloak>
+    <body ng-cloak> 
         <ng-include src="'views/headerView.html'"></ng-include>
     <div ng-view></div>
+
+
+
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -59,7 +60,6 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <!-- endbower -->
-
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>

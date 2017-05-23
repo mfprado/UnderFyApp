@@ -9,9 +9,19 @@
  */
 angular.module('underfyApp')
   .controller('LoginCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
+    $scope.currentNavItem = 'page1'
   });
+
+  
+
+// (function() {
+//   'use strict';
+
+//   angular.module('underfyApp',['ngMaterial', 'ngMessages'])
+//       .controller('LoginCtrl', LoginCtrl);
+
+//   function LoginCtrl($scope) {
+//     $scope.currentNavItem = 'page1';
+//   }
+// })();
