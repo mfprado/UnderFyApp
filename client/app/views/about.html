@@ -1,4 +1,4 @@
-<div id='divElement' layout="column" ng-controller="AboutCtrl">
+<!-- <div id='divElement' layout="column" ng-controller="AboutCtrl">
     <md-toolbar layout="row">
       <button ng-click="toggleSidenav('left')" hide-gt-sm class="menuBtn">
         <span class="visually-hidden">Menu</span>
@@ -15,4 +15,32 @@
             </md-content>
         </div>
     </div>
+  </div> -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="images/logo.png" sizes="16x16" class="logo" alt="logo">
+        
+            <a class="navbar-brand" href="/">
+                UnderFy 
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav pull-right">
+            <li class="active"><a href="/about">About us</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+  <div class="container" layout="row" flex>
+    <md-sidenav md-is-locked-open="true" class="sidenavColor">Sidenav</md-sidenav>
+    <md-content id="content" class="contentSide" flex>Content</md-content>
   </div>

@@ -2,10 +2,19 @@ body {
 	font-family: 'Roboto', sans-serif;
 	background-color: #333;
 	color: #FFFFFF;
+	height: 100%;
+}
+
+
+.container {
+    /*width: 110%;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
 }
 
 .main-container {
-	margin-top: 70px;
+	margin-top: 60px;
 }
 
 .navbar, .navbar.navbar-default {
@@ -49,9 +58,28 @@ body {
     position: absolute;
     top: 25%;
     left: 25%;
-    margin-top: -50px;
-    margin-left: -50px;
-    width: 100px;
-    height: 100px;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 1000px;
+    height: 1000px;
 }​
 
+.adjustText * {
+    /*text-transform: uppercase;*/
+    line-height: 0.85em;
+    font-size: : 500;
+  }
+
+  .spacer {
+  	-webkit-box-flex: 1;
+  	-ms-flex: 1 1 auto;
+  	flex: 1 1 auto;
+  }
+
+  .sidenavColor{
+  	background-color: lightgreen;
+  /*	display: flex;*/
+  }
+  .contentSide{
+  	background-color: #32CD32;
+  }
