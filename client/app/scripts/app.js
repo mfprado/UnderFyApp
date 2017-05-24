@@ -21,14 +21,11 @@ angular
     'ngMaterial'
   ])
   .config(function ($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode({
-        enabled:true,
-        requireBase: true,
-        rewriteLinks: false});
+    $locationProvider.html5Mode(true);
 
     $locationProvider.hashPrefix('!');
 
-    $routeProvider
+    $routeProvider.eagerInstantiationEnabled(true)
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
