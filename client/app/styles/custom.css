@@ -48,7 +48,7 @@ body {
 }
 
 .proximamente {
-	font-size:small;
+    text-size-adjust: 80%;
 }
 
 .navBardemoBasicUsage md-content .ext-content {
@@ -69,29 +69,40 @@ body {
 .adjustText * {
     /*text-transform: uppercase;*/
     line-height: 0.85em;
-    font-size: : 500;
+    font-size: 500px;
   }
 
-  .spacer {
-  	-webkit-box-flex: 1;
-  	-ms-flex: 1 1 auto;
-  	flex: 1 1 auto;
-  }
+.spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
 
-  .sidenavColor{
-  	background-color: #404040;
-  /*	display: flex;*/
-  }
-  .contentSide{
-  	background-color: #4d4d4d;
+.sidenavColor{
+    background-color: #404040;
+/*	display: flex;*/
+}
+.contentSide{
+    background-color: #4d4d4d;
     font-family: 'Roboto', sans-serif;
     background-color: #333;
     color: #FFFFFF;
     /*height: 100%;*/
-  }
+}
+
+.contentTittle{
+      text-align: center;
+      color: white;
+}
+
+.contextInfo{
+    text-align: justify;
+    color: white;
+    /*font-size: 150%;*/
+}
 
 .sidenavButton{
-  border-radius: 70%
+    border-radius: 70%
 }
 
 .avatar {
@@ -111,46 +122,51 @@ body {
 }
 
 .avatarButton {
-  background: transparent;
-  border: none;
+    background: transparent;
+    border: none;
 }
 
 .underfyNavBar {
-  display: inline-block;
-  vertical-align: middle;
-
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .contentImg {
- position: relative;
-  width: 150px;
-  height: 150px;
-  /*border: 1px solid #ddd;*/
-  border-radius: 40%;
-  /*display: inline-block;*/
-  /*overflow: hidden;*/
-  margin: 0px;
-  vertical-align: middle;
-  zoom: 0.80;
-  transform: translateZ(0);
-  -webkit-transform: scale(0.70);
-  -moz-transform:scale(0.70); 
-  background-color: #333
+    position: center;
+    width: 150px;
+    height: 150px;
+    /*border: 1px solid #ddd;*/
+    border-radius: 50%;
+    /*display: inline-block;*/
+    /*overflow: hidden;*/
+    margin: 3px;
+    vertical-align: middle;
+    /*zoom: 0.5;*/
+    transform: translateZ(0);
+    -webkit-transform: scale(0.70);
+    -moz-transform:scale(0.70);
+    background-color: #1ed760;
 }
 
 .aboutUs{
-  text-align: center;
-  margin-top: -5px;
+    text-align: center;
+    margin-top: -5px;
 }
 
 .strong{
-  font_weight: bold;
+    font_weight: bold;
 }
 
 .aboutImg {
-  height: 400px;
-  width: 90%;
-  display:flex;
-  justify-content: center;
-  -webkit-box-align: center;
+    height: 0.1%;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    -webkit-box-align: center;
+}
+
+.volverButton{
+    justify-content: center;
+    position: center;
+    align-items: center;
 }
