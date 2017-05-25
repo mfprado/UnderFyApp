@@ -21,12 +21,11 @@ angular
     'ngMaterial'
   ])
   .config(function ($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(true);
+      $locationProvider.html5Mode(true);
 
-    $locationProvider.hashPrefix('!');
+      $locationProvider.hashPrefix('!');
 
-    $routeProvider.eagerInstantiationEnabled(true)
-      .when('/', {
+      $routeProvider.when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
@@ -44,6 +43,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  }).run(['$route', function($route){
-      $route.reload();
-  }]);
+  });

@@ -49,8 +49,8 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http',function (
     
     $scope.submit = function () {
     
-        // $location.path('/login');
-        $location.path('/about');
+        $location.path('/login');
+        // $location.path('/about');
         if ( $scope.user.userName && $scope.user.password ) {
             $scope.alertMessage = ''; 
             data.urlencoded[0].value = $scope.user.userName;
@@ -76,5 +76,9 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http',function (
             $scope.alertMessage = 'Por favor complete ambos campos'
         };
 
+    }
+
+    $scope.about = function (){
+        $location.path('/about');
     }
 }]);

@@ -8,20 +8,27 @@
  * Controller of the codeApp
  */
 angular.module('underfyApp')
-  .controller('LoginCtrl', function () {
+  .controller('LoginCtrl', ['$scope','$location', '$mdSidenav', function($scope,$location, $mdSidenav){
+ 	
+  $scope.toggleSidenav = function(menuId) {
+    $mdSidenav(menuId).toggle();
+  };
+ 
+}]);
 
-    $scope.currentNavItem = 'page1'
+app.config(function($mdThemingProvider) {
+  var customBlueMap = 		$mdThemingProvider.extendPalette('light-blue', {
+    'contrastDefaultColor': 'light',
+    'contrastDarkColors': ['50'],
+    '50': 'ffffff'
   });
-
-  
-
-// (function() {
-//   'use strict';
-
-//   angular.module('underfyApp',['ngMaterial', 'ngMessages'])
-//       .controller('LoginCtrl', LoginCtrl);
-
-//   function LoginCtrl($scope) {
-//     $scope.currentNavItem = 'page1';
-//   }
-// })();
+  $mdThemingProvider.definePalette('customBlue', customBlueMap);
+  $mdThemingProvider.theme('default')
+    .primaryPalette('customBlue', {
+      'default': '500',
+      'hue-1': '50'
+    })
+    .accentPalette('pink');
+  $mdThemingProvider.theme('input', 'default')
+        .primaryPalette('grey')
+});

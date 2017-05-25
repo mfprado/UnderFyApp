@@ -1,90 +1,16 @@
-<!-- <div id='divElement' layout="column" ng-controller="AboutCtrl">
-    <md-toolbar layout="row">
-      <button ng-click="toggleSidenav('left')" hide-gt-sm class="menuBtn">
-        <span class="visually-hidden">Menu</span>
-      </button>
-      <h1 class="md-toolbar-tools" layout-align-gt-sm="center">Hello World</h1>
-    </md-toolbar>
-    <div layout="row" flex>
-        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-          
-        </md-sidenav>
-        <div layout="column" flex id="content">
-            <md-content layout="column" flex class="md-padding">
-
-            </md-content>
-        </div>
+<ng-include src="'views/headerView.html'"></ng-include>
+<div>
+  <div class="container">
+    <div class="aboutImg">
+      <img src="../images/aboutImg.jpg" text-align="center">
     </div>
-  </div> -->
+   <br/>
+    <br/>
+    <h2 class="aboutUs">About Us:
+    </h2>
+    
+    <br/>
+    <p align="center"><strong>UnderFy</strong> fue desarrollada con el proposito de brindar un espacio para los musicos entusiastas que aun no han encontrado la fama, de modo que sus canciones puedan llegar a ser conocidas, y poder salir del <strong>Under</strong>.</p>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header" vertical-align=middle>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <img src="images/logo.png" sizes="16x16" class="logo" alt="logo">
-        
-            <a class="navbar-brand" vertical-align=middle href="/">
-                UnderFy 
-            </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav pull-right">
-            <a  href="/">
-                <button class="avatarButton" >
-                    <img src="../images/useravatar.svg"  class="avatar" alt="logoMenu">
-                </button>
-                </a>
-        </ul>     
-        </div>
-
-        <!--/.nav-collapse -->
-    </div>
-</nav>
-</br>
-</br>
-</br>
-</br>
-  <div class="container" layout="row" flex>
-    <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
-      <md-list>
-        <md-list-item>
-          <md-button>
-            <button class="btn btn-primary btn-round" >
-                <img src="../images/song-playlist.svg" sizes="1000x4000" class="logoMenu" alt="logoMenu">
-                Songs
-            </button> 
-          </md-button>
-        </md-list-item>
-        <md-list-item>
-          <md-button>    
-            <button class="btn btn-primary btn-round" >
-              <img src="../images/music-albums.svg"  class="logoMenu" alt="logoMenu">
-                  Albums
-            </button> 
-          </md-button>
-        </md-list-item>
-        <md-list-item>
-          <md-button>
-          <button class="btn btn-primary btn-round">
-            <img src="../images/artist.svg" sizes="1000x4000" class="logoMenu" alt="logoMenu">
-            Artists
-          </button>
-          </md-button>
-        </md-list-item>   
-        <md-list-item>
-          <md-button>
-           <button class="btn btn-primary btn-round">
-            <img src="../images/controls.svg" sizes="1000x4000" class="logoMenu" alt="logoMenu">
-                    Adjust
-            </button>
-          </md-button>
-        </md-list-item>  
-      </md-list>
-    </md-sidenav>
-    <md-content id="content" class="contentSide" flex>Content</md-content>
   </div>
+</div>
