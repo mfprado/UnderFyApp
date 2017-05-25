@@ -1,68 +1,83 @@
-<div class="container main-container">
-    <!-- <div class="row"> -->
-    <div class="navBardemoBasicUsage" ng-app="underfyApp">
-  <md-content class="md-padding">
-    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-      <md-nav-item md-nav-click="goto('page1')" name="page1"> <a  href="/">       
-                <button class="btn btn-primary btn-round" >
-                    <!-- <i class="material-icons">favorite</i> With Icon -->
-                    <img src="../images/music-albums.svg"  class="logoMenu" alt="logoMenu">
-                    Albums
 
-                </button>
-                </a></md-nav-item>
-      <md-nav-item md-nav-click="goto('page2')" name="page2"><a href="/">
-                <button class="btn btn-primary btn-round" >
-                    <!-- <i class="material-icons">favorite</i> With Icon -->
-                    <img src="../images/song-playlist.svg" sizes="1000x4000" class="logoMenu" alt="logoMenu">
-                    Songs
-                </button>
-                </a></md-nav-item>
-      <md-nav-item md-nav-click="goto('page3')" name="page3">Page Three</md-nav-item>
-
-        <div class="col-md-offset-40 col-md-40 text-center">
-            <h1 class="proximamente">Bienvenido</h1>
-            <br/>
-            <br/>
-            <br/>
-            <div id="container"  layout="row" style="text-align: center">
-                <a  href="/">       
-                <button class="btn btn-primary btn-round" >
-                    <!-- <i class="material-icons">favorite</i> With Icon -->
-                    <img src="../images/music-albums.svg"  class="logoMenu" alt="logoMenu">
-                    Albums
-
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header" vertical-align=middle>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="images/logo.png" sizes="16x16" class="logo" alt="logo">
+        
+            <a class="navbar-brand" vertical-align=middle href="/">
+                UnderFy 
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav pull-right">
+            <a  href="/">
+                <button class="avatarButton" >
+                    <img src="../images/useravatar.svg"  class="avatar" alt="logoMenu">
                 </button>
                 </a>
-                <a href="/">
-                <button class="btn btn-primary btn-round" >
-                    <!-- <i class="material-icons">favorite</i> With Icon -->
-                    <img src="../images/song-playlist.svg" sizes="1000x4000" class="logoMenu" alt="logoMenu">
-                    Songs
-                </button>
-                </a>
-                <a href="/">
-                <button class="btn btn-primary btn-round">
-                    <!-- <i class="material-icons">favorite</i> With Icon -->
-                    <img src="../images/artist.svg" sizes="1000x4000" class="logoMenu" alt="logoMenu">
-                    Artists
-                </button>
-                </a>
-                <a href="/">
-                <button class="btn btn-primary btn-round">
-                    <!-- <i class="material-icons">favorite</i> With Icon -->
-                    <img src="../images/controls.svg" sizes="1000x4000" class="logoMenu" alt="logoMenu">
-                    Adjust
-                </button>
-                </a>
-            </div>
-
-            <!-- <small>Su token es:</small> {{ token }} -->
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <a href="/" class="btn btn-primary">volver</a>
+        </ul>     
         </div>
     </div>
-</div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+  <div class="container" layout="row" flex>
+    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor">
+      <md-list>
+        <md-list-item>
+          <md-button >
+            <button class="btn btn-primary btn-round" >
+                <img src="../images/song-playlist.svg" class="logoMenu" alt="logoMenu">
+                Songs
+            </button> 
+          </md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button>    
+            <button class="btn btn-primary btn-round" >
+              <img src="../images/music-albums.svg"  class="logoMenu" alt="logoMenu">
+                  Albums
+            </button> 
+          </md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button>
+          <button class="btn btn-primary btn-round">
+            <img src="../images/artist.svg" class="logoMenu" alt="logoMenu">
+            Artists
+          </button>
+          </md-button>
+        </md-list-item>   
+        <md-list-item>
+          <md-button>
+           <button class="btn btn-primary btn-round">
+            <img src="../images/controls.svg"  class="logoMenu" alt="logoMenu">
+                    Adjust
+            </button>
+          </md-button>
+        </md-list-item>  
+      </md-list>
+    </md-sidenav>
+
+      <!--content-->
+
+
+    <md-content id="content" class="contentSide" flex>
+      <br/>
+      <div flex layout="row" layout-align="center" class="divContentLogo">
+          <img src="../images/song-playlist.svg" class="contentImg">
+      </div>
+      <div layout="row" layout-align="center center">
+        <h2>Songs</h2>
+      </div>
+      <p class="contextInfo">Songs</p>
+    </md-content>
+  </div>

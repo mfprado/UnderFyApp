@@ -2,16 +2,16 @@
 
 /**
  * @ngdoc function
- * @name codeApp.controller:AboutCtrl
+ * @name underfyApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the codeApp
+ * Controller of the underfyApp
  */
-angular.module('underfyApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+
+
+var app = angular.module('underfyApp');
+
+
+app.controller('AboutCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+    
+}]);

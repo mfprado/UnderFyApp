@@ -1,14 +1,17 @@
 'use strict';
 /**
  * @ngdoc function
- * @name clientApp.controller:MainCtrl
+ * @name underfyApp.controller:MainCtrl
  * @description
  * # MainCtrl
  * Controller of the underfyApp
  */
 
 
-angular.module('underfyApp').controller('MainCtrl', ['$scope','$location','$rootScope','$http',function ($scope,$location,$rootScope,$http) { 
+var app = angular.module('underfyApp');
+  
+
+app.controller('MainCtrl', ['$scope','$location','$rootScope','$http',function ($scope,$location,$rootScope,$http) { 
 
     $scope.alertMessage = '';
     $scope.user ={
@@ -17,31 +20,45 @@ angular.module('underfyApp').controller('MainCtrl', ['$scope','$location','$root
     };
 
     var data = {
-        async: true,
-        crossDomain: true,
+        mode: 'urlencoded',
+        urlencoded:[{
+                "key": "userName",
+                "value": "",
+                "type": "text",
+                "enabled": true
+        },{
+                "key": "password",
+                "value": "",
+                "type": "text",
+                "enabled": true
+        }]
+    }
+
+    var req = {
         method: 'POST',
         url: "https://immense-taiga-71996.herokuapp.com/token",
-        headers: {
-            "content-type": "application/x-www-form-urlencoded",
-            "cache-control": "no-cache"
-        },
-        data: {
-            "userName": "",
-            "password": ""
-        }
-    };
+        header: [{
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "description": ""
+        }],
+        body: data,
+        description: ""
+    }
+
     
     $scope.submit = function () {
+    
         $location.path('/login');
-
+        // $location.path('/about');
         if ( $scope.user.userName && $scope.user.password ) {
             $scope.alertMessage = ''; 
-            data.data["userName"] = $scope.user.userName;
-            data.data["password"] = $scope.user.password;
+            data.urlencoded[0].value = $scope.user.userName;
+            data.urlencoded[1].value = $scope.user.password;
 
-            console.log('json enviado en el POST: '+JSON.stringify(data));
+            console.log('json enviado en el POST: '+JSON.stringify(req));
 
-            $http(data).then(function success(response){
+            $http.post(JSON.stringify(req)).then(function success(response){
                 console.log("Logueo exitoso");
                 console.log(response);
                 $scope.token = response.data;
@@ -59,5 +76,9 @@ angular.module('underfyApp').controller('MainCtrl', ['$scope','$location','$root
             $scope.alertMessage = 'Por favor complete ambos campos'
         };
 
+    }
+
+    $scope.about = function (){
+        $location.path('/about');
     }
 }]);

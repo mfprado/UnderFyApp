@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * @ngdoc overview
  * @name underfyApp
@@ -17,24 +18,27 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial',
-    'material.svgAssetsCache'
+    'ngMaterial'
   ])
   .config(function ($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
-    $routeProvider
-      .when('/', {
+      $locationProvider.html5Mode(true);
+
+      $locationProvider.hashPrefix('!');
+
+      $routeProvider.when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        controllerAs: 'main'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
       })
       .otherwise({
         redirectTo: '/'

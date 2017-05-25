@@ -2,13 +2,33 @@
 
 /**
  * @ngdoc function
- * @name underfyApp.controller:LoginCtrl
+ * @name codeApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
- * Controller of the underfyApp
+ * Controller of the codeApp
  */
-angular.module('underfyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
-  .controller('LoginCtrl', function ($scope) {
+angular.module('underfyApp')
+  .controller('LoginCtrl', ['$scope','$location', '$mdSidenav', function($scope,$location, $mdSidenav){
+ 	
+  $scope.toggleSidenav = function(menuId) {
+    $mdSidenav(menuId).toggle();
+  };
+ 
+}]);
 
-    $scope.currentNavItem = 'page1';
+app.config(function($mdThemingProvider) {
+  var customBlueMap = 		$mdThemingProvider.extendPalette('light-blue', {
+    'contrastDefaultColor': 'light',
+    'contrastDarkColors': ['50'],
+    '50': 'ffffff'
   });
+  $mdThemingProvider.definePalette('customBlue', customBlueMap);
+  $mdThemingProvider.theme('default')
+    .primaryPalette('customBlue', {
+      'default': '500',
+      'hue-1': '50'
+    })
+    .accentPalette('pink');
+  $mdThemingProvider.theme('input', 'default')
+        .primaryPalette('grey')
+});
