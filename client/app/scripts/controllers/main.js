@@ -62,7 +62,7 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
                 console.log("Autenticacion fracaso");
                 $scope.alertMessage = 'username o password incorrecto';
                 console.log(response);
-                $sessionStorage.userData = {
+                $sessionStorage.userData = { //until cross domain works
                     "token": "f1d8586beda8e6b188852e80d253b1df510d43a0",
                     "user": {
                         "id": 1,
