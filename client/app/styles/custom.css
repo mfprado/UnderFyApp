@@ -109,7 +109,7 @@ body {
 	position: relative;
 	width: 100px;
 	height: 100px;
-	border: 1px solid #ddd;
+	border: 0px solid #ddd;
 	border-radius: 50%;
 	display: inline-block;
 	overflow: hidden;
@@ -124,6 +124,7 @@ body {
 .avatarButton {
     background: transparent;
     border: none;
+    border: 0px solid #ddd;
 }
 
 .underfyNavBar {
@@ -169,4 +170,20 @@ body {
     justify-content: center;
     position: center;
     align-items: center;
+}
+
+.albumImg{
+    position: relative;
+    width: 50%;
+    height: auto;
+    /*border: 0px solid #ddd;*/
+    /*border-radius: 50%;*/
+    display: inline-block;
+    overflow: hidden;
+    margin: 0px;
+    vertical-align: middle;
+    zoom: 0.70;
+    transform: translateZ(0);
+    -webkit-transform: scale(0.70);
+    -moz-transform:scale(0.70);
 }
