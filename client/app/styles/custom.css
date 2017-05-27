@@ -5,14 +5,6 @@ body {
 	height: 100%;
 }
 
-
-.container {
-    /*width: 110%;*/
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-}
-
 .main-container {
 	margin-top: 60px;
 }
@@ -40,11 +32,27 @@ body {
   vertical-align: middle;
 }
 
-.logoMenu {
+.logoNavbar {
+    display: inline-block;
+    width: 40px;
+    vertical-align: middle;
+}
+
+.imgNavBar {
 	display: inline-block;
-	width: 70px;
-	height: 30px;
+	width: 50%;
+	height: auto;
   vertical-align: middle;
+}
+
+.navBarButton{
+    width : 20%;
+    height :20%;
+}
+
+.navBarInsideButton{
+    width : 98%;
+    height : 30%;
 }
 
 .proximamente {

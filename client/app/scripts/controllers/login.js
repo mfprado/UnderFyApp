@@ -22,6 +22,8 @@ angular.module('underfyApp')
         }
        */
 
+  $scope.pageSelected = "views/artists.html";
+
   var token = $sessionStorage.userData.token;
   $scope.userName = $sessionStorage.userData.user.userName;
 
