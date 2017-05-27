@@ -13,26 +13,26 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active">
-                <a href="/artists">
+                <li ng-class="artistsStatus">
+                <a ng-click="artistsSelected()">
                 <img src="../images/artist.svg" class="logoNavbar">
                 Artists
                 </a>
                 </li>
-                <li>
-                <a href="/adjusts">
+                <li ng-class="adjustStatus">
+                <a ng-click="adjustSelected()">
                 <img src="../images/controls.svg"  class="logoNavbar">
                 Adjust
                 </a>
                 </li>
-                <li>
-                <a href="/albums">
+                <li ng-class="albumsStatus">
+                <a ng-click="albumsSelected()">
                 <img src="../images/music-albums.svg"  class="logoNavbar">
                 Albums
                 </a>
                 </li>
-                <li>
-                <a href="/songs">
+                <li ng-class="songsStatus">
+                <a ng-click="songsSelected()">
                 <img src="../images/song-playlist.svg" class="logoNavbar">
                 Songs
                 </a>
