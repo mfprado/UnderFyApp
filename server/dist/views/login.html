@@ -1,83 +1,53 @@
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header" vertical-align=middle>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
+<nav class="navbar  navbar-default navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <img src="images/logo.png" sizes="16x16" class="logo" alt="logo">
-        
-            <a class="navbar-brand" vertical-align=middle href="/">
-                UnderFy 
+            <a class="navbar-brand" href="/">
+            UnderFy
             </a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav pull-right">
-            <a  href="/">
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li ng-class="artistsStatus">
+                <a ng-click="artistsSelected()">
+                <img src="../images/artist.svg" class="logoNavbar">
+                Artists
+                </a>
+                </li>
+                <li ng-class="albumsStatus">
+                <a ng-click="albumsSelected()">
+                <img src="../images/music-albums.svg"  class="logoNavbar">
+                Albums
+                </a>
+                </li>
+                <li ng-class="songsStatus">
+                <a ng-click="songsSelected()">
+                <img src="../images/song-playlist.svg" class="logoNavbar">
+                Songs
+                </a>
+                </li>
+                <li ng-class="adjustStatus">
+                    <a ng-click="adjustSelected()">
+                        <img src="../images/controls.svg"  class="logoNavbar">
+                        Adjust
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                <a  href="/">
                 <button class="avatarButton" >
-                    <img src="../images/useravatar.svg"  class="avatar" alt="logoMenu">
+                <img src="../images/useravatar.svg"  class="avatar">
                 </button>
                 </a>
-        </ul>     
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
-<br>
-<br>
-<br>
-<br>
-  <div class="container" layout="row" flex>
-    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor">
-      <md-list>
-        <md-list-item>
-          <md-button >
-            <button class="btn btn-primary btn-round" >
-                <img src="../images/song-playlist.svg" class="logoMenu" alt="logoMenu">
-                Songs
-            </button> 
-          </md-button>
-        </md-list-item>
-        <md-list-item>
-          <md-button>    
-            <button class="btn btn-primary btn-round" >
-              <img src="../images/music-albums.svg"  class="logoMenu" alt="logoMenu">
-                  Albums
-            </button> 
-          </md-button>
-        </md-list-item>
-        <md-list-item>
-          <md-button>
-          <button class="btn btn-primary btn-round">
-            <img src="../images/artist.svg" class="logoMenu" alt="logoMenu">
-            Artists
-          </button>
-          </md-button>
-        </md-list-item>   
-        <md-list-item>
-          <md-button>
-           <button class="btn btn-primary btn-round">
-            <img src="../images/controls.svg"  class="logoMenu" alt="logoMenu">
-                    Adjust
-            </button>
-          </md-button>
-        </md-list-item>  
-      </md-list>
-    </md-sidenav>
-
-      <!--content-->
-
-
-    <md-content id="content" class="contentSide" flex>
-      <br/>
-      <div flex layout="row" layout-align="center" class="divContentLogo">
-          <img src="../images/song-playlist.svg" class="contentImg">
-      </div>
-      <div layout="row" layout-align="center center">
-        <h2>Songs</h2>
-      </div>
-      <p class="contextInfo">Songs</p>
-    </md-content>
-  </div>
+    <ng-include src=pageSelected></ng-include>
