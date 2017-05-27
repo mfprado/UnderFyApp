@@ -19,12 +19,6 @@
                 Artists
                 </a>
                 </li>
-                <li ng-class="adjustStatus">
-                <a ng-click="adjustSelected()">
-                <img src="../images/controls.svg"  class="logoNavbar">
-                Adjust
-                </a>
-                </li>
                 <li ng-class="albumsStatus">
                 <a ng-click="albumsSelected()">
                 <img src="../images/music-albums.svg"  class="logoNavbar">
@@ -36,6 +30,12 @@
                 <img src="../images/song-playlist.svg" class="logoNavbar">
                 Songs
                 </a>
+                </li>
+                <li ng-class="adjustStatus">
+                    <a ng-click="adjustSelected()">
+                        <img src="../images/controls.svg"  class="logoNavbar">
+                        Adjust
+                    </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -50,9 +50,4 @@
         </div>
     </div>
 </nav>
-
-<br>
-<br>
-<br>
-<br>
     <ng-include src=pageSelected></ng-include>
