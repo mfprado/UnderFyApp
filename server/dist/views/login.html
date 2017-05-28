@@ -15,26 +15,35 @@
             <ul class="nav navbar-nav">
                 <li ng-class="artistsStatus">
                 <a ng-click="artistsSelected()">
-                <img src="../images/artist.svg" class="logoNavbar">
-                Artists
+                <button class="navBarButton">
+                    <img src="../images/artist.svg" class="logoNavbar">
+                    Artists
+                </button>
+
                 </a>
                 </li>
                 <li ng-class="albumsStatus">
                 <a ng-click="albumsSelected()">
+                    <button class="navBarButton">
                 <img src="../images/music-albums.svg"  class="logoNavbar">
                 Albums
+                    </button>
                 </a>
                 </li>
                 <li ng-class="songsStatus">
                 <a ng-click="songsSelected()">
+                    <button class="navBarButton">
                 <img src="../images/song-playlist.svg" class="logoNavbar">
                 Songs
+                    </button>
                 </a>
                 </li>
                 <li ng-class="adjustStatus">
                     <a ng-click="adjustSelected()">
+                        <button class="navBarButton">
                         <img src="../images/controls.svg"  class="logoNavbar">
                         Adjust
+                        </button>
                     </a>
                 </li>
             </ul>
@@ -42,6 +51,7 @@
                 <li>
                 <a  href="/">
                 <button class="avatarButton" >
+                    {{userName}}
                 <img src="../images/useravatar.svg"  class="avatar">
                 </button>
                 </a>
