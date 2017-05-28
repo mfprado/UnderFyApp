@@ -2,17 +2,10 @@
 <div class="container" layout="row" flex>
     <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor">
         <md-list>
-            <md-list-item>
-
-            </md-list-item>
-            <md-list-item>
-
-            </md-list-item>
-            <md-list-item>
-
-            </md-list-item>
-            <md-list-item>
-
+            <md-list-item ng-repeat="artist in artists">
+                <md-button ng-click="selectArtist(artist)">
+                    <p align="left"><img class="albumImg" data-ng-src={{artist.images}} data-err-src="../images/useravatan.png"/> {{artist.name}}</p>
+                </md-button>
             </md-list-item>
         </md-list>
     </md-sidenav>
@@ -20,10 +13,12 @@
     <!--content-->
 
     <md-content id="content" class="contentSide" flex>
-        <div layout="row" layout-align="center center">
-            <h2>Artists</h2>
-        </div>
-        <p class="contextInfo">lista de canciones</p>
-        <img class="albumImg" data-ng-src={{artists[0].images}} data-err-src="../images/useravatan.png"/>
+        <p align="center"><img class="albumImg" data-ng-src={{selected.images}} data-err-src="../images/useravatan.png"/></p>
+        <h2 align="center">{{selected.name}}</h2>
+        <md-list>
+            <md-list-item ng-repeat="album in selected.albums">
+                <p>{{album.name}}</p>
+            </md-list-item>
+        </md-list>
     </md-content>
 </div>
