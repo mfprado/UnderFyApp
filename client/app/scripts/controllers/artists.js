@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('underfyApp').controller('ArtistsController', ['$scope',function ($scope) {
+angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage',function ($scope,$sessionStorage) {
 
     $scope.artists = [{"genres": ["Rock","Pop","Jazz"],
         "href": "artists/1",
@@ -39,4 +39,38 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope',function 
     $scope.selectArtist = function(artist) {
         $scope.selected = artist;
     }
+
+
+
+    var token = $sessionStorage.userData.token;
+    var getArtists = function(token) {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://immense-taiga-71996.herokuapp.com/token/artists?ids=%7BuserIds%20-%20coma%20separated%7D",
+            "method": "GET",
+            "headers": {
+                "authorization": token,
+                "cache-control": "no-cache"
+            }
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log("GET artists: ")
+            console.log(response);
+            $scope.artists = response;
+        });
+    }
+
+    /**
+     * Example:
+     * @$sessionStorage.userData =  {
+          "token": "f1d8586beda8e6b188852e80d253b1df510d43a0",
+          "user": {
+            "id": 1,
+            "href": "users/1",
+            "userName": "ironman"
+          }
+        }
+     */
 }]);
