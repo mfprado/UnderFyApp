@@ -28,9 +28,30 @@ angular.module('underfyApp').controller('SongsController',['$scope','$sessionSto
         });
     }
 
-    $scope.addSong = function () {
+    $scope.addSong = function (albumId,artistsIds,trackName) {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://immense-taiga-71996.herokuapp.com/tracks",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded",
+            },
+            "data": {
+                "token": $sessionStorage.userData.token,
+                "albumId": albumId,
+                "artists": artistsIds,
+                "name": trackName
+            }
+        };
 
-    }
+        console.log(settings);
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
+    };
+        $scope.addSong(5,[1,2], "Money");
 }]);
 
 
