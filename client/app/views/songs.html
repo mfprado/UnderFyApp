@@ -1,6 +1,6 @@
 
 <div class="container" layout="row" flex ng-controller="SongsController">
-    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor">
+    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
         <md-list>
             <md-list-item ng-repeat="song in songs">
                 <md-button ng-click="selectSong(song)">
@@ -12,7 +12,7 @@
 
     <!--content-->
 
-    <md-content id="content" class="contentSide" flex layout-padding="5px">
+    <md-content id="content" class="contentSide md-whiteframe-z2" flex layout-padding="5px">
         <h2 align="center">{{selected.name}}</h2>
         <md-list>
                 <p>Popularidad: {{selected.popularity.rate}}</p>

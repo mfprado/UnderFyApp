@@ -1,5 +1,5 @@
 <div class="container" layout="row" flex ng-controller="ArtistsController">
-    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor">
+    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
         <md-list>
             <md-list-item ng-repeat="artist in artists">
                 <md-button ng-click="selectArtist(artist)">
@@ -11,7 +11,7 @@
 
     <!--content-->
 
-    <md-content id="content" class="contentSide" flex>
+    <md-content id="content" class="contentSide md-whiteframe-z2" flex>
         <p align="center"><img class="albumImg" data-ng-src={{selected.images}} data-err-src="../images/useravatan.png"/></p>
         <h2 align="center">{{selected.name}}</h2>
         <md-list>
