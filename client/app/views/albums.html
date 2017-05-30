@@ -6,13 +6,13 @@
                     <p align="left"><img class="albumImg" data-ng-src={{album.images[0]}} data-err-src="../images/useravatan.png"/> {{album.name}}</p>
                 </md-button>
             </md-list-item>
+            <p align="center"><button class="btn btn-primary" ng-click="addAlbums()"><i class="material-icons md-48">note_add</i>  Agregar Album</button></p>
         </md-list>
     </md-sidenav>
 
     <!--content-->
 
     <md-content id="content" class="contentSide md-whiteframe-z2" flex layout-padding="5px">
-
         <h5 align="center">{{selected.name}}</h5>
         <p align="center"><img class="albumImg" data-ng-src={{selected.images[0]}} data-err-src="../images/useravatan.png"/></p>
         <md-list>
@@ -21,6 +21,7 @@
             <p>Genres: <n ng-repeat="genre in selected.genres">{{genre}}  </n></p>
             <p>Fecha de Publicacion: {{selected.realease_date}}</p>
             <p>Popularidad: {{selected.popularity}}</p>
+            <p align="center"><button class="btn btn-primary" ng-click="deleteArtist()"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></p>
         </md-list>
     </md-content>
 </div>

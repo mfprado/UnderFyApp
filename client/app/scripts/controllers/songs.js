@@ -5,10 +5,6 @@ angular.module('underfyApp').controller('SongsController',['$scope','$sessionSto
     $scope.songs = $sessionStorage.songs;
     $scope.selected = $scope.songs[0];
 
-    // $scope.toggleList = toggleArtistList;
-    // $scope.share = share;
-
-
     $scope.selectSong = function(song) {
         $scope.selected = song;
     }
@@ -30,6 +26,10 @@ angular.module('underfyApp').controller('SongsController',['$scope','$sessionSto
         $.ajax(settings).done(function (response) {
             console.log(response);
         });
+    }
+
+    $scope.addSong = function () {
+
     }
 }]);
 
