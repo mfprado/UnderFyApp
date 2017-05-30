@@ -33,7 +33,7 @@ Run `grunt` for building and `grunt serve` for preview.
 Running `grunt test` will run the unit tests with karma.
 
 ## Run server
-go to client folder an run `grunt devDist`
+go to client folder an run `grunt toDeploy`
 
 now, go to server folder an run `npm start`
 
