@@ -17,20 +17,16 @@ angular.module('underfyApp')
   $scope.artistsSelected = function() {
         $scope.pageSelected = "views/artists.html";
         $scope.artistsStatus = "active";
-        $scope.albumsStatus = $scope.songsStatus = $scope.adjustStatus = "";}
-  $scope.adjustSelected = function() {
-        $scope.pageSelected = "views/adjusts.html"
-        $scope.adjustStatus = "active";
-        $scope.albumsStatus = $scope.songsStatus = $scope.artistsStatus = "";}
+        $scope.albumsStatus = $scope.songsStatus =  "";}
   $scope.albumsSelected = function() {
       $scope.pageSelected = "views/albums.html";
       $scope.albumsStatus = "active";
-      $scope.adjustStatus  = $scope.songsStatus = $scope.artistsStatus = "";
+      $scope.songsStatus = $scope.artistsStatus = "";
   }
   $scope.songsSelected = function() {
       $scope.pageSelected = "views/songs.html";
       $scope.songsStatus = "active";
-      $scope.adjustStatus  = $scope.albumsStatus = $scope.artistsStatus = "";
+      $scope.albumsStatus = $scope.artistsStatus = "";
   }
 
   $scope.userName = $sessionStorage.userData.user.userName;
