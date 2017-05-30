@@ -12,13 +12,11 @@
 
     <!--content-->
 
-    <md-content id="content" class="contentSide" flex>
+    <md-content id="content" class="contentSide" flex layout-padding="5px">
         <!--<p align="center"><img class="albumImg" data-ng-src={{selected.images}} data-err-src="../images/useravatan.png"/></p>-->
         <h2 align="center">{{selected.name}}</h2>
         <md-list>
-            <h5>Informacion: </h5>
-            </br>
-                <p>Popularidad: {{selected.popularity}}</p>
+                <p>Popularidad: {{selected.popularity.rate}}</p>
                 <p></p>
                 <p>Duracion: {{selected.duration}} milisegundos</p>
                 <p>Artists:
