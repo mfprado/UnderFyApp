@@ -26,9 +26,6 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
             "realease_date": "9 de septiembre 2013",
             "tracks": ["Do I Wanna Know?","R U Mine?", "One For The Road"]}];
 
-
-    // $scope.toggleList = toggleArtistList;
-    // $scope.share = share;
     $scope.selected = $scope.albums[0];
 
 
@@ -36,30 +33,26 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
         $scope.selected = album;
     }
 
-
-
-    var token = $sessionStorage.userData.token;
-
-    var getAlbums = function (token) {
+    $scope.deleteAlbum = function () {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/token/albums",
-            "method": "GET",
+            "url": "https://immense-taiga-71996.herokuapp.com/albums/" + $scope.selected.id,
+            "method": "DELETE",
             "headers": {
                 "content-type": "application/x-www-form-urlencoded",
-                "authorization": "b20c1133f9d541cb2f79fb3c79dab653fd5c2da5",
-                "cache-control": "no-cache",
-                "postman-token": "ede9b86e-7da0-6bf1-8888-621fe0bef9e0"
-            }
-        }
+            },
+            "data": {"token": $sessionStorage.userData.token}
+        };
 
+        console.log(settings);
 
         $.ajax(settings).done(function (response) {
-            console.log("GET albums: ");
             console.log(response);
-            $scope.albums = response;
         });
     }
 
+    $scope.addAlbum = function () {
+
+    }
 }]);
