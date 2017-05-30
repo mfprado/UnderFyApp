@@ -12,6 +12,25 @@ angular.module('underfyApp').controller('SongsController',['$scope','$sessionSto
     $scope.selectSong = function(song) {
         $scope.selected = song;
     }
+
+    $scope.deleteSong = function () {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://immense-taiga-71996.herokuapp.com/tracks/" + $scope.selected.id,
+            "method": "DELETE",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded",
+            },
+            "data": {"token": $sessionStorage.userData.token}
+        };
+
+        console.log(settings);
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    }
 }]);
 
 

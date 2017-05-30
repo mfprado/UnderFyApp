@@ -13,7 +13,6 @@
     <!--content-->
 
     <md-content id="content" class="contentSide" flex layout-padding="5px">
-        <!--<p align="center"><img class="albumImg" data-ng-src={{selected.images}} data-err-src="../images/useravatan.png"/></p>-->
         <h2 align="center">{{selected.name}}</h2>
         <md-list>
                 <p>Popularidad: {{selected.popularity.rate}}</p>
@@ -22,6 +21,8 @@
                 <p>Artists:
                     <p ng-repeat="artist in selected.artists">{{artist.name}}</p>
                 </p>
+
+                <p align="center"><button class="btn btn-primary" ng-click="deleteSong()"><i class="material-icons md-48">delete_forever</i>Borrar Cancion</button></p>
             </md-list-item>
         </md-list>
     </md-content>
