@@ -54,6 +54,7 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
                 console.log("Logueo exitoso");
                 console.log(response);
                 $location.path('/login');
+                getUserInfo(response.user.id,response.token);
 
             });
 
@@ -70,6 +71,30 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
             $scope.alertMessage = 'Por favor complete ambos campos';
         };
 
+    }
+
+
+    var getUserInfo = function(id,token) {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://immense-taiga-71996.herokuapp.com/users/" + id,
+            "method": "GET",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded",
+            },
+            "data": {"token": token}
+
+
+        };
+
+        console.log(settings);
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            $sessionStorage.userInfo = response;
+            $location.path('/login');
+        });
     }
 
 }]);
