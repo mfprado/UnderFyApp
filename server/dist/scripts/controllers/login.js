@@ -78,12 +78,14 @@ angular.module('underfyApp')
       var settings = {
           "async": true,
           "crossDomain": true,
-          "url": "https://immense-taiga-71996.herokuapp.com/artists/",
+          "url": "https://immense-taiga-71996.herokuapp.com/artists",
           "method": "GET",
           "headers": {
               "content-type": "application/x-www-form-urlencoded",
           },
-          "data": {"token": $sessionStorage.userData.token}
+          "data": {
+              "ids":"1,2,4",
+              "token": $sessionStorage.userData.token}
 
 
       };

@@ -40,9 +40,9 @@
                 var s = window.opener.angular.element('#albumView').scope();
                 s.HandlePopupResult(
                     {
-                        "artists":artistsIds.value.split(','),
-                        "genres":genres.value.split(','),
-                        "images": [images.value],
+                        "artists":artistsIds,
+                        "genres":genres,
+                        "images": images.value,
                         "name": aname.value,
                         "release_date": release_date.value
                     }
