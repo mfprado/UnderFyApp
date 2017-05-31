@@ -56,7 +56,7 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
         $scope.addTrack(result.albumId,result.artistsIds,result.name);
     };
 
-    $scope.openNew = function () {
+    $scope.addTrackWindow = function () {
         $window.open("../views/createTrack.html", "Agregar Cancion", "width=550,height=400,left=10,top=150");
     }
 }]);
