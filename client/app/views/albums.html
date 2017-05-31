@@ -1,4 +1,4 @@
-<div class="container" layout="row" flex ng-controller="AlbumsController">
+<div id="albumView" class="container" layout="row" flex ng-controller="AlbumsController">
     <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
         <md-list>
             <md-list-item ng-repeat="album in albums">
@@ -6,7 +6,7 @@
                     <p align="left"><img class="albumImg" data-ng-src={{album.images[0]}} data-err-src="../images/useravatan.png"/> {{album.name}}</p>
                 </md-button>
             </md-list-item>
-            <p align="center"><button class="btn btn-primary" ng-click="addAlbums()"><i class="material-icons md-48">note_add</i>  Agregar Album</button></p>
+            <p align="center"><button class="btn btn-primary" ng-click="addAlbumWindow()"><i class="material-icons md-48">note_add</i>  Agregar Album</button></p>
         </md-list>
     </md-sidenav>
 
