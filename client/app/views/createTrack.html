@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html background-color="333">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        .container {
+            border-radius: 5px;
+            background-color: #333;
+            padding: 20px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript">
+
+        function arrToInt(strArr){
+            var intArr = [];
+            for(i=0; i < strArr.length; i++)
+                intArr.push(parseInt(strArr[i]));
+            return intArr;
+        }
+        function create() {
+            if( tname.value && albumId.value && artistsIds.value){
+
+                var s = window.opener.angular.element('#trackView').scope();
+                s.HandlePopupResult(
+                    {
+                        "name":tname.value,
+                        "albumId": parseInt(albumId.value),
+                        "artistsIds": arrToInt(artistsIds.value.split(','))
+                    }
+                );
+                s.$apply();
+                window.close();
+            }
+            else {
+                alert("Complete todos los campos");
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+
+<h3>Formulario Nueva Cancion</h3>
+
+<div class="container">
+    <form >
+        <label for="tname"><font color="white">Nombre: </font></label>
+        <input type="text" id="tname" name="data.name" placeholder="Track name..">
+
+        <label for="albumId"><font color="white">Id de Album: </font></label>
+        <input type="text" id="albumId" name="data.albumId" placeholder="enter Album Id Number..">
+
+        <label for="artistsIds"><font color="white">Ids de Artistas: </font></label>
+        <input type="text" id="artistsIds" name="data.artistsIds" placeholder="enter Artists Ids Numbers, comma separated..">
+
+
+        <input type="submit" value="Crear" onclick="create()">
+    </form>
+</div>
+
+</body>
+</html>

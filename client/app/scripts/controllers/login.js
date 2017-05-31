@@ -17,16 +17,16 @@ angular.module('underfyApp')
   $scope.artistsSelected = function() {
     $scope.pageSelected = "views/artists.html";
     $scope.artistsStatus = "active";
-    $scope.albumsStatus = $scope.songsStatus =  "";
+    $scope.albumsStatus = $scope.tracksStatus =  "";
   };
   $scope.albumsSelected = function() {
     $scope.pageSelected = "views/albums.html";
     $scope.albumsStatus = "active";
-    $scope.songsStatus = $scope.artistsStatus = "";
+    $scope.tracksStatus = $scope.artistsStatus = "";
    };
-  $scope.songsSelected = function() {
-    $scope.pageSelected = "views/songs.html";
-    $scope.songsStatus = "active";
+  $scope.trackssSelected = function() {
+    $scope.pageSelected = "views/tracks.html";
+    $scope.tracksStatus = "active";
     $scope.albumsStatus = $scope.artistsStatus = "";
   };
 
@@ -48,7 +48,7 @@ angular.module('underfyApp')
 
       $.ajax(settings).done(function (response) {
           console.log(response);
-          $sessionStorage.songs = response.tracks;
+          $sessionStorage.tracks = response.tracks;
       });
   };
 
