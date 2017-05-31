@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        .container {
+            border-radius: 5px;
+            background-color: #333;
+            padding: 20px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript">
+
+        function create() {
+            if(artistsIds.value &&  aname.value && release_date.value && genres.value && images.value){
+
+                var s = window.opener.angular.element('#albumView').scope();
+                s.HandlePopupResult(
+                    {
+                        "artists":artistsIds.value.split(','),
+                        "genres":genres.value.split(','),
+                        "images": [images.value],
+                        "name": aname.value,
+                        "release_date": release_date.value
+                    }
+                );
+                s.$apply();
+                window.close();
+            }
+            else {
+                alert("Complete todos los campos");
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+
+<h3>Formulario Nuevo Album</h3>
+
+<div class="container">
+    <form >
+        <label for="aname"><font color="white">Nombre: </font></label>
+        <input type="text" id="aname" name="data.name" placeholder="Album name..">
+
+        <label for="release_date"><font color="white">Fecha de Lanzamiento: </font></label>
+        <input type="text" id="release_date" name="data.albumId" placeholder="enter realease date..">
+
+        <label for="artistsIds"><font color="white">Ids de los Artistas: </font></label>
+        <input type="text" id="artistsIds" name="data.artistsIds" placeholder="enter artists ids, comma separated..">
+
+        <label for="genres"><font color="white">Generos: </font></label>
+        <input type="text" id="genres" name="data.artistsIds" placeholder="enter genres, comma separated..">
+
+        <label for="images"><font color="white">Imagen del Album: </font></label>
+        <input type="text" id="images" name="data.artistsIds" placeholder="enter image base 64">
+
+
+        <input type="submit" value="Crear" onclick="create()">
+    </form>
+</div>
+
+</body>
+</html>

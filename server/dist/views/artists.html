@@ -1,4 +1,4 @@
-<div class="container" layout="row" flex ng-controller="ArtistsController">
+<div id="artistView" class="container" layout="row" flex ng-controller="ArtistsController">
     <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
         <md-list>
             <md-list-item ng-repeat="artist in artists">
@@ -6,7 +6,7 @@
                     <p align="left"><img class="albumImg" data-ng-src={{artist.images[0]}} data-err-src="../images/useravatan.png"/> {{artist.name}}</p>
                 </md-button>
             </md-list-item>
-            <p align="center"><button class="btn btn-primary" ng-click="addArtist()"><i class="material-icons md-48">note_add</i>  Agregar Artista</button></p>
+            <p align="center"><button class="btn btn-primary" ng-click="addArtistWindow()"><i class="material-icons md-48">note_add</i>  Agregar Artista</button></p>
         </md-list>
     </md-sidenav>
 

@@ -1,13 +1,13 @@
 
-<div class="container" layout="row" flex ng-controller="SongsController">
+<div  id="trackView" class="container" layout="row" flex ng-controller="TracksController">
     <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
         <md-list>
-            <md-list-item ng-repeat="song in songs">
-                <md-button ng-click="selectSong(song)">
-                    <p align="left">{{song.name}}</p>
+            <md-list-item ng-repeat="track in tracks">
+                <md-button ng-click="selectTrack(track)">
+                    <p align="left">{{track.name}}</p>
                 </md-button>
             </md-list-item>
-            <p align="center"><button class="btn btn-primary" ng-click="addSong()"><i class="material-icons md-48">note_add</i>  Agregar Cancion</button></p>
+            <p align="center"><button class="btn btn-primary" ng-click="addTrackWindow()"><i class="material-icons md-48">note_add</i>  Agregar Cancion</button></p>
         </md-list>
     </md-sidenav>
 
@@ -22,9 +22,7 @@
                 <p>Artists:
                     <p ng-repeat="artist in selected.artists">{{artist.name}}</p>
                 </p>
-
-                <p align="center"><button class="btn btn-primary" ng-click="deleteSong()"><i class="material-icons md-48">delete_forever</i>Borrar Cancion</button></p>
-            </md-list-item>
+                <p align="center"><button class="btn btn-primary" ng-click="deleteTrack()"><i class="material-icons md-48">delete_forever</i>Borrar Cancion</button></p>
         </md-list>
     </md-content>
 </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionStorage',function ($scope,$sessionStorage) {
+angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionStorage','$window',function ($scope,$sessionStorage,$window) {
 
     $scope.albums = [
         {   "genres":["rock", "pop"],
@@ -26,6 +26,7 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
             "realease_date": "9 de septiembre 2013",
             "tracks": ["Do I Wanna Know?","R U Mine?", "One For The Road"]}];
 
+    // $scope.albums = $sessionStorage.albums;
     $scope.selected = $scope.albums[0];
 
 
@@ -52,7 +53,40 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
         });
     }
 
-    $scope.addAlbum = function () {
+    $scope.addAlbum = function (artistsIds,name,genres,images,release_date) {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://immense-taiga-71996.herokuapp.com/albums",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded",
+            },
+            "data": {
+                "token": $sessionStorage.userData.token,
+                "artists":artistsIds,
+                "genres":genres,
+                "images": images,
+                "name": name,
+                "release_date": release_date
+            }
+        };
 
-    }
+        console.log(settings);
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
+    };
+
+    $scope.HandlePopupResult =  function(result) {
+        $scope.addAlbum(result.artistsIds,result.name,result.genres,result.images, result.realease_date);
+    };
+
+    $scope.addAlbumWindow = function () {
+        $window.open("../views/createAlbum.html", "Agregar Artista", "width=550,height=550,left=10,top=150");
+    };
+
+
 }]);
