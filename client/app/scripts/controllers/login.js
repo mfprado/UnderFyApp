@@ -31,6 +31,7 @@ angular.module('underfyApp')
   };
 
   $scope.userName = $sessionStorage.userData.user.userName;
+  $scope.userInfo = $sessionStorage.userInfo;
 
   var getTracks = function () {
       var settings = {
@@ -98,7 +99,6 @@ angular.module('underfyApp')
   getTracks();
   getAlbums();  //TODO: implementar en el shared
   getArtists(); //TODO: implementar en el shared
-
 
 }]);
 
