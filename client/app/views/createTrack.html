@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html background-color="333">
+<html background-color="333"  ng-app="uploadApp">
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
@@ -21,6 +21,14 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        button[type=upload] {
+            background-color: #45a049;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
         input[type=submit]:hover {
             background-color: #45a049;
         }
@@ -30,39 +38,102 @@
             padding: 20px;
         }
     </style>
-
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script type="text/javascript">
+        angular.module('uploadApp',[]).controller('Uploader',['$scope',function ($scope) {
 
-        function arrToInt(strArr){
-            var intArr = [];
-            for(i=0; i < strArr.length; i++)
-                intArr.push(parseInt(strArr[i]));
-            return intArr;
-        }
-        function create() {
-            if( tname.value && albumId.value && artistsIds.value){
+            console.log( window.opener.angular.element('#trackView').scope().token);
+            $scope.upload = function (id) {
+                    var form = new FormData();
+                    form.append("upload.ashx",$scope.file);
 
-                var s = window.opener.angular.element('#trackView').scope();
-                s.HandlePopupResult(
-                    {
-                        "name":tname.value,
-                        "albumId": parseInt(albumId.value),
-                        "artistsIds": arrToInt(artistsIds.value.split(','))
-                    }
-                );
-                s.$apply();
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "http://ec2-54-200-74-89.us-west-2.compute.amazonaws.com/appsvr/song?id_song="+id,
+                        "method": "PUT",
+                        "headers": {
+                            "authorization": "basic token",
+                            "cache-control": "no-cache"
+                        },
+                        "processData": false,
+                        "contentType": false,
+                        "mimeType": "multipart/form-data",
+                        "data": form,
+                        "success": $scope.success
+                    };
+                    console.log(settings);
+                    console.log(this.token);
+                    console.log(settings.data)
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+
+                });
+            }
+
+            $scope.success = function() {
+                console.log(response);
                 window.close();
             }
-            else {
-                alert("Complete todos los campos");
+
+
+            $scope.arrToInt = function (strArr){
+                var intArr = [];
+                for(i=0; i < strArr.length; i++)
+                    intArr.push(parseInt(strArr[i]));
+                return intArr;
             }
 
-        }
+            $scope.create = function() {
+                if( tname.value && albumId.value && artistsIds.value && file){
+
+//                var s = window.opener.angular.element('#trackView').scope();
+//                s.HandlePopupResult(
+//                    {
+//                        "name":tname.value,
+//                        "albumId": parseInt(albumId.value),
+//                        "artistsIds": arrToInt(artistsIds.value.split(','))
+//                    }
+//                );
+//                s.$apply();
+//                window.close();
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "https://immense-taiga-71996.herokuapp.com/tracks",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                        },
+                        "data": {
+                            "token": window.token,
+                            "albumId": $scope.albumId,
+                            "artists": $scope.artistsIds,
+                            "name": $scope.trackName
+                        }
+                    };
+
+                    console.log(settings);
+                    $.ajax(settings).success(function (response) {
+                        console.log(response);
+                        $scope.upload(response.id);
+                    });
+
+                }
+                else {
+                    alert("Complete todos los campos");
+                }
+
+            }
+
+        }]);
+
+
 
     </script>
 </head>
-<body>
+<body ng-controller="Uploader">
 
 <h3>Formulario Nueva Cancion</h3>
 
@@ -77,8 +148,9 @@
         <label for="artistsIds"><font color="white">Ids de Artistas: </font></label>
         <input type="text" id="artistsIds" name="data.artistsIds" placeholder="enter Artists Ids Numbers, comma separated..">
 
-
-        <input type="submit" value="Crear" onclick="create()">
+        <input type="file" ng-model="file" id="file" file-input="file"/>
+        </br>
+        <input type="submit" value="Crear" ng-click="upload(55)">
     </form>
 </div>
 
