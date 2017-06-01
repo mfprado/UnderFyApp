@@ -9,7 +9,7 @@
 
 
 var app = angular.module('underfyApp');
-  
+
 
 app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionStorage',function ($scope,$location,$rootScope,$http,$sessionStorage) {
 
@@ -24,9 +24,7 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
         "crossDomain": true,
         "url": "https://immense-taiga-71996.herokuapp.com/token",
         "method": "POST",
-        "headers": {
-            "content-type": "application/x-www-form-urlencoded"
-        },
+        "headers": {"content-type": "application/x-www-form-urlencoded"},
         "data": {
             "userName": " ",
             "password": " "
@@ -34,7 +32,6 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
     };
 
     var set = true; //FIX
-    
     $scope.submit = function () {
 
         if ( $scope.user.userName && $scope.user.password && set ) {
@@ -69,10 +66,9 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
         } else {
             console.log('Fracaso logueo, campos incompletos');
             $scope.alertMessage = 'Por favor complete ambos campos';
-        };
+        }
 
-    }
-
+    };
 
     var getUserInfo = function(id,token) {
         var settings = {
@@ -80,14 +76,9 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
             "crossDomain": true,
             "url": "https://immense-taiga-71996.herokuapp.com/users/" + id,
             "method": "GET",
-            "headers": {
-                "content-type": "application/x-www-form-urlencoded",
-            },
+            "headers": {"content-type": "application/x-www-form-urlencoded"},
             "data": {"token": token}
-
-
         };
-
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
@@ -95,6 +86,8 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
             $sessionStorage.userInfo = response;
             $location.path('/login');
         });
-    }
+    };
+
+
 
 }]);
