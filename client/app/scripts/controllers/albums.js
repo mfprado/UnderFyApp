@@ -45,7 +45,6 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
             "success": $scope.updateAlbums
 
         };
-
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
@@ -70,7 +69,6 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
             },
             "success": $scope.updateAlbums
         };
-
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
@@ -97,7 +95,6 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
             "data": {"token": $sessionStorage.userData.token,
             "ids":"1,2,3,4"}
         };
-
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
