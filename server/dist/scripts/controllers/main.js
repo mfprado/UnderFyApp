@@ -53,8 +53,8 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
                 $sessionStorage.userData = response;
                 console.log("Logueo exitoso");
                 console.log(response);
-                $location.path('/login');
                 getUserInfo(response.user.id,response.token);
+                $location.path('/login');
 
             });
 

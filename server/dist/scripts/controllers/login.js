@@ -32,6 +32,7 @@ angular.module('underfyApp')
 
   $scope.userName = $sessionStorage.userData.user.userName;
   $scope.userInfo = $sessionStorage.userInfo;
+  $scope.token = $sessionStorage.userData.token;
 
   var getTracks = function () {
       var settings = {
@@ -42,7 +43,8 @@ angular.module('underfyApp')
           "headers": {
               "content-type": "application/x-www-form-urlencoded",
           },
-          "data": {"token": $sessionStorage.userData.token}
+          "data": {"token": $sessionStorage.userData.token,
+          "ids":"1,2,3,4"}
       };
 
       console.log(settings);
@@ -62,7 +64,9 @@ angular.module('underfyApp')
           "headers": {
               "content-type": "application/x-www-form-urlencoded",
           },
-          "data": {"token": $sessionStorage.userData.token}
+          "data": {"token": $sessionStorage.userData.token,
+              "ids":"1,2,3,4"
+          }
 
 
       };
@@ -78,14 +82,15 @@ angular.module('underfyApp')
       var settings = {
           "async": true,
           "crossDomain": true,
-          "url": "https://immense-taiga-71996.herokuapp.com/artists",
+          "url": "https://immense-taiga-71996.herokuapp.com/artists/",
           "method": "GET",
           "headers": {
               "content-type": "application/x-www-form-urlencoded",
           },
           "data": {
-              "ids":"1,2,4",
-              "token": $sessionStorage.userData.token}
+              "token": $sessionStorage.userData.token,
+              "ids":"1,2,3,4"
+          }
 
 
       };
@@ -99,8 +104,8 @@ angular.module('underfyApp')
       };
 
   getTracks();
-  getAlbums();  //TODO: implementar en el shared
-  getArtists(); //TODO: implementar en el shared
+  getAlbums();
+  getArtists();
 
 }]);
 

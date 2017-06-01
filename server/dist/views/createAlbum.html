@@ -34,15 +34,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script type="text/javascript">
 
+        function arrToInt(strArr){
+            var intArr = [];
+            for(i=0; i < strArr.length; i++)
+                intArr.push(parseInt(strArr[i]));
+            return intArr;
+        }
+
         function create() {
             if(artistsIds.value &&  aname.value && release_date.value && genres.value && images.value){
 
                 var s = window.opener.angular.element('#albumView').scope();
                 s.HandlePopupResult(
                     {
-                        "artists":artistsIds,
-                        "genres":genres,
-                        "images": images.value,
+                        "artists":arrToInt(artistsIds.value.split(',')),
+                        "genres":genres.value.split(','),
+                        "images": [images.value],
                         "name": aname.value,
                         "release_date": release_date.value
                     }
@@ -77,7 +84,7 @@
         <input type="text" id="genres" name="data.artistsIds" placeholder="enter genres, comma separated..">
 
         <label for="images"><font color="white">Imagen del Album: </font></label>
-        <input type="text" id="images" name="data.artistsIds" placeholder="enter image base 64">
+        <input type="text" id="images" name="data.artistsIds" placeholder="enter link image">
 
 
         <input type="submit" value="Crear" onclick="create()">
