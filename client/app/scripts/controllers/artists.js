@@ -48,7 +48,8 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
             "headers": {
                 "content-type": "application/x-www-form-urlencoded",
             },
-            "data": {"token": $sessionStorage.userData.token}
+            "data": {"token": $sessionStorage.userData.token,
+            "success": $scope.updateArtists}
         };
 
         console.log(settings);
@@ -74,7 +75,8 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
                 "description": description,
                 "genres": genres,
                 "images": images
-            }
+            },
+            "success": $scope.updateArtists
         };
 
         console.log(settings);
@@ -92,5 +94,31 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     $scope.addArtistWindow = function () {
         $window.open("../views/createArtist.html", "Agregar Artista", "width=550,height=500,left=10,top=150");
     };
+
+    $scope.updateArtists = function () {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://immense-taiga-71996.herokuapp.com/artists/",
+            "method": "GET",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded",
+            },
+            "data": {
+                "token": $sessionStorage.userData.token,
+                "ids":"1,2,3,4"
+            }
+
+
+        };
+
+        console.log(settings);
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            $scope.artists = response.artists;
+        });
+
+    }
 
 }]);
