@@ -40,10 +40,10 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
             "crossDomain": true,
             "url": "https://immense-taiga-71996.herokuapp.com/albums/" + $scope.selected.id,
             "method": "DELETE",
-            "headers": {
-                "content-type": "application/x-www-form-urlencoded",
-            },
-            "data": {"token": $sessionStorage.userData.token}
+            "headers": {"content-type": "application/x-www-form-urlencoded"},
+            "data": {"token": $sessionStorage.userData.token},
+            "success": $scope.updateAlbums
+
         };
 
         console.log(settings);
@@ -59,9 +59,7 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
             "crossDomain": true,
             "url": "https://immense-taiga-71996.herokuapp.com/albums",
             "method": "POST",
-            "headers": {
-                "content-type": "application/x-www-form-urlencoded",
-            },
+            "headers": {"content-type": "application/x-www-form-urlencoded"},
             "data": {
                 "token": $sessionStorage.userData.token,
                 "artists":artistsIds,
@@ -69,7 +67,8 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
                 "images": images,
                 "name": name,
                 "release_date": release_date
-            }
+            },
+            "success": $scope.updateAlbums
         };
 
         console.log(settings);
@@ -87,6 +86,25 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
     $scope.addAlbumWindow = function () {
         $window.open("../views/createAlbum.html", "Agregar Artista", "width=550,height=550,left=10,top=150");
     };
+    
+    $scope.updateAlbums = function () {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://immense-taiga-71996.herokuapp.com/albums/",
+            "method": "GET",
+            "headers": {"content-type": "application/x-www-form-urlencoded"},
+            "data": {"token": $sessionStorage.userData.token,
+            "ids":"1,2,3,4"}
+        };
+
+        console.log(settings);
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            $scope.albums = response.albums;
+        });
+    }
 
 
 }]);
