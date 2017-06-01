@@ -40,13 +40,10 @@ angular.module('underfyApp')
           "crossDomain": true,
           "url": "https://immense-taiga-71996.herokuapp.com/tracks/",
           "method": "GET",
-          "headers": {
-              "content-type": "application/x-www-form-urlencoded",
-          },
-          "data": {"token": $sessionStorage.userData.token,
-          "ids":"1,2,3,4"}
+          "headers": {"content-type": "application/x-www-form-urlencoded"},
+          "data": { "token": $sessionStorage.userData.token,
+                    "ids":"1,2,3,4"}
       };
-
       console.log(settings);
 
       $.ajax(settings).done(function (response) {
@@ -61,16 +58,10 @@ angular.module('underfyApp')
           "crossDomain": true,
           "url": "https://immense-taiga-71996.herokuapp.com/albums/",
           "method": "GET",
-          "headers": {
-              "content-type": "application/x-www-form-urlencoded",
-          },
-          "data": {"token": $sessionStorage.userData.token,
-              "ids":"1,2,3,4"
-          }
-
-
+          "headers": {"content-type": "application/x-www-form-urlencoded"},
+          "data": { "token": $sessionStorage.userData.token,
+                    "ids":"1,2,3,4"}
       };
-
       console.log(settings);
 
       $.ajax(settings).done(function (response) {
@@ -84,28 +75,23 @@ angular.module('underfyApp')
           "crossDomain": true,
           "url": "https://immense-taiga-71996.herokuapp.com/artists/",
           "method": "GET",
-          "headers": {
-              "content-type": "application/x-www-form-urlencoded",
-          },
+          "headers": {"content-type": "application/x-www-form-urlencoded"},
           "data": {
               "token": $sessionStorage.userData.token,
               "ids":"1,2,3,4"
           }
-
-
       };
-
       console.log(settings);
 
       $.ajax(settings).done(function (response) {
           console.log(response);
           $sessionStorage.artists = response.artists;
       });
-      };
+  };
 
-  getTracks();
-  getAlbums();
-  getArtists();
+  // getTracks();
+  // getAlbums();
+  // getArtists();
 
 }]);
 
