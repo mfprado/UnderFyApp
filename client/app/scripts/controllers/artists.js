@@ -48,8 +48,8 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
             "headers": {
                 "content-type": "application/x-www-form-urlencoded",
             },
-            "data": {"token": $sessionStorage.userData.token,
-            "success": $scope.updateArtists}
+            "data": {"token": $sessionStorage.userData.token},
+            "success": $scope.updateArtists
         };
 
         console.log(settings);
