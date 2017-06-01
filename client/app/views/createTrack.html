@@ -42,8 +42,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script type="text/javascript">
         angular.module('uploadApp',[]).controller('Uploader',['$scope',function ($scope) {
+//                        "url": "http://ec2-54-200-74-89.us-west-2.compute.amazonaws.com/appsvr/song?id_song="+id,
+            $scope.token = ( window.opener.angular.element('#trackView').scope().token);
+            console.log($scope.token);
 
-            console.log( window.opener.angular.element('#trackView').scope().token);
             $scope.upload = function (id) {
                     var form = new FormData();
                     form.append("upload.ashx",$scope.file);
@@ -51,10 +53,10 @@
                     var settings = {
                         "async": true,
                         "crossDomain": true,
-                        "url": "http://ec2-54-200-74-89.us-west-2.compute.amazonaws.com/appsvr/song?id_song="+id,
+                        "url": "http://ec2-54-200-74-89.us-west-2.compute.amazonaws.com/appsvr/song?id_song=2",
                         "method": "PUT",
                         "headers": {
-                            "authorization": "basic token",
+                            "Authorization": "basic token",
                             "cache-control": "no-cache"
                         },
                         "processData": false,
@@ -64,8 +66,7 @@
                         "success": $scope.success
                     };
                     console.log(settings);
-                    console.log(this.token);
-                    console.log(settings.data)
+                    console.log(settings.data);
                 $.ajax(settings).done(function (response) {
                     console.log(response);
 
@@ -75,7 +76,7 @@
             $scope.success = function() {
                 console.log(response);
                 window.close();
-            }
+            };
 
 
             $scope.arrToInt = function (strArr){
@@ -86,26 +87,15 @@
             }
 
             $scope.create = function() {
-                if( tname.value && albumId.value && artistsIds.value && file){
+                if( tname.value && albumId.value && artistsIds.value && $scope.file){
 
-//                var s = window.opener.angular.element('#trackView').scope();
-//                s.HandlePopupResult(
-//                    {
-//                        "name":tname.value,
-//                        "albumId": parseInt(albumId.value),
-//                        "artistsIds": arrToInt(artistsIds.value.split(','))
-//                    }
-//                );
-//                s.$apply();
-//                window.close();
                     var settings = {
                         "async": true,
                         "crossDomain": true,
                         "url": "https://immense-taiga-71996.herokuapp.com/tracks",
                         "method": "POST",
                         "headers": {
-                            "content-type": "application/x-www-form-urlencoded",
-                        },
+                            "content-type": "application/x-www-form-urlencoded"},
                         "data": {
                             "token": window.token,
                             "albumId": $scope.albumId,
@@ -124,7 +114,6 @@
                 else {
                     alert("Complete todos los campos");
                 }
-
             }
 
         }]);
@@ -140,15 +129,16 @@
 <div class="container">
     <form >
         <label for="tname"><font color="white">Nombre: </font></label>
-        <input type="text" id="tname" name="data.name" placeholder="Track name..">
+        <input type="text" ng-model="trackName" id="tname" name="data.name" placeholder="Track name..">
 
         <label for="albumId"><font color="white">Id de Album: </font></label>
-        <input type="text" id="albumId" name="data.albumId" placeholder="enter Album Id Number..">
+        <input type="text" ng-model="albumId" id="albumId" name="data.albumId" placeholder="enter Album Id Number..">
 
         <label for="artistsIds"><font color="white">Ids de Artistas: </font></label>
-        <input type="text" id="artistsIds" name="data.artistsIds" placeholder="enter Artists Ids Numbers, comma separated..">
+        <input type="text" ng-model="artistsIds" id="artistsIds" name="data.artistsIds" placeholder="enter Artists Ids Numbers, comma separated..">
 
         <input type="file" ng-model="file" id="file" file-input="file"/>
+        </br>
         </br>
         <input type="submit" value="Crear" ng-click="upload(55)">
     </form>

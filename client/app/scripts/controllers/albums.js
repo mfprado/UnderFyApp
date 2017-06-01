@@ -2,31 +2,31 @@
 
 angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionStorage','$window',function ($scope,$sessionStorage,$window) {
 
-    // $scope.albums = [
-    //     {   "genres":["rock", "pop"],
-    //         "artists":[{"name":"Sting",
-    //             "href":"artists/1",
-    //             "id":1}],
-    //         "href":"albums/1",
-    //         "id":1,
-    //         "name":"Sacred Love",
-    //         "popularity": 5,
-    //         "images":["https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Sacred_love.jpg/220px-Sacred_love.jpg"],
-    //         "realease_date": "29 de septiembre 2003",
-    //         "tracks": ["Inside","Send Your Love", "Whenever I Say Your Name"]},
-    //     {   "genres":["rock garage"],
-    //         "artists":[{"name":"Artics Monkeys",
-    //             "href":"artists/2",
-    //             "id":2}],
-    //         "href":"albums/3",
-    //         "id":3,
-    //         "name":"AM",
-    //         "popularity": 5,
-    //         "images":["http://ksassets.timeincuk.net/wp/uploads/sites/55/2013/09/2013ArcticMonkeys_Am_150713.jpg"],
-    //         "realease_date": "9 de septiembre 2013",
-    //         "tracks": ["Do I Wanna Know?","R U Mine?", "One For The Road"]}];
+    $scope.albums = [
+        {   "genres":["rock", "pop"],
+            "artists":[{"name":"Sting",
+                "href":"artists/1",
+                "id":1}],
+            "href":"albums/1",
+            "id":1,
+            "name":"Sacred Love",
+            "popularity": 5,
+            "images":["https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Sacred_love.jpg/220px-Sacred_love.jpg"],
+            "realease_date": "29 de septiembre 2003",
+            "tracks": ["Inside","Send Your Love", "Whenever I Say Your Name"]},
+        {   "genres":["rock garage"],
+            "artists":[{"name":"Artics Monkeys",
+                "href":"artists/2",
+                "id":2}],
+            "href":"albums/3",
+            "id":3,
+            "name":"AM",
+            "popularity": 5,
+            "images":["http://ksassets.timeincuk.net/wp/uploads/sites/55/2013/09/2013ArcticMonkeys_Am_150713.jpg"],
+            "realease_date": "9 de septiembre 2013",
+            "tracks": ["Do I Wanna Know?","R U Mine?", "One For The Road"]}];
 
-    $scope.albums = $sessionStorage.albums;
+    // $scope.albums = $sessionStorage.albums;
     $scope.selected = $scope.albums[0];
 
 

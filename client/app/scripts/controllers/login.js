@@ -89,9 +89,9 @@ angular.module('underfyApp')
       });
   };
 
-  getTracks();
-  getAlbums();
-  getArtists();
+  // getTracks();
+  // getAlbums();
+  // getArtists();
 
 }]);
 
