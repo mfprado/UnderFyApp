@@ -65,11 +65,10 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/albums/",
+            "url": "https://immense-taiga-71996.herokuapp.com/albums",
             "method": "GET",
             "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {"token": $sessionStorage.userData.token,
-            "ids":"1,2,3,4"}
+            "data": {"token": $sessionStorage.userData.token}
         };
         console.log(settings);
 

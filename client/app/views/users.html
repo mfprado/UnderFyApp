@@ -1,0 +1,25 @@
+<div id="userView" class="container" layout="row" flex ng-controller="UsersController">
+    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
+        <md-list>
+            <md-list-item ng-repeat="user in users">
+                <md-button ng-click="selectUser(user)">
+                    <p align="left"><img class="albumImg" ng-src={{user.images[0]}} data-err-src="../images/useravatan.png"/> {{user.userName}}</p>
+                </md-button>
+            </md-list-item>
+            <p align="center"><button class="btn btn-primary" ng-click="addUserWindow()"><i class="material-icons md-48">note_add</i>  Agregar Usuario</button></p>
+        </md-list>
+    </md-sidenav>
+
+    <!--content-->
+
+    <md-content id="content" class="contentSide md-whiteframe-z2" flex>
+        <p align="center"><img class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatan.png"/></p>
+        <h2 align="center">{{selected.id}}{{selected.userName}}</h2>
+        <h3 align="center">{{selected.firstName}}</h3>
+        <h3 align="center">{{selected.lastName}}</h3>
+        <h3 align="center">{{selected.country}}</h3>
+        <h3 align="center">{{selected.email}}</h3>
+        <h3 align="center">{{selected.birthdate}}</h3>
+        <p align="center"><button class="btn btn-primary" ng-click="deleteUser()"><i class="material-icons md-48">delete_forever</i>Borrar Usuario</button></p>
+    </md-content>
+</div>

@@ -60,8 +60,7 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
             "url": "https://immense-taiga-71996.herokuapp.com/tracks/",
             "method": "GET",
             "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {"token": $sessionStorage.userData.token,
-                    "ids":"1,2,3,4"}
+            "data": {"token": $sessionStorage.userData.token}
         };
         console.log(settings);
 
