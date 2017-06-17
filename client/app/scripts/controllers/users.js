@@ -16,10 +16,8 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
             "crossDomain": true,
             "url": "https://immense-taiga-71996.herokuapp.com/users/" + $scope.selected.id ,
             "method": "DELETE",
-            "headers": {
-                "content-type": "application/x-www-form-urlencoded",
-                "authorization": $sessionStorage.userData.token
-            },
+            "headers": {"content-type": "application/x-www-form-urlencoded"},
+            "data": {"token": $sessionStorage.userData.token},
             "success": $scope.updateUsers
         };
 
@@ -37,11 +35,9 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
             "crossDomain": true,
             "url": "https://immense-taiga-71996.herokuapp.com/users",
             "method": "POST",
-            "headers": {
-                "content-type": "application/x-www-form-urlencoded",
-                "authorization": $sessionStorage.userData.token
-            },
+            "headers": {"content-type": "application/x-www-form-urlencoded"},
             "data": {
+                "token": $sessionStorage.userData.token,
                 "userName": userName,
                 "password": password,
                 "email": email,
@@ -76,10 +72,8 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
             "crossDomain": true,
             "url": "https://immense-taiga-71996.herokuapp.com/users",
             "method": "GET",
-            "headers": {
-                "content-type": "application/x-www-form-urlencoded",
-                "authorization": $sessionStorage.userData.token
-            }
+            "headers": {"content-type": "application/x-www-form-urlencoded"},
+            "data": {"token": $sessionStorage.userData.token}
         };
 
         console.log(settings);
