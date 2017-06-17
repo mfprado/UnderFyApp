@@ -50,7 +50,6 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
                 $sessionStorage.userData = response;
                 console.log("Logueo exitoso");
                 console.log(response);
-                getUserInfo(response.user.id,response.token);
                 $location.path('/login');
 
             });
@@ -70,23 +69,7 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
 
     };
 
-    var getUserInfo = function(id,token) {
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/users/" + id,
-            "method": "GET",
-            "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {"token": token}
-        };
-        console.log(settings);
 
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-            $sessionStorage.userInfo = response;
-            $location.path('/login');
-        });
-    };
 
 
 

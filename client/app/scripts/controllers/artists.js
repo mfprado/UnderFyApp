@@ -18,8 +18,8 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
             "method": "DELETE",
             "headers": {
                 "content-type": "application/x-www-form-urlencoded",
+                "authorization": $sessionStorage.userData.token
             },
-            "data": {"token": $sessionStorage.userData.token},
             "success": $scope.updateArtists
         };
 
@@ -37,9 +37,10 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
             "crossDomain": true,
             "url": "https://immense-taiga-71996.herokuapp.com/artists",
             "method": "POST",
-            "headers": {"content-type": "application/x-www-form-urlencoded"},
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded",
+                "authorization": $sessionStorage.userData.token},
             "data": {
-                "token": $sessionStorage.userData.token,
                 "name": name,
                 "description": description,
                 "genres": genres,
@@ -68,14 +69,11 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/artists/",
+            "url": "https://immense-taiga-71996.herokuapp.com/artists",
             "method": "GET",
             "headers": {
                 "content-type": "application/x-www-form-urlencoded",
-            },
-            "data": {
-                "token": $sessionStorage.userData.token,
-                "ids":"1,2,3,4"
+                "authorization": $sessionStorage.userData.token
             }
         };
 

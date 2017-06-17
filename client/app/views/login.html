@@ -31,23 +31,21 @@
                 </a>
                 </li>
                 <li ng-class="tracksStatus">
-                <a ng-click="trackssSelected()">
+                <a ng-click="tracksSelected()">
                     <button class="navBarButton">
-                <img src="../images/song-playlist.svg" class="logoNavbar">
-                Canciones
+                        <img src="../images/song-playlist.svg" class="logoNavbar">
+                        Canciones
                     </button>
                 </a>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                <a  href="/">
-                <button class="avatarButton" >
-                    {{userName}}
-                <!--<img class="avatar" data-ng-src={{userInfo.images[0]}} data-err-src="../images/useravatan.png"/>-->
-                    <img class="albumImg" ng-src={{userInfo.images[0]}} data-err-src="../images/useravatan.png"/>
-                </button>
-                </a>
+                <li ng-class="usersStatus">
+                    <a ng-click="usersSelected()">
+                        <button class="navBarButton">
+                            <img src="../images/user.svg" class="logoNavbar">
+                            Usuarios
+                        </button>
+
+                    </a>
                 </li>
             </ul>
         </div>
