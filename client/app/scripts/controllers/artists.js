@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage','$window',function ($scope,$sessionStorage,$window) {
+angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage','$window','$route',function ($scope,$sessionStorage,$window, $route) {
 
     $scope.artists = $sessionStorage.artists;
 
@@ -76,7 +76,9 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
 
         $.ajax(settings).done(function (response) {
             console.log(response);
+            $sessionStorage.artists  = response.artists;
             $scope.artists = response.artists;
+            $route.reload()
         });
 
     }

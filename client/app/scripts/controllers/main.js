@@ -28,6 +28,9 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
         "data": {
             "userName": " ",
             "password": " "
+        },
+        "success" : function() {
+            $location.path('/login');
         }
     };
 

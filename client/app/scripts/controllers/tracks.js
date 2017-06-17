@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('underfyApp').controller('TracksController',['$scope','$sessionStorage','$window',function ($scope, $sessionStorage, $window) {
+angular.module('underfyApp').controller('TracksController',['$scope','$sessionStorage','$window', '$route',function ($scope, $sessionStorage, $window, $route) {
 
     $scope.tracks = $sessionStorage.tracks;
     $scope.selected = $scope.tracks[0];
@@ -67,6 +67,7 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
         $.ajax(settings).done(function (response) {
             console.log(response);
             $scope.tracks = response.tracks;
+            $route.reload()
         });
     };
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionStorage','$window',function ($scope,$sessionStorage,$window) {
+angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionStorage','$window','$route',function ($scope,$sessionStorage,$window, $route) {
 
     $scope.albums = $sessionStorage.albums;
     $scope.selected = $scope.albums[0];
@@ -75,6 +75,7 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
         $.ajax(settings).done(function (response) {
             console.log(response);
             $scope.albums = response.albums;
+            $route.reload()
         });
     }
 
