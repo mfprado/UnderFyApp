@@ -1,5 +1,5 @@
 <div id="artistView" class="container" layout="row" flex ng-controller="ArtistsController">
-    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
+    <md-sidenav md-is-locked-open="true" class="marginNavs md-sidenav-left sidenavColor md-whiteframe-z2">
         <md-list>
             <md-list-item ng-repeat="artist in artists">
                 <md-button ng-click="selectArtist(artist)">
@@ -12,15 +12,22 @@
 
     <!--content-->
 
-    <md-content id="content" class="contentSide md-whiteframe-z2" flex>
+    <md-content id="content" class="contentSide marginNavs md-whiteframe-z2" flex>
         <p align="center"><img class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatan.png"/></p>
         <h2 align="center">{{selected.name}}</h2>
-        <md-list>
-            <h4 align="center">Albums:</h4>
-            <md-list-item ng-repeat="album in selected.albums">
-                <p>{{album.name}}</p>
-            </md-list-item>
+        <md-list class="listArtists">
+            <h4 align="left">Genres:</h4>
+            <em ng-repeat="genre in selected.genres">
+                {{genre}}{{$last ? '' : ', '}}
+            </em>
+            <h4 align="left">Albums:</h4>
+            <em ng-repeat="album in selected.albums">
+                {{album.name}}{{$last ? '' : ', '}}
+            </em>
+            <p align="left"> Id: {{selected.id}}</p>
+            <p align="left"> Popularity: {{selected.popularity}}</p>
             <p align="center"><button class="btn btn-primary" ng-click="deleteArtist()"><i class="material-icons md-48">delete_forever</i>Borrar Artista</button></p>
         </md-list>
+
     </md-content>
 </div>

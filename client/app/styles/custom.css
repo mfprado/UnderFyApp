@@ -100,6 +100,12 @@ body {
     /*height: 100%;*/
 }
 
+.marginNavs{
+    margin-inside: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .contentTittle{
       text-align: center;
       color: white;
@@ -196,4 +202,8 @@ body {
     transform: translateZ(0);
     -webkit-transform: scale(0.70);
     -moz-transform:scale(0.70);
+}
+
+.listArtists{
+    margin-left: 20px;
 }
