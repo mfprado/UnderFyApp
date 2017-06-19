@@ -12,6 +12,6 @@
 var app = angular.module('underfyApp');
 
 
-app.controller('AboutCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+app.controller('AboutCtrl', ['$scope', function($scope){
     
 }]);
