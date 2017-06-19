@@ -1,27 +1,30 @@
-<div id="albumView" class="container" layout="row" flex ng-controller="AlbumsController">
-    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
-        <md-list>
-            <md-list-item ng-repeat="album in albums">
-                <md-button ng-click="selectAlbum(album)">
-                    <p align="left"><img class="albumImg" ng-src={{album.images[0]}} data-err-src="../images/useravatar.png"/> {{album.name}}</p>
-                </md-button>
-            </md-list-item>
-            <p align="center"><button class="btn btn-primary" ng-click="addAlbumWindow()"><i class="material-icons md-48">note_add</i>  Agregar Album</button></p>
-        </md-list>
-    </md-sidenav>
-
-    <!--content-->
-
-    <md-content id="content" class="contentSide md-whiteframe-z2" flex layout-padding="5px">
-        <h5 align="center">{{selected.name}}</h5>
-        <p align="center"><img class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.png"/></p>
-        <md-list>
-            <p>Artists: <i ng-repeat="artist in selected.artists">{{artist.name}}</i></p>
-            <p>Tracks: <n ng-repeat="track in selected.tracks">{{track}}  </i></n>
-            <p>Genres: <n ng-repeat="genre in selected.genres">{{genre}}  </n></p>
-            <p>Fecha de Publicacion: {{selected.realease_date}}</p>
-            <p>Popularidad: {{selected.popularity}}</p>
-            <p align="center"><button class="btn btn-primary" ng-click="deleteArtist()"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></p>
-        </md-list>
-    </md-content>
-</div>
+<md-content layout="row" flex id="albumView" flex class="contentSide" ng-controller="AlbumsController">
+    <div layout="column">
+        <md-sidenav layout="column" class="marginNavs md-sidenav-left sidenavColor md-whiteframe-z2" md-component-id="left"  md-is-locked-open="$mdMedia('gt-sm')">
+            <md-list>
+                <p align="center"><button class="btn btn-primary" ng-click="addAlbumWindow()"><i class="material-icons md-48">note_add</i>  Agregar Album</button></p>
+                <md-list-item ng-repeat="album in albums">
+                    <md-button ng-click="selectAlbum(album)">
+                        <p align="left"><img class="albumImg" ng-src={{album.images[0]}} data-err-src="../images/useravatar.svg"/> {{album.name}}</p>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+    </div>
+        <!--content-->
+        <div layout="column" flex id="content">
+            <md-content class="marginNavs contentSide md-whiteframe-z2" flex layout-padding="5px">
+                <h5 align="center">{{selected.name}}</h5>
+                <p align="center"><img class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.svg"/></p>
+                <md-list class="listArtists">
+                    <p align="left">Artists: <em ng-repeat="artist in selected.artists">{{artist.name}}{{$last ? '' : ', '}}</em></p>
+                    <p align="left">Tracks: <em ng-repeat="track in selected.tracks">{{track}}{{$last ? '' : ', '}}  </i></em>
+                    <p align="left">Genres: <em ng-repeat="genre in selected.genres">{{genre}}{{$last ? '' : ', '}}  </em></p>
+                    <p align="left">Fecha de Publicacion: {{selected.realease_date}}</p>
+                    <p align="left">Popularidad: {{selected.popularity}}</p>
+                    <p align="center"><button class="btn btn-primary" ng-click="deleteArtist()"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></p>
+                </md-list>
+            </md-content>
+        </div>
+    </div>
+</md-content>

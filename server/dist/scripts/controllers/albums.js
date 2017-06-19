@@ -1,5 +1,10 @@
 'use strict';
 
+<<<<<<< HEAD
+angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionStorage','$window','$route','Requester',function ($scope,$sessionStorage,$window, $route, Requester) {
+
+    $scope.albums = $sessionStorage.albums;
+=======
 angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionStorage','$window',function ($scope,$sessionStorage,$window) {
 
     $scope.albums = [
@@ -27,14 +32,30 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
             "tracks": ["Do I Wanna Know?","R U Mine?", "One For The Road"]}];
 
     // $scope.albums = $sessionStorage.albums;
+>>>>>>> remotes/origin/master
     $scope.selected = $scope.albums[0];
 
 
     $scope.selectAlbum = function(album) {
         $scope.selected = album;
-    }
+    };
 
     $scope.deleteAlbum = function () {
+<<<<<<< HEAD
+        Requester.deleteAlbum($scope.selected.id);
+        $scope.albums = $sessionStorage.albums;
+        $scope.selected = $scope.albums[0];
+        $scope.$apply();
+        // $route.reload();
+    };
+
+    $scope.addAlbum = function (artistsIds,name,genres,images,release_date) {
+        Requester.addArtist(artistsIds,name,genres,images,release_date);
+        $scope.albums = $sessionStorage.albums;
+        $scope.selected = $scope.albums[0];
+        $scope.$apply();
+        // $route.reload();
+=======
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -75,6 +96,7 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
             console.log(response);
         });
 
+>>>>>>> remotes/origin/master
     };
 
     $scope.HandlePopupResult =  function(result) {
@@ -84,6 +106,9 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
     $scope.addAlbumWindow = function () {
         $window.open("../views/createAlbum.html", "Agregar Artista", "width=550,height=550,left=10,top=150");
     };
+<<<<<<< HEAD
+}]);
+=======
     
     $scope.updateAlbums = function () {
         var settings = {
@@ -105,3 +130,4 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
 
 
 }]);
+>>>>>>> remotes/origin/master

@@ -1,28 +1,29 @@
-
-<div  id="trackView" class="container" layout="row" flex ng-controller="TracksController">
-    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
-        <md-list>
-            <md-list-item ng-repeat="track in tracks">
-                <md-button ng-click="selectTrack(track)">
-                    <p align="left">{{track.name}}</p>
-                </md-button>
-            </md-list-item>
-            <p align="center"><button class="btn btn-primary" ng-click="addTrackWindow()"><i class="material-icons md-48">note_add</i>  Agregar Cancion</button></p>
-        </md-list>
-    </md-sidenav>
-
+<md-content layout="row" flex id="trackView" flex class="contentSide" ng-controller="TracksController">
+    <div layout="column">
+        <md-sidenav layout="column" class="marginNavs md-sidenav-left sidenavColor md-whiteframe-z2" md-component-id="left"  md-is-locked-open="$mdMedia('gt-sm')">
+            <md-list>
+                <p align="center"><button class="btn btn-primary" ng-click="addTrackWindow()"><i class="material-icons md-48">note_add</i>  Agregar Cancion</button></p>
+                <md-list-item ng-repeat="track in tracks">
+                    <md-button ng-click="selectTrack(track)">
+                        <p align="left">{{track.name}}</p>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+    </div>
     <!--content-->
-
-    <md-content id="content" class="contentSide md-whiteframe-z2" flex layout-padding="5px">
-        <h2 align="center">{{selected.name}}</h2>
-        <md-list>
-                <p>Popularidad: {{selected.popularity.rate}}</p>
-                <p></p>
-                <p>Duracion: {{selected.duration}} milisegundos</p>
-                <p>Artists:
-                    <p ng-repeat="artist in selected.artists">{{artist.name}}</p>
-                </p>
-                <p align="center"><button class="btn btn-primary" ng-click="deleteTrack()"><i class="material-icons md-48">delete_forever</i>Borrar Cancion</button></p>
-        </md-list>
-    </md-content>
-</div>
+    <div layout="column" flex id="content">
+        <md-content layout="column" flex class="contentSide marginNavs md-whiteframe-z2 md-padding" >
+            <h2 align="center">{{selected.name}}</h2>
+            <md-list class="listArtists">
+                    <p>Popularidad: {{selected.popularity.rate}}</p>
+                    <p></p>
+                    <p>Duracion: {{selected.duration}} milisegundos</p>
+                    <p>Artists:
+                        <em ng-repeat="artist in selected.artists">{{artist.name}}{{$last ? '' : ', '}}</em>
+                    </p>
+                    <p align="center"><button class="btn btn-primary" ng-click="deleteTrack()"><i class="material-icons md-48">delete_forever</i>Borrar Cancion</button></p>
+            </md-list>
+        </md-content>
+    </div>
+</md-content>

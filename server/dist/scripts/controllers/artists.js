@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+'use strict';
+angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage','$window','$route','Requester',function ($scope,$sessionStorage,$window, $route, Requester) {
+
+    $scope.artists = $sessionStorage.artists;
+=======
 'use strict'
 
 angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage','$window',function ($scope,$sessionStorage,$window) {
@@ -32,6 +38,7 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     ];
 
     // $scope.artists = $sessionStorage.artists;
+>>>>>>> remotes/origin/master
 
     $scope.selected = $scope.artists[0];
 
@@ -40,6 +47,9 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     };
 
     $scope.deleteArtist = function () {
+<<<<<<< HEAD
+        Requester.deleteArtist($scope.selected.id).done(function (response) {
+=======
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -55,12 +65,16 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
+>>>>>>> remotes/origin/master
             console.log(response);
+            $scope.updateArtists();
         });
     };
 
-
     $scope.addArtist = function (name,description,genres,images) {
+<<<<<<< HEAD
+        Requester.addArtist(name,description,genres,images).done(function (response) {
+=======
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -82,7 +96,9 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
+>>>>>>> remotes/origin/master
             console.log(response);
+            $scope.updateArtists();
         });
 
     };
@@ -96,6 +112,16 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     };
 
     $scope.updateArtists = function () {
+<<<<<<< HEAD
+        Requester.getArtists();
+        $scope.artists = $sessionStorage.artists;
+        // $route.reload();
+        $scope.$apply();
+
+    }
+
+}]);
+=======
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -122,3 +148,4 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     }
 
 }]);
+>>>>>>> remotes/origin/master

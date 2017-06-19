@@ -1,5 +1,8 @@
 'use strict';
 
+<<<<<<< HEAD
+angular.module('underfyApp').controller('TracksController',['$scope','$sessionStorage','$window', '$route',function ($scope, $sessionStorage, $window, $route) {
+=======
 angular.module('underfyApp').controller('TracksController',['$scope','$sessionStorage','$window',function ($scope, $sessionStorage, $window) {
 
     $scope.tracks = [
@@ -60,6 +63,7 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
             "name":"The Lazarus Heart",
             "popularity": {"rate":4}}];
 
+>>>>>>> remotes/origin/master
 
     // $scope.tracks = $sessionStorage.tracks;
     $scope.selected = $scope.tracks[0];
@@ -69,6 +73,11 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
     };
 
     $scope.deleteTrack = function () {
+<<<<<<< HEAD
+        Requester.deleteTrack($scope.selected.id);
+        $scope.tracks = $sessionStorage.tracks;
+        $scope.$apply();
+=======
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -106,13 +115,15 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
             console.log(response);
         });
 
+>>>>>>> remotes/origin/master
     };
 
-    // $scope.HandlePopupResult =  function(result) {
-    //     $scope.addTrack(result.albumId,result.artistsIds,result.name);
-    // };
-
     $scope.addTrackWindow = function () {
+<<<<<<< HEAD
+        $window.open("../views/createTrack.html", "Agregar Cancion", "width=550,height=400,left=10,top=150");
+    };
+}]);
+=======
         $window.open("../views/createTrack.html", "Agregar Cancion", "width=550,height=500,left=10,top=150");
     };
 
@@ -135,3 +146,4 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
     };
 
 }]);
+>>>>>>> remotes/origin/master

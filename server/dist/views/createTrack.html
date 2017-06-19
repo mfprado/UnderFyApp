@@ -46,6 +46,9 @@
             $scope.token = ( window.opener.angular.element('#trackView').scope().token);
             console.log($scope.token);
 
+<<<<<<< HEAD
+            $scope.token =  window.opener.angular.element('#trackView').scope().token;
+=======
             $scope.upload = function (id) {
                     var form = new FormData();
                     form.append("upload.ashx",$scope.file);
@@ -78,57 +81,69 @@
                 window.close();
             };
 
+>>>>>>> remotes/origin/master
 
             $scope.arrToInt = function (strArr){
                 var intArr = [];
                 for(i=0; i < strArr.length; i++)
                     intArr.push(parseInt(strArr[i]));
                 return intArr;
-            }
+            };
 
             $scope.create = function() {
                 if( tname.value && albumId.value && artistsIds.value && $scope.file){
+<<<<<<< HEAD
+                    var form = new FormData();
+                    form.append("upload.ashx",$scope.file);
+=======
 
+>>>>>>> remotes/origin/master
                     var settings = {
                         "async": true,
                         "crossDomain": true,
                         "url": "https://immense-taiga-71996.herokuapp.com/tracks",
                         "method": "POST",
+<<<<<<< HEAD
+                        "headers": {"content-type": "application/x-www-form-urlencoded"},
+=======
                         "headers": {
                             "content-type": "application/x-www-form-urlencoded"},
+>>>>>>> remotes/origin/master
                         "data": {
-                            "token": window.token,
+                            "token": $scope.token,
                             "albumId": $scope.albumId,
                             "artists": $scope.artistsIds,
-                            "name": $scope.trackName
+                            "name": $scope.trackName,
+                            "form": form
                         }
                     };
-
                     console.log(settings);
-                    $.ajax(settings).success(function (response) {
+                    $.ajax(settings).done(function (response) {
                         console.log(response);
-                        $scope.upload(response.id);
+                        window.close();
                     });
-
                 }
                 else {
                     alert("Complete todos los campos");
                 }
             }
-
         }]);
-
-
-
     </script>
 </head>
 <body ng-controller="Uploader">
-
 <h3>Formulario Nueva Cancion</h3>
-
 <div class="container">
     <form >
         <label for="tname"><font color="white">Nombre: </font></label>
+<<<<<<< HEAD
+        <input type="text" id="tname" ng-model="trackName" name="data.name" placeholder="Track name..">
+
+        <label for="albumId"><font color="white">Id de Album: </font></label>
+        <input type="text" id="albumId" ng-model="albumId" name="data.albumId" placeholder="enter Album Id Number..">
+
+        <label for="artistsIds"><font color="white">Ids de Artistas: </font></label>
+        <input type="text" id="artistsIds" ng-model="artistsIds" name="data.artistsIds" placeholder="enter Artists Ids Numbers, comma separated..">
+=======
         <input type="text" ng-model="trackName" id="tname" name="data.name" placeholder="Track name..">
 
         <label for="albumId"><font color="white">Id de Album: </font></label>
@@ -136,13 +151,17 @@
 
         <label for="artistsIds"><font color="white">Ids de Artistas: </font></label>
         <input type="text" ng-model="artistsIds" id="artistsIds" name="data.artistsIds" placeholder="enter Artists Ids Numbers, comma separated..">
+>>>>>>> remotes/origin/master
 
         <input type="file" ng-model="file" id="file" file-input="file"/>
         </br>
         </br>
+<<<<<<< HEAD
+        <input type="submit" value="Crear" ng-click="create()">
+=======
         <input type="submit" value="Crear" ng-click="upload(55)">
+>>>>>>> remotes/origin/master
     </form>
 </div>
-
 </body>
 </html>

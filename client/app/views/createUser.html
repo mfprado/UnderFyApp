@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        .container {
+            border-radius: 5px;
+            background-color: #333;
+            padding: 20px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript">
+
+        function create() {
+            if( userName.value && password.value && firstName.value && lastName.value && email.value){
+
+                var s = window.opener.angular.element('#userView').scope();
+                s.HandlePopupResult(
+                    {
+                        "userName" : userName.value,
+                        "password" : password.value,
+                        "firstName": firstName.value,
+                        "lastName" : lastName.value,
+                        "country" : country.value,
+                        "images" : [images.value],
+                        "email" : email.value,
+                        "birthdate": birthdate.value
+
+                    }
+                );
+                s.$apply();
+                window.close();
+            }
+            else {
+                alert("Complete todos los campos obligatorios (*)");
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+
+<h3>Formulario Nuevo Usuario</h3>
+
+<div class="container">
+    <form >
+        <label for="userName"><font color="white">*UserName: </font></label>
+        <input type="text" id="userName" name="data.userName" placeholder="UserName..">
+
+        <label for="password"><font color="white">*Password: </font></label>
+        <input type="text" id="password" name="data.password" placeholder="Password..">
+
+        <label for="email"><font color="white">*Email: </font></label>
+        <input type="text" id="email" name="data.email" placeholder="enter your email..">
+
+        <label for="firstName"><font color="white">*First Name: </font></label>
+        <input type="text" id="firstName" name="data.firstName" placeholder="enter your complete name..">
+
+        <label for="lastName"><font color="white">*Last Name: </font></label>
+        <input type="text" id="lastName" name="data.lastName" placeholder="enter your last name..">
+
+        <label for="country"><font color="white">Country: </font></label>
+        <input type="text" id="country" name="data.country" placeholder="enter your country name...">
+
+        <label for="images"><font color="white">Image: </font></label>
+        <input type="text" id="images" name="data.images" placeholder="enter link ">
+
+
+        <label for="birthdate"><font color="white">User Birthdate: </font></label>
+        <input type="text" id="birthdate" name="data.birthdate" placeholder="enter date.. ">
+
+
+        <input type="submit" value="Crear" onclick="create()">
+    </form>
+</div>
+
+</body>
+</html>

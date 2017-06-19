@@ -8,10 +8,14 @@
  */
 
 
+<<<<<<< HEAD
+angular.module('underfyApp').controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionStorage',function ($scope,$location,$rootScope,$http,$sessionStorage) {
+=======
 var app = angular.module('underfyApp');
 
 
 app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionStorage',function ($scope,$location,$rootScope,$http,$sessionStorage) {
+>>>>>>> remotes/origin/master
 
     $sessionStorage.userData = {
         "user" : {
@@ -37,10 +41,17 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
         "data": {
             "userName": " ",
             "password": " "
+        },
+        "success" : function() {
+            $location.path('/login');
         }
     };
 
+<<<<<<< HEAD
+    var set = true; //FIX
+=======
     var set = false; //FIX  pasar a true cuando ande el shared
+>>>>>>> remotes/origin/master
     $scope.submit = function () {
 
         if ( $scope.user.userName && $scope.user.password && set ) {
@@ -61,12 +72,11 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
                 $sessionStorage.userData = response;
                 console.log("Logueo exitoso");
                 console.log(response);
-                getUserInfo(response.user.id,response.token);
                 $location.path('/login');
-
             });
 
             request.fail(function (response) {
+                alert('Username o Password incorrecta');
                 $scope.alertMessage = 'username o password incorrecto';
                 console.log("Autenticacion fracaso");
                 console.log(response);
@@ -78,6 +88,8 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
             console.log('Fracaso logueo, campos incompletos');
             $scope.alertMessage = 'Por favor complete ambos campos';
         }
+<<<<<<< HEAD
+=======
 
     };
 
@@ -100,5 +112,7 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
     };
 
 
+>>>>>>> remotes/origin/master
 
+    };
 }]);
