@@ -8,23 +8,7 @@
  */
 
 
-<<<<<<< HEAD
 angular.module('underfyApp').controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionStorage',function ($scope,$location,$rootScope,$http,$sessionStorage) {
-=======
-var app = angular.module('underfyApp');
-
-
-app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionStorage',function ($scope,$location,$rootScope,$http,$sessionStorage) {
->>>>>>> remotes/origin/master
-
-    $sessionStorage.userData = {
-        "user" : {
-            "id":1,
-            "userName": "ironman"
-        },
-        "token":"453152345234523452345234523gsdgds"
-
-    }
 
     $scope.alertMessage = '';
     $scope.user ={
@@ -47,11 +31,7 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
         }
     };
 
-<<<<<<< HEAD
     var set = true; //FIX
-=======
-    var set = false; //FIX  pasar a true cuando ande el shared
->>>>>>> remotes/origin/master
     $scope.submit = function () {
 
         if ( $scope.user.userName && $scope.user.password && set ) {
@@ -64,8 +44,6 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
 
             var request = $.ajax(settings);
             var response;
-
-            $location.path('/login');
 
             request.done(function (response) {
                 set = false;
@@ -88,31 +66,6 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
             console.log('Fracaso logueo, campos incompletos');
             $scope.alertMessage = 'Por favor complete ambos campos';
         }
-<<<<<<< HEAD
-=======
-
-    };
-
-    var getUserInfo = function(id,token) {
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/users/" + id,
-            "method": "GET",
-            "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {"token": token}
-        };
-        console.log(settings);
-
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-            $sessionStorage.userInfo = response;
-            $location.path('/login');
-        });
-    };
-
-
->>>>>>> remotes/origin/master
 
     };
 }]);
