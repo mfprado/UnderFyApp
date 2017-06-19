@@ -10,11 +10,18 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     };
 
     $scope.deleteArtist = function () {
-        Requester.deleteArtist($scope.selected.id);
+        Requester.deleteArtist($scope.selected.id).done(function (response) {
+            console.log(response);
+            $scope.updateArtists();
+        });
     };
 
     $scope.addArtist = function (name,description,genres,images) {
-        Requester.addArtist(name,description,genres,images);
+        Requester.addArtist(name,description,genres,images).done(function (response) {
+            console.log(response);
+            $scope.updateArtists();
+        });
+
     };
 
     $scope.HandlePopupResult =  function(result) {
@@ -26,23 +33,10 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     };
 
     $scope.updateArtists = function () {
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/artists",
-            "method": "GET",
-            "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {"token": $sessionStorage.userData.token}
-        };
-
-        console.log(settings);
-
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-            $sessionStorage.artists  = response.artists;
-            $scope.artists = response.artists;
-            $route.reload()
-        });
+        Requester.getArtists();
+        $scope.artists = $sessionStorage.artists;
+        // $route.reload();
+        $scope.$apply();
 
     }
 

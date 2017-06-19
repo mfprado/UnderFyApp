@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('underfyApp').controller('UsersController', ['$scope','$sessionStorage','$window','$route',function ($scope,$sessionStorage,$window, $route) {
+angular.module('underfyApp').controller('UsersController', ['$scope','$sessionStorage','$window','$route','Requester',function ($scope,$sessionStorage,$window, $route, Requester) {
 
     $scope.users = $sessionStorage.users;
 
@@ -11,51 +11,14 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
     };
 
     $scope.deleteUser = function () {
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/users/" + $scope.selected.id ,
-            "method": "DELETE",
-            "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {"token": $sessionStorage.userData.token},
-            "success": $scope.updateUsers
-        };
-
-        console.log(settings);
-
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-        });
+        Requester.deleteUser($scope.selected.id);
+        $scope.updateUsers();
     };
 
 
     $scope.addUser= function (userName,password,email,firstName,lastName,country,images,birthdate) {
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/users",
-            "method": "POST",
-            "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {
-                "token": $sessionStorage.userData.token,
-                "userName": userName,
-                "password": password,
-                "email": email,
-                "firstName" : firstName,
-                "lastName" : lastName,
-                "country" : country,
-                "images": images,
-                "birthdate" : birthdate
-            },
-            "success": $scope.updateUsers
-        };
-
-        console.log(settings);
-
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-        });
-
+        Requester(userName,password,email,firstName,lastName,country,images,birthdate);
+        $scope.updateUsers();
     };
 
     $scope.HandlePopupResult =  function(result) {
@@ -67,23 +30,8 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
     };
 
     $scope.updateUsers = function () {
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/users",
-            "method": "GET",
-            "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {"token": $sessionStorage.userData.token}
-        };
-
-        console.log(settings);
-
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-            $scope.users = response.users;
-            $route.reload()
-        });
-
+        $scope.users = $sessionStorage.users;
+        $scope.$apply();
     }
 
 }]);
