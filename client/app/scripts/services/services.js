@@ -8,12 +8,12 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         "crossDomain": true,
         "method": "GET",
         "headers": {"content-type": "application/x-www-form-urlencoded"},
+        "data":{"token": $sessionStorage.userData.token}
     };
 
     this.getArtists = function () {
         settings.url = urlBase + "/artists/";
         settings.method = "GET";
-        settings.data = {"token": $sessionStorage.userData.token};
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
@@ -25,7 +25,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
     this.getTracks = function () {
         settings.url = urlBase + "/tracks/";
         settings.method = "GET";
-        settings.data = {"token": $sessionStorage.userData.token};
         console.log(settings);
         $.ajax(settings).done(function (response) {
             console.log(response);
@@ -36,7 +35,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
     this.getAlbums = function () {
         settings.url =  urlBase + "/albums/";
         settings.method = "GET";
-        settings.data = {"token": $sessionStorage.userData.token};
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
@@ -48,7 +46,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
     this.getUsers = function () {
         settings.url =  urlBase + "/users/";
         settings.method = "GET";
-        settings.data = {"token": $sessionStorage.userData.token};
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
@@ -61,39 +58,38 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
     this.deleteArtist = function (id) {
         settings.url = urlBase + "/artists/" + id;
         settings.method = "DELETE";
-        settings.data = {"token": $sessionStorage.userData.token};
         console.log(settings);
 
-        return $.ajax(settings)
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
     };
 
     this.addArtist =  function (name,description,genres,images) {
-        settings.url = urlBase + "/artists/";
+        settings.url = urlBase + "/artists";
         settings.method = "POST";
-        settings.data = {"token": $sessionStorage.userData.token};
         settings.data.name = name;
-        settings.images = images;
+        settings.data.images = images;
         settings.data.description = description;
         settings.data.genres = genres;
         console.log(settings);
-        return $.ajax(settings)
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
     };
 
     this.deleteUser = function (id) {
         settings.url = urlBase + "/users/" + id;
         settings.method = "DELETE";
-        settings.data = {"token": $sessionStorage.userData.token};
         console.log(settings);
         $.ajax(settings).done(function (response) {
             console.log(response);
-            getUsers();
         });
     };
 
     this.addUser = function (userName,password,email,firstName,lastName,country,images,birthdate) {
         settings.url = urlBase + "/users/";
         settings.method = "POST";
-        settings.data = {"token": $sessionStorage.userData.token};
         settings.data.userName = userName;
         settings.data.password = password;
         settings.data.email = email;
@@ -106,24 +102,20 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         console.log(settings);
         $.ajax(settings).done(function (response) {
             console.log(response);
-            getUsers();
         });
     };
 
     this.deleteTrack = function (id) {
         settings.url = urlBase + "/tracks/" + id;
         settings.method = "DELETE";
-        settings.data = {"token": $sessionStorage.userData.token};
         $.ajax(settings).done(function (response) {
             console.log(response);
-            getTracks();
         });
     };
 
     this.addAlbum = function (artistsIds,name,genres,images,release_date) {
         settings.url = urlBase + "/albums/";
         settings.method = "POST";
-        settings.data = {"token": $sessionStorage.userData.token};
         settings.data.artists = artistsIds;
         settings.data.name = name;
         settings.data.genres = genres;
@@ -133,19 +125,16 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-            getAlbums();
         });
     };
 
     this.deleteAlbum = function(id){
         settings.url = urlBase + "/albums/" + id;
         settings.method = "DELETE";
-        settings.data = {"token": $sessionStorage.userData.token};
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-            getAlbums();
         });
     };
 

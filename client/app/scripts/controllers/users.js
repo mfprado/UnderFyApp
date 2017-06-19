@@ -3,7 +3,6 @@
 angular.module('underfyApp').controller('UsersController', ['$scope','$sessionStorage','$window','$route','Requester',function ($scope,$sessionStorage,$window, $route, Requester) {
 
     $scope.users = $sessionStorage.users;
-
     $scope.selected = $scope.users[0];
 
     $scope.selectUser = function(user) {
@@ -30,9 +29,10 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
     };
 
     $scope.updateUsers = function () {
+        Requester.getUsers();
         $scope.users = $sessionStorage.users;
+        $scope.selected = $scope.users[0];
         $scope.$apply();
-    }
-
+    };
 }]);
 

@@ -2,7 +2,6 @@
 angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage','$window','$route','Requester',function ($scope,$sessionStorage,$window, $route, Requester) {
 
     $scope.artists = $sessionStorage.artists;
-
     $scope.selected = $scope.artists[0];
 
     $scope.selectArtist = function(artist) {
@@ -10,18 +9,13 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     };
 
     $scope.deleteArtist = function () {
-        Requester.deleteArtist($scope.selected.id).done(function (response) {
-            console.log(response);
-            $scope.updateArtists();
-        });
+        Requester.deleteArtist($scope.selected.id);
+        $scope.updateArtists();
     };
 
     $scope.addArtist = function (name,description,genres,images) {
-        Requester.addArtist(name,description,genres,images).done(function (response) {
-            console.log(response);
-            $scope.updateArtists();
-        });
-
+        Requester.addArtist(name,description,genres,images);
+        $scope.updateArtists();
     };
 
     $scope.HandlePopupResult =  function(result) {
@@ -35,9 +29,8 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     $scope.updateArtists = function () {
         Requester.getArtists();
         $scope.artists = $sessionStorage.artists;
-        // $route.reload();
-        $scope.$apply();
-
-    }
-
+        $scope.selected = $scope.artists[0];
+        // $scope.$apply();
+        $route.reload();
+    };
 }]);

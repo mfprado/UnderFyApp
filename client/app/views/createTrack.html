@@ -53,7 +53,7 @@
             };
 
             $scope.create = function() {
-                if( tname.value && albumId.value && artistsIds.value && $scope.file){
+                if( tname.value && albumId.value && artistsIds.value){
                     var form = new FormData();
                     form.append("upload.ashx",$scope.file);
                     var settings = {

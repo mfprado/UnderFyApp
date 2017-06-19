@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('underfyApp').controller('TracksController',['$scope','$sessionStorage','$window', '$route',function ($scope, $sessionStorage, $window, $route) {
+angular.module('underfyApp').controller('TracksController',['$scope','$sessionStorage','$window', '$route','Requester',function ($scope, $sessionStorage, $window, $route,Requester) {
 
     $scope.tracks = $sessionStorage.tracks;
     $scope.selected = $scope.tracks[0];
@@ -11,11 +11,19 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
 
     $scope.deleteTrack = function () {
         Requester.deleteTrack($scope.selected.id);
-        $scope.tracks = $sessionStorage.tracks;
-        $scope.$apply();
+        $scope.updateTracks();
     };
 
     $scope.addTrackWindow = function () {
-        $window.open("../views/createTrack.html", "Agregar Cancion", "width=550,height=400,left=10,top=150");
+        $window.open("../views/createTrack.html", "Agregar Cancion", "width=550,height=420,left=10,top=150");
+        $scope.updateTracks();
     };
+
+    $scope.updateTracks = function () {
+        Requester.getTracks();
+        $scope.tracks = $sessionStorage.tracks;
+        $scope.selected = $scope.tracks[0];
+        // $scope.$apply();
+        $route.reload();
+    }
 }]);
