@@ -33,7 +33,6 @@ angular.module('underfyApp').controller('MainCtrl', ['$scope','$location','$root
 
     var set = true; //FIX
     $scope.submit = function () {
-
         if ( $scope.user.userName && $scope.user.password && set ) {
             $scope.alertMessage = '';
             settings.data.userName = $scope.user.userName;
@@ -66,6 +65,5 @@ angular.module('underfyApp').controller('MainCtrl', ['$scope','$location','$root
             console.log('Fracaso logueo, campos incompletos');
             $scope.alertMessage = 'Por favor complete ambos campos';
         }
-
     };
 }]);
