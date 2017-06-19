@@ -1,25 +1,30 @@
-<div id="userView" class="container" layout="row" flex ng-controller="UsersController">
-    <md-sidenav md-is-locked-open="true" class="md-sidenav-left sidenavColor md-whiteframe-z2">
-        <md-list>
-            <md-list-item ng-repeat="user in users">
-                <md-button ng-click="selectUser(user)">
-                    <p align="left"><img class="avatar" ng-src={{user.images[0]}} data-err-src="../images/useravatar.png"/> {{user.userName}}</p>
-                </md-button>
-            </md-list-item>
-            <p align="center"><button class="btn btn-primary" ng-click="addUserWindow()"><i class="material-icons md-48">note_add</i>  Agregar Usuario</button></p>
-        </md-list>
-    </md-sidenav>
-
+<md-content layout="row" flex id="userView" flex class="contentSide" ng-controller="UsersController">
+    <div layout="column">
+        <md-sidenav layout="column" class="marginNavs md-sidenav-left sidenavColor md-whiteframe-z2" md-component-id="left"  md-is-locked-open="$mdMedia('gt-sm')">
+            <md-list>
+                <p align="center"><button class="btn btn-primary" ng-click="addUserWindow()"><i class="material-icons md-48">note_add</i>  Agregar Usuario</button></p>
+                <md-list-item ng-repeat="user in users">
+                    <md-button ng-click="selectUser(user)">
+                        <p align="left"><img class="avatar" ng-src={{user.images[0]}} data-err-src="../images/useravatar.png"/> {{user.userName}}</p>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+    </div>
     <!--content-->
-
-    <md-content id="content" class="contentSide md-whiteframe-z2" flex>
-        <p align="center"><img class="avatar" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.png"/></p>
-        <h2 align="center">{{selected.id}}{{selected.userName}}</h2>
-        <h3 align="center">{{selected.firstName}}</h3>
-        <h3 align="center">{{selected.lastName}}</h3>
-        <h3 align="center">{{selected.country}}</h3>
-        <h3 align="center">{{selected.email}}</h3>
-        <h3 align="center">{{selected.birthdate}}</h3>
-        <p align="center"><button class="btn btn-primary" ng-click="deleteUser()"><i class="material-icons md-48">delete_forever</i>Borrar Usuario</button></p>
-    </md-content>
-</div>
+    <div layout="column" flex id="content">
+        <md-content class="marginNavs contentSide md-whiteframe-z2" flex layout-padding="5px">
+            <md-list class="listArtists">
+                <p align="center"><img class="avatar" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.png"/></p>
+                <h2 align="center">Username: {{selected.userName}}</h2>
+                <h3 align="center">Id: {{selected.id}}</h3>
+                <p align="left">Firstname: {{selected.firstName}}</p>
+                <p align="left">Lastname: {{selected.lastName}}</p>
+                <p align="left">Country: {{selected.country}}</p>
+                <p align="left">Email: {{selected.email}}</p>
+                <p align="left">Birthdate: {{selected.birthdate}}</p>
+                <p align="center"><button class="btn btn-primary" ng-click="deleteUser()"><i class="material-icons md-48">delete_forever</i>Borrar Usuario</button></p>
+            </md-list>
+        </md-content>
+    </div>
+</md-content>

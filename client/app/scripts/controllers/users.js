@@ -59,7 +59,7 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
     };
 
     $scope.HandlePopupResult =  function(result) {
-        $scope.addUser(result.name,result.description,result.genres,result.images);
+        $scope.addUser(result.userName,result.password,result.email,result.firstName,result.lastName,result.country,result.images,result.birthdate);
     };
 
     $scope.addUserWindow = function () {

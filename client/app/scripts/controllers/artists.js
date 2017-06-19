@@ -1,6 +1,5 @@
 'use strict';
-
-angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage','$window','$route',function ($scope,$sessionStorage,$window, $route) {
+angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage','$window','$route','Requester',function ($scope,$sessionStorage,$window, $route, Requester) {
 
     $scope.artists = $sessionStorage.artists;
 
@@ -11,47 +10,11 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     };
 
     $scope.deleteArtist = function () {
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/artists/" + $scope.selected.id ,
-            "method": "DELETE",
-            "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {"token": $sessionStorage.userData.token},
-            "success": $scope.updateArtists
-        };
-
-        console.log(settings);
-
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-        });
+        Requester.deleteArtist($scope.selected.id);
     };
 
-
     $scope.addArtist = function (name,description,genres,images) {
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://immense-taiga-71996.herokuapp.com/artists",
-            "method": "POST",
-            "headers": {"content-type": "application/x-www-form-urlencoded"},
-            "data": {
-                "token": $sessionStorage.userData.token,
-                "name": name,
-                "description": description,
-                "genres": genres,
-                "images": images
-            },
-            "success": $scope.updateArtists
-        };
-
-        console.log(settings);
-
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-        });
-
+        Requester.addArtist(name,description,genres,images);
     };
 
     $scope.HandlePopupResult =  function(result) {

@@ -3,8 +3,8 @@ body {
 	background-color: #333;
 	color: #FFFFFF;
 	height: 100%;
+    min-height: 100%;
 }
-
 .main-container {
 	margin-top: 60px;
 }
@@ -46,10 +46,14 @@ body {
 }
 
 .navBarButton{
-    width : 100%;
+    width : 120%;
     height :100%;
     background-color: #1ed760;
     border: none;
+    margin-bottom: -15%;
+    margin-top: -15%;
+    margin-left: -10%;
+
 }
 
 .navBarInsideButton{
@@ -80,7 +84,7 @@ body {
     /*text-transform: uppercase;*/
     line-height: 0.85em;
     font-size: 500px;
-  }
+ }
 
 .spacer {
     -webkit-box-flex: 1;
@@ -190,7 +194,7 @@ body {
 
 .albumImg{
     position: relative;
-    width: 50%;
+    width: 25%;
     height: auto;
     /*border: 0px solid #ddd;*/
     /*border-radius: 50%;*/
@@ -206,4 +210,12 @@ body {
 
 .listArtists{
     margin-left: 20px;
+}
+
+html {
+    height: 400px;
+}
+
+.headermargin{
+    margin-right: 55px;
 }

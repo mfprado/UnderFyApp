@@ -8,10 +8,7 @@
  */
 
 
-var app = angular.module('underfyApp');
-
-
-app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionStorage',function ($scope,$location,$rootScope,$http,$sessionStorage) {
+angular.module('underfyApp').controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionStorage',function ($scope,$location,$rootScope,$http,$sessionStorage) {
 
     $scope.alertMessage = '';
     $scope.user ={
@@ -54,10 +51,10 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
                 console.log("Logueo exitoso");
                 console.log(response);
                 $location.path('/login');
-
             });
 
             request.fail(function (response) {
+                alert('Username o Password incorrecta');
                 $scope.alertMessage = 'username o password incorrecto';
                 console.log("Autenticacion fracaso");
                 console.log(response);
@@ -71,9 +68,4 @@ app.controller('MainCtrl', ['$scope','$location','$rootScope','$http','$sessionS
         }
 
     };
-
-
-
-
-
 }]);

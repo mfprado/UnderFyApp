@@ -1,15 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name underfyApp.controller:LoginCtrl
- * @description
- * # LoginCtrl
- * Controller of the underfyApp
- */
-var myApp = angular.module('underfyApp');
-
-myApp.controller('LoginCtrl',['$scope','$location','Requester', function($scope,$location, Requester){
+angular.module('underfyApp').controller('LoginCtrl',['$scope','$location','Requester', function($scope,$location, Requester){
 
 
   $scope.pageSelected = "views/artists.html";
