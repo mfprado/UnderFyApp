@@ -156,7 +156,9 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.data.images = images;
         settings.data.birthdate = birthdate;
 
+        console.log('NEW USER');
         console.log(settings);
+
         $.ajax(settings).done(function (response) {
             console.log(response);
         });

@@ -16,7 +16,7 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
 
 
     $scope.addUser= function (userName,password,email,firstName,lastName,country,images,birthdate) {
-        Requester(userName,password,email,firstName,lastName,country,images,birthdate);
+        Requester.addUser(userName,password,email,firstName,lastName,country,images,birthdate);
         $scope.updateUsers();
     };
 
