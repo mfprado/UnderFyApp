@@ -4,7 +4,7 @@
             <md-list>
                 <p align="center"><button class="btn btn-primary" ng-click="addAlbumWindow()"><i class="material-icons md-48">note_add</i>  Agregar Album</button></p>
                 <md-list-item ng-repeat="album in albums">
-                    <md-button align="left" flex ng-click="selectAlbum(album)">
+                    <md-button layout-align="left" ng-click="selectAlbum(album)">
                         <img class="albumImg" ng-src={{album.images[0]}} data-err-src="../images/useravatar.svg"/> {{album.name}}
                     </md-button>
                 </md-list-item>
@@ -31,7 +31,7 @@
                     <h4 align="left">Genres: <em ng-repeat="genre in selected.genres">{{genre}}{{$last ? '' : ', '}}  </em></h4>
                     <h4 align="left">Fecha de Publicacion: {{selected.realease_date}}</h4>
                     <h4 align="left">Popularidad: {{selected.popularity}}</h4>
-                    <h4 align="center"><button class="btn btn-primary" ng-click="deleteArtist()"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></h4>
+                    <h4 align="center"><button class="btn btn-primary" ng-click="deleteAlbum()"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></h4>
                 </md-list>
             </md-content>
         </div>

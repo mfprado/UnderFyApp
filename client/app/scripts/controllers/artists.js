@@ -33,4 +33,9 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
         // $scope.$apply();
         $route.reload();
     };
+
+    $scope.deleteAlbum = function (id) {
+        Requester.deleteAlbum(id);
+        $scope.updateArtists();
+    }
 }]);

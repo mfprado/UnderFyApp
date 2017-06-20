@@ -37,6 +37,34 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         };
     };
 
+    var getAlbumArtist = function (href,artist, album) {
+
+        settings.url = urlBase + href;
+        settings.method = "GET";
+        settings.success = (function (response) {
+            console.log(response);
+            $sessionStorage.artists[artist].albums[album] = response;
+        });
+
+        $.ajax(settings).done(function () {
+            console.log('cargado album nuevo al artista: ' + artist);
+            console.log($sessionStorage.artists);
+            settings.success = '';
+        })
+    };
+
+    var completeAlbumsArtist = function(){
+        console.log('en complete1');
+        for (var artist in $sessionStorage.artists) {
+            for (var album in $sessionStorage.artists[artist].albums) {
+                var href = $sessionStorage.artists[artist].albums[album].href;
+                getAlbumArtist(href,artist,album);
+            };
+        };
+    };
+
+
+
     this.getArtists = function () {
         settings.url = urlBase + "/artists/";
         settings.method = "GET";
@@ -45,6 +73,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         $.ajax(settings).done(function (response) {
             console.log(response);
             $sessionStorage.artists = response.artists;
+            completeAlbumsArtist();
         });
     };
 

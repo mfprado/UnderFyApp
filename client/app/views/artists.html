@@ -4,8 +4,8 @@
             <md-list>
                 <p align="center"><button class="btn btn-primary" ng-click="addArtistWindow()"><i class="material-icons md-48">note_add</i>  Agregar Artista</button></p>
                 <md-list-item ng-repeat="artist in artists">
-                    <md-button ng-click="selectArtist(artist)">
-                        <p align="left"><img class="albumImg" ng-src={{artist.images[0]}} data-err-src="../images/useravatan.png"/> {{artist.name}}</p>
+                    <md-button layout-align="left" ng-click="selectArtist(artist)">
+                        <img class="albumImg" ng-src={{artist.images[0]}} data-err-src="../images/useravatan.png"/> {{artist.name}}
                     </md-button>
                 </md-list-item>
             </md-list>
@@ -21,12 +21,19 @@
                 <em ng-repeat="genre in selected.genres">
                     {{genre}}{{$last ? '' : ', '}}
                 </em>
-                <h4 align="left">Albums:</h4>
-                <em ng-repeat="album in selected.albums">
-                    {{album.name}}{{$last ? '' : ', '}}
+                <em align="left">
+                    <h4>Albums:</h4>
+                    <md-list-item ng-repeat="album in selected.albums">
+                        <p>Nombre: {{album.name}}</p>
+                        <p>Id: {{album.id}}</p>
+                        <p align="left">Genres: <em ng-repeat="genre in album.genres">{{genre}}{{$last ? '' : ', '}}  </em></p>
+                        <p align="left">Fecha de Publicacion: {{album.realease_date}}</p>
+                        <p align="left">Popularidad: {{album.popularity.rate}}</p>
+                        <p align="center"><button class="btn btn-primary" ng-click="deleteAlbum(track.id)"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></p>
+                    </md-list-item>
                 </em>
                 <p align="left"> Id: {{selected.id}}</p>
-                <p align="left"> Popularity: {{selected.popularity}}</p>
+                <p align="left"> Popularity: {{selected.popularity.rate}}</p>
                 <p align="center"><button class="btn btn-primary" ng-click="deleteArtist()"><i class="material-icons md-48">delete_forever</i>Borrar Artista</button></p>
             </md-list>
         </md-content>

@@ -25,7 +25,7 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
     };
 
     $scope.addUserWindow = function () {
-        $window.open("../views/createUser.html", "Agregar Usuario", "width=550,height=500,left=10,top=150");
+        $window.open("../views/createUser.html", "Agregar Usuario", "width=550,height=600,left=10,top=150");
     };
 
     $scope.updateUsers = function () {
