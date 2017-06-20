@@ -11,6 +11,32 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         "data":{"token": $sessionStorage.userData.token}
     };
 
+    var getTrackAlbum = function (href,album,track) {
+
+        settings.url = urlBase + href;
+        settings.method = "GET";
+        settings.success = (function (response) {
+            console.log(response);
+            $sessionStorage.albums[album].tracks[track] = response;
+        });
+
+        $.ajax(settings).done(function () {
+            console.log('cargado track nuevo al album: ' + album);
+            console.log($sessionStorage.albums);
+            settings.success = '';
+        })
+    };
+
+    var completeTracksAlbums = function(){
+        console.log('en complete1');
+        for (var album in $sessionStorage.albums) {
+            for (var track in $sessionStorage.albums[album].tracks) {
+                var href = $sessionStorage.albums[album].tracks[track].href;
+                getTrackAlbum(href,album,track);
+            };
+        };
+    };
+
     this.getArtists = function () {
         settings.url = urlBase + "/artists/";
         settings.method = "GET";
@@ -40,6 +66,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         $.ajax(settings).done(function (response) {
             console.log(response);
             $sessionStorage.albums = response.albums;
+            completeTracksAlbums();
         });
     };
 
@@ -137,5 +164,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
             console.log(response);
         });
     };
+
+
 
 }]);

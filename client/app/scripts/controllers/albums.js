@@ -34,5 +34,10 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
         $scope.selected = $scope.albums[0];
         $scope.$apply();
         // $route.reload();
-    }
+    };
+
+    $scope.deleteTrack = function (id) {
+        $scope.track = Requester.deleteTrack(id);
+    };
+
 }]);
