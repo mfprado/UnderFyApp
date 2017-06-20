@@ -27,9 +27,7 @@ angular.module('underfyApp').controller('LoginCtrl',['$scope','$location','Reque
         $scope.albumsStatus = $scope.artistsStatus = $scope.tracksStatus = "";
     };
 
-    Requester.getArtists();
-    Requester.getTracks();
-    Requester.getAlbums();
+    Requester.updateUnderfy();
     Requester.getUsers();
 
 }]);

@@ -65,7 +65,8 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
 
 
 
-    this.getArtists = function () {
+
+    var getArtists = function () {
         settings.url = urlBase + "/artists/";
         settings.method = "GET";
         console.log(settings);
@@ -77,7 +78,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         });
     };
 
-    this.getTracks = function () {
+    var getTracks = function () {
         settings.url = urlBase + "/tracks/";
         settings.method = "GET";
         console.log(settings);
@@ -87,7 +88,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         });
     };
 
-    this.getAlbums = function () {
+    var getAlbums = function () {
         settings.url =  urlBase + "/albums/";
         settings.method = "GET";
         console.log(settings);
@@ -170,13 +171,17 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
     };
 
     this.addAlbum = function (artistsIds,name,genres,images,release_date) {
+
         settings.url = urlBase + "/albums/";
         settings.method = "POST";
         settings.data.artists = artistsIds;
         settings.data.name = name;
         settings.data.genres = genres;
         settings.data.images = images;
-        settings.data.realease_date = release_date;
+        settings.data.release_date = release_date;
+
+        console.log('ADD ALBUM');
+        console.log(artistsIds);
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
@@ -194,6 +199,10 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         });
     };
 
-
+    this.updateUnderfy = function () {
+        getArtists();
+        getAlbums();
+        getTracks();
+    }
 
 }]);
