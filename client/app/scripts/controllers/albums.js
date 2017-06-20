@@ -12,6 +12,7 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
 
     $scope.deleteAlbum = function () {
         Requester.deleteAlbum($scope.selected.id);
+        $scope.updateAlbums();
     };
 
     $scope.addAlbum = function (artistsIds,name,genres,images,release_date) {

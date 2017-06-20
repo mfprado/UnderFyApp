@@ -1,4 +1,4 @@
-<md-content layout="row" flex id="artistView" flex class="contentSide" ng-controller="ArtistsController">
+<md-content layout="row" flex id="artistView" flex class="contentSide" ng-controller="ArtistsController" ng-click="update()">
     <div layout="column">
         <md-sidenav layout="column" class="marginNavs md-sidenav-left sidenavColor md-whiteframe-z2" md-component-id="left"  md-is-locked-open="$mdMedia('gt-sm')">
             <md-list>
@@ -27,9 +27,9 @@
                         <p>Nombre: {{album.name}}</p>
                         <p>Id: {{album.id}}</p>
                         <p align="left">Genres: <em ng-repeat="genre in album.genres">{{genre}}{{$last ? '' : ', '}}  </em></p>
-                        <p align="left">Fecha de Publicacion: {{album.realease_date}}</p>
+                        <p align="left">Fecha de Publicacion: {{album.release_date}}</p>
                         <p align="left">Popularidad: {{album.popularity.rate}}</p>
-                        <p align="center"><button class="btn btn-primary" ng-click="deleteAlbum(track.id)"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></p>
+                        <p align="center"><button class="btn btn-primary" ng-click="deleteAlbum(album.id)"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></p>
                     </md-list-item>
                 </em>
                 <p align="left"> Id: {{selected.id}}</p>

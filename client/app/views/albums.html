@@ -23,13 +23,13 @@
                         <md-list-item ng-repeat="track in selected.tracks">
                                 <p>Nombre: {{track.name}}</p>
                                 <p>Id: {{track.id}}</p>
-                                <p>Popularidad: {{track.popularity.rate}}</p>
+                                <p>Popularidad: {{track.rate}}</p>
                                 <p>Duracion: {{track.duration}} milisegundos</p>
                                 <p align="center"><button class="btn btn-primary" ng-click="deleteTrack(track.id)"><i class="material-icons md-48">delete_forever</i>Borrar Cancion</button></p>
                         </md-list-item>
                     </em>
                     <h4 align="left">Genres: <em ng-repeat="genre in selected.genres">{{genre}}{{$last ? '' : ', '}}  </em></h4>
-                    <h4 align="left">Fecha de Publicacion: {{selected.realease_date}}</h4>
+                    <h4 align="left">Fecha de Publicacion: {{selected.release_date}}</h4>
                     <h4 align="left">Popularidad: {{selected.popularity}}</h4>
                     <h4 align="center"><button class="btn btn-primary" ng-click="deleteAlbum()"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></h4>
                 </md-list>
