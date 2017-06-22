@@ -6,7 +6,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
 
     $scope.upload = function (id) {
         var form = new FormData();
-        form.append("upload.ashx",$scope.file);
+        form.append("song_file",$scope.file);
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -18,7 +18,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
             "processData": false,
             "contentType": false,
             "mimeType": "multipart/form-data",
-            "data": form,
+            "song_file": form,
             "success": $scope.success()
         };
         console.log(settings);
