@@ -16,7 +16,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.url = urlBase + href;
         settings.method = "GET";
         settings.success = (function (response) {
-            console.log(response);
             $sessionStorage.albums[album].tracks[track] = response;
         });
 
@@ -39,7 +38,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.url = urlBase + href;
         settings.method = "GET";
         settings.success = (function (response) {
-            console.log(response);
             $sessionStorage.artists[artist].albums[album] = response;
         });
 
@@ -58,8 +56,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
     };
 
 
-
-
     var getArtists = function () {
         settings.url = urlBase + "/artists/";
         settings.method = "GET";
@@ -71,7 +67,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
             settings.success = '';
         });
     };
@@ -87,7 +82,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
             settings.success = '';
         });
     };
@@ -103,7 +97,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         };
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
             settings.success = '';
         });
     };
@@ -168,7 +161,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.data.images = images;
         settings.data.birthdate = birthdate;
 
-        console.log('NEW USER');
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
@@ -194,8 +186,6 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.data.images = images;
         settings.data.release_date = release_date;
 
-        console.log('ADD ALBUM');
-        console.log(artistsIds);
         console.log(settings);
 
         $.ajax(settings).done(function (response) {

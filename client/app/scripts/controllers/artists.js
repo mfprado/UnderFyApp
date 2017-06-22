@@ -1,6 +1,8 @@
 'use strict';
 angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage','$window','$route','Requester',function ($scope,$sessionStorage,$window, $route, Requester) {
 
+    $scope.prueba = 'asdasda';
+
     $scope.update = function () {
         $scope.artists = $sessionStorage.artists;
     };
