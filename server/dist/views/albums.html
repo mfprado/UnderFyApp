@@ -16,16 +16,18 @@
             <md-content class="marginNavs contentSide md-whiteframe-z2" flex layout-padding="5px">
                 <h2 align="center">{{selected.name}}</h2>
                 <p align="center"><img class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.svg"/></p>
+                <h4 align="center">Id: {{selected.id}}</h4>
                 <md-list class="listArtists">
                     <h4 align="left">Artists: <em ng-repeat="artist in selected.artists">{{artist.name}}{{$last ? '' : ', '}}</em></h4>
                     <em align="left">
                         <h4>Tracks:</h4>
+                        <p align="left"><button class="btn btn-primary" ng-click="addTrackWindow()"><i class="material-icons md-48">note_add</i></button></p>
                         <md-list-item ng-repeat="track in selected.tracks">
                                 <p>Nombre: {{track.name}}</p>
                                 <p>Id: {{track.id}}</p>
                                 <p>Popularidad: {{track.rate}}</p>
                                 <p>Duracion: {{track.duration}} milisegundos</p>
-                                <p align="center"><button class="btn btn-primary" ng-click="deleteTrack(track.id)"><i class="material-icons md-48">delete_forever</i>Borrar Cancion</button></p>
+                                <p align="center"><button class="btn btn-primary" ng-click="deleteTrack(track.id)"><i class="material-icons md-48">delete_forever</i></button></p>
                         </md-list-item>
                     </em>
                     <h4 align="left">Genres: <em ng-repeat="genre in selected.genres">{{genre}}{{$last ? '' : ', '}}  </em></h4>
