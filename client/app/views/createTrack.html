@@ -40,51 +40,14 @@
     </style>
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script type="text/javascript">
-        angular.module('uploadApp',[]).controller('Uploader',['$scope',function ($scope) {
+    <script src="../bower_components/ngstorage/ngStorage.js"></script>
+    <script src="../scripts/controllers/uploadTrack.js"></script>
 
-            $scope.token =  window.opener.angular.element('#trackView').scope().token;
-
-            $scope.arrToInt = function (strArr){
-                var intArr = [];
-                for(i=0; i < strArr.length; i++)
-                    intArr.push(parseInt(strArr[i]));
-                return intArr;
-            };
-
-            $scope.create = function() {
-                if( tname.value && albumId.value && artistsIds.value){
-                    var form = new FormData();
-                    form.append("upload.ashx",$scope.file);
-                    var settings = {
-                        "async": true,
-                        "crossDomain": true,
-                        "url": "https://immense-taiga-71996.herokuapp.com/tracks",
-                        "method": "POST",
-                        "headers": {"content-type": "application/x-www-form-urlencoded"},
-                        "data": {
-                            "token": $scope.token,
-                            "albumId": $scope.albumId,
-                            "artists": $scope.artistsIds,
-                            "name": $scope.trackName,
-                            "form": form
-                        }
-                    };
-                    console.log(settings);
-                    $.ajax(settings).done(function (response) {
-                        console.log(response);
-                        window.close();
-                    });
-                }
-                else {
-                    alert("Complete todos los campos");
-                }
-            }
-        }]);
-    </script>
 </head>
-<body ng-controller="Uploader">
+<body ng-controller="uploadController">
+
 <h3>Formulario Nueva Cancion</h3>
+
 <div class="container">
     <form >
         <label for="tname"><font color="white">Nombre: </font></label>
@@ -98,9 +61,9 @@
 
         <input type="file" ng-model="file" id="file" file-input="file"/>
         </br>
-        </br>
         <input type="submit" value="Crear" ng-click="create()">
     </form>
 </div>
+
 </body>
 </html>
