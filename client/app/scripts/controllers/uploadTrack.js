@@ -11,7 +11,7 @@ angular.module('uploadApp',['ngStorage','lr.upload']).controller('uploadControll
         var file = $scope.selectedFile[0];
         $scope.upload = upload({
 
-            url: "//ec2-54-200-74-89.us-west-2.compute.amazonaws.com/appsvr/song?id_song=" + id,
+            url: "http//ec2-54-200-74-89.us-west-2.compute.amazonaws.com/appsvr/song?id_song=" + id,
             method: 'PUT',
             async: true,
             crossDomain: true,
