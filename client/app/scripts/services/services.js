@@ -21,14 +21,11 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         });
 
         $.ajax(settings).done(function () {
-            console.log('cargado track nuevo al album: ' + album);
-            console.log($sessionStorage.albums);
             settings.success = '';
         })
     };
 
     var completeTracksAlbums = function(){
-        console.log('en complete1');
         for (var album in $sessionStorage.albums) {
             for (var track in $sessionStorage.albums[album].tracks) {
                 var href = $sessionStorage.albums[album].tracks[track].href;
@@ -47,14 +44,11 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         });
 
         $.ajax(settings).done(function () {
-            console.log('cargado album nuevo al artista: ' + artist);
-            console.log($sessionStorage.artists);
             settings.success = '';
         })
     };
 
     var completeAlbumsArtist = function(){
-        console.log('en complete1');
         for (var artist in $sessionStorage.artists) {
             for (var album in $sessionStorage.artists[artist].albums) {
                 var href = $sessionStorage.artists[artist].albums[album].href;
@@ -69,22 +63,32 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
     var getArtists = function () {
         settings.url = urlBase + "/artists/";
         settings.method = "GET";
+        settings.success = function (response) {
+            console.log(response);
+            $sessionStorage.artists = response.artists;
+            completeAlbumsArtist();
+        };
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-            $sessionStorage.artists = response.artists;
-            completeAlbumsArtist();
+            settings.success = '';
         });
     };
 
     var getTracks = function () {
         settings.url = urlBase + "/tracks/";
         settings.method = "GET";
-        console.log(settings);
-        $.ajax(settings).done(function (response) {
+
+        settings.success = function (response) {
             console.log(response);
             $sessionStorage.tracks = response.tracks;
+        };
+        console.log(settings);
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            settings.success = '';
         });
     };
 
@@ -92,22 +96,30 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.url =  urlBase + "/albums/";
         settings.method = "GET";
         console.log(settings);
-
-        $.ajax(settings).done(function (response) {
+        settings.success = function (response) {
             console.log(response);
             $sessionStorage.albums = response.albums;
             completeTracksAlbums();
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            settings.success = '';
         });
     };
 
     this.getUsers = function () {
         settings.url =  urlBase + "/users/";
         settings.method = "GET";
+        settings.success = function (response) {
+            console.log(response);
+            $sessionStorage.users = response.users;
+        };
+
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
-            $sessionStorage.users = response.users;
+            settings.success = '';
         });
     };
 
