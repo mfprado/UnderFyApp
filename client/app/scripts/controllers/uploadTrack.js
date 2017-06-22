@@ -1,4 +1,21 @@
-angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope','$sessionStorage',function ($scope, $sessionStorage) {
+var app = angular.module('uploadApp',['ngStorage']);
+
+    app.directive('progressBar', [
+        function () {
+            return {
+                link: function ($scope, el, attrs) {
+                    $scope.$watch(attrs.progressBar, function (newValue) {
+                        el.css('width', newValue.toString() + '%');
+                    });
+                }
+            };
+        }
+    ]);
+
+
+
+
+    app.controller('uploadController',['$scope','$sessionStorage',function ($scope, $sessionStorage) {
 
     var token = $sessionStorage.userData.token;
 
