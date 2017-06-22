@@ -3,6 +3,10 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
     var token = $sessionStorage.userData.token;
     $scope.file = 'asd';
 
+    $scope.setFiles =function (files) {
+        $scope.file = files[0];
+    }
+
     console.log(token );
 
     $scope.upload = function (id) {
