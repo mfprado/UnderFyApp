@@ -103,11 +103,15 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
     this.getUsers = function () {
         settings.url =  urlBase + "/users/";
         settings.method = "GET";
+        settings.success = function (response) {
+            console.log(response);
+            $sessionStorage.users = response.users;
+        };
+
         console.log(settings);
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
-            $sessionStorage.users = response.users;
+            settings.success = '';
         });
     };
 

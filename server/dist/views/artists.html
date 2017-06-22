@@ -26,8 +26,7 @@
                     <md-list-item ng-repeat="album in selected.albums">
                         <p>Nombre: {{album.name}}</p>
                         <p>Id: {{album.id}}</p>
-                        <p align="left">Genres: <em ng-repeat="genre in album.genres">{{genre}}{{$last ? '' : ',  '}}  </em></p>
-                        </br>
+                        <p align="left">Genres: <em ng-repeat="genre in album.genres">{{genre}}{{$last ? '' : ', '}}  </em></p>
                         <p align="left">Fecha de Publicacion: {{album.release_date}}</p>
                         <p align="left">Popularidad: {{album.popularity.rate}}</p>
                         <p align="center"><button class="btn btn-primary" ng-click="deleteAlbum(album.id)"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></p>
