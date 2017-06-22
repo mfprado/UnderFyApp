@@ -2,6 +2,7 @@
 
 angular.module('underfyApp').controller('TracksController',['$scope','$sessionStorage','$window', '$route','Requester',function ($scope, $sessionStorage, $window, $route,Requester) {
 
+
     $scope.tracks = $sessionStorage.tracks;
     $scope.selected = $scope.tracks[0];
 
@@ -20,7 +21,7 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
     };
 
     $scope.updateTracks = function () {
-        Requester.getTracks();
+        Requester.updateUnderfy();
         $scope.tracks = $sessionStorage.tracks;
         $scope.selected = $scope.tracks[0];
         // $scope.$apply();

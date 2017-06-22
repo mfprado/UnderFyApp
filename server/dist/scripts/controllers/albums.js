@@ -12,16 +12,17 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
 
     $scope.deleteAlbum = function () {
         Requester.deleteAlbum($scope.selected.id);
+        $scope.updateAlbums();
     };
 
     $scope.addAlbum = function (artistsIds,name,genres,images,release_date) {
         Requester.addAlbum(artistsIds,name,genres,images,release_date);
-        $scope.albums = $sessionStorage.albums;
         $scope.updateAlbums();
+        $scope.albums = $sessionStorage.albums;
     };
 
     $scope.HandlePopupResult =  function(result) {
-        $scope.addAlbum(result.artistsIds,result.name,result.genres,result.images, result.realease_date);
+        $scope.addAlbum(result.artists,result.name,result.genres,result.images, result.release_date);
     };
 
     $scope.addAlbumWindow = function () {
@@ -29,10 +30,16 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
     };
 
     $scope.updateAlbums = function () {
-        Requester.getAlbums();
+        Requester.updateUnderfy();
         $scope.albums = $sessionStorage.albums;
         $scope.selected = $scope.albums[0];
         $scope.$apply();
         // $route.reload();
-    }
+    };
+
+    $scope.deleteTrack = function (id) {
+        $scope.track = Requester.deleteTrack(id);
+        $scope.updateAlbums();
+    };
+
 }]);

@@ -1,7 +1,12 @@
 'use strict';
 angular.module('underfyApp').controller('ArtistsController', ['$scope','$sessionStorage','$window','$route','Requester',function ($scope,$sessionStorage,$window, $route, Requester) {
 
-    $scope.artists = $sessionStorage.artists;
+    $scope.update = function () {
+        $scope.artists = $sessionStorage.artists;
+    };
+
+    $scope.update();
+
     $scope.selected = $scope.artists[0];
 
     $scope.selectArtist = function(artist) {
@@ -27,10 +32,14 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     };
 
     $scope.updateArtists = function () {
-        Requester.getArtists();
-        $scope.artists = $sessionStorage.artists;
-        $scope.selected = $scope.artists[0];
+        Requester.updateUnderfy();
         // $scope.$apply();
         $route.reload();
+        $scope.update();
     };
+
+    $scope.deleteAlbum = function (id) {
+        Requester.deleteAlbum(id);
+        $scope.updateArtists();
+    }
 }]);
