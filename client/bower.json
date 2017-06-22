@@ -14,7 +14,8 @@
     "angular-touch": "^1.4.0",
     "angular-material": "^1.1.4",
     "svg-assets-cache.js": "svg-assets-cache#*",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "angular-upload": "^1.0.12"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
