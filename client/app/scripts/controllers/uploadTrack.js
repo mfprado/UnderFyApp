@@ -16,9 +16,10 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
                 "Authorization": "basic token"
             },
             "processData": false,
-            "contentType": false,
+            "contentType": undefined,
             "mimeType": "multipart/form-data",
-            "data": form,
+            // "contentType": "multipart/form-data",
+            data: form,
             "success": $scope.success()
         };
         console.log(settings);
