@@ -5,7 +5,7 @@
                 <p align="center"><button class="btn btn-primary" ng-click="addUserWindow()"><i class="material-icons md-48">note_add</i>  Agregar Usuario</button></p>
                 <md-list-item ng-repeat="user in users">
                     <md-button ng-click="selectUser(user)">
-                        <p align="left"><img class="avatar" ng-src={{user.images[0]}} data-err-src="../images/useravatar.png"/> {{user.userName}}</p>
+                        <p align="left"><img class="avatarList" ng-src={{user.images[0]}} data-err-src="../images/useravatar.png"/> {{user.userName}}</p>
                     </md-button>
                 </md-list-item>
             </md-list>

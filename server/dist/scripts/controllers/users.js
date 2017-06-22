@@ -29,9 +29,11 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
     };
 
     $scope.updateUsers = function () {
-        Requester.getUsers();
-        $scope.users = $sessionStorage.users;
-        $scope.selected = $scope.users[0];
+        if (Requester.getUsers()) {
+
+            $scope.users = $sessionStorage.users;
+        }
+
     };
 }]);
 

@@ -15,6 +15,8 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
 
             $scope.albums = $sessionStorage.albums;
         };
+
+        $scope.albums = $sessionStorage.albums;
     };
 
 
