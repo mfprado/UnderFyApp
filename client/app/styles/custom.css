@@ -192,9 +192,26 @@ body {
     align-items: center;
 }
 
+
+.albumImgArtist{
+    position: relative;
+    width: 10%;
+    height: auto;
+    /*border: 0px solid #ddd;*/
+    /*border-radius: 50%;*/
+    display: inline-block;
+    overflow: hidden;
+    margin: 0px;
+    vertical-align: middle;
+    zoom: 0.70;
+    transform: translateZ(0);
+    -webkit-transform: scale(0.70);
+    -moz-transform:scale(0.70);
+}
+
 .albumImg{
     position: relative;
-    width: 25%;
+    width: 30%;
     height: auto;
     /*border: 0px solid #ddd;*/
     /*border-radius: 50%;*/

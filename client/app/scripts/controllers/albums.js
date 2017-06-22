@@ -10,6 +10,14 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
         $scope.selected = album;
     };
 
+    $scope.updateAlbums = function () {
+        if(Requester.updateUnderfy()){
+
+            $scope.albums = $sessionStorage.albums;
+        };
+    };
+
+
     $scope.deleteAlbum = function () {
         Requester.deleteAlbum($scope.selected.id);
         $scope.updateAlbums();
@@ -26,15 +34,11 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
     };
 
     $scope.addAlbumWindow = function () {
-        $window.open("../views/createAlbum.html", "Agregar Artista", "width=550,height=550,left=10,top=150");
+        $window.open("../views/createAlbum.html", "Agregar Album", "width=550,height=550,left=10,top=150");
     };
 
-    $scope.updateAlbums = function () {
-        Requester.updateUnderfy();
-        $scope.albums = $sessionStorage.albums;
-        $scope.selected = $scope.albums[0];
-        $scope.$apply();
-        // $route.reload();
+    $scope.addTrackWindow = function () {
+        $window.open("../views/createTrack.html", "Agregar Track", "width=550,height=550,left=10,top=150");
     };
 
     $scope.deleteTrack = function (id) {

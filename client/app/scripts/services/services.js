@@ -63,6 +63,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
             console.log(response);
             $sessionStorage.artists = response.artists;
             completeAlbumsArtist();
+            return true;
         };
         console.log(settings);
 
@@ -78,6 +79,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.success = function (response) {
             console.log(response);
             $sessionStorage.tracks = response.tracks;
+            return true;
         };
         console.log(settings);
 
@@ -94,6 +96,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
             console.log(response);
             $sessionStorage.albums = response.albums;
             completeTracksAlbums();
+            return true;
         };
 
         $.ajax(settings).done(function (response) {
@@ -107,6 +110,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.success = function (response) {
             console.log(response);
             $sessionStorage.users = response.users;
+            return true;
         };
 
         console.log(settings);
@@ -127,12 +131,11 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         });
     };
 
-    this.addArtist =  function (name,description,genres,images) {
+    this.addArtist =  function (name,genres,images) {
         settings.url = urlBase + "/artists";
         settings.method = "POST";
         settings.data.name = name;
         settings.data.images = images;
-        settings.data.description = description;
         settings.data.genres = genres;
         console.log(settings);
         $.ajax(settings).done(function (response) {
@@ -204,9 +207,9 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
     };
 
     this.updateUnderfy = function () {
-        getArtists();
-        getAlbums();
-        getTracks();
+        if (getArtists() & getAlbums() &  getTracks()){
+            return true;
+        }
     }
 
 }]);
