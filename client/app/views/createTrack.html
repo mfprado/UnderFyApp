@@ -61,7 +61,7 @@
         <label for="artistsIds"><font color="white">Ids de Artistas: </font></label>
         <input type="text" id="artistsIds" ng-model="artistsIds" name="data.artistsIds" placeholder="enter Artists Ids Numbers, comma separated..">
 
-        <input type="file" ng-file-select="onFileSelect($files)" id="file" file-input="file"/>
+        <input type="file" ng-model="file" id="file" file-input="file"/>
         </br>
         <input type="submit" value="Crear" ng-click="create()">
         <div class="progress" style="margin-top: 20px;">

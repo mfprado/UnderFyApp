@@ -1,6 +1,7 @@
 angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope','$sessionStorage',function ($scope, $sessionStorage) {
 
     var token = $sessionStorage.userData.token;
+    $scope.file = 'asd';
 
     console.log(token );
 
@@ -23,6 +24,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
             "success": $scope.success()
         };
         console.log(settings);
+        console.log($scope.file);
 
         $.ajax(settings).done(function (response) {
             console.log(response);
@@ -40,7 +42,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
     };
 
     $scope.create = function() {
-        if( tname.value && albumId.value && artistsIds.value && file){
+        if( tname.value && albumId.value && artistsIds.value){
 
             var settings = {
                 "async": true,
