@@ -7,11 +7,14 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
 
     $scope.selectUser = function(user) {
         $scope.selected = user;
+        $scope.users = $sessionStorage.users;
     };
 
     $scope.deleteUser = function () {
         Requester.deleteUser($scope.selected.id);
         $scope.updateUsers();
+        $scope.tracks = $sessionStorage.tracks;
+
     };
 
 
@@ -27,12 +30,12 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
     $scope.addUserWindow = function () {
         $window.open("../views/createUser.html", "Agregar Usuario", "width=550,height=600,left=10,top=150");
     };
-
+1
     $scope.updateUsers = function () {
         if (Requester.getUsers()) {
-
             $scope.users = $sessionStorage.users;
         }
+        $scope.tracks = $sessionStorage.tracks;
 
     };
 }]);

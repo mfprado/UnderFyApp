@@ -15,7 +15,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://ec2-54-200-74-89.us-west-2.compute.amazonaws.com/appsvr/song?id_song="+id,
+            "url": "http://ec2-54-213-157-146.us-west-2.compute.amazonaws.com/appsvr/song?id_song="+id,
             "method": "PUT",
             "headers": {
                 "Authorization": "basic token"
@@ -23,7 +23,6 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
             "processData": false,
             "contentType": undefined,
             "mimeType": "multipart/form-data",
-            // "contentType": "multipart/form-data",
             data: form,
             "success": $scope.success()
         };
@@ -36,7 +35,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
     };
 
     $scope.success = function() {
-//                window.close();
+               // window.close();
     };
     $scope.arrToInt = function (strArr){
         var intArr = [];
@@ -47,7 +46,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
 
     $scope.create = function() {
         if( tname.value && albumId.value && artistsIds.value){
-
+            alert('Cargando Track');
             var settings = {
                 "async": true,
                 "crossDomain": true,

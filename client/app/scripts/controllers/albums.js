@@ -8,6 +8,8 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
 
     $scope.selectAlbum = function(album) {
         $scope.selected = album;
+        $scope.albums = $sessionStorage.albums;
+
     };
 
     $scope.updateAlbums = function () {
@@ -40,7 +42,7 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
     };
 
     $scope.addTrackWindow = function () {
-        $window.open("../views/createTrack.html", "Agregar Track", "width=550,height=550,left=10,top=150");
+        $window.open("../views/createTrack.html", "Agregar Track", "width=550,height=411,left=10,top=150");
     };
 
     $scope.deleteTrack = function (id) {

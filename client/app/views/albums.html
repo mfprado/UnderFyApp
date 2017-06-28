@@ -4,7 +4,7 @@
             <md-list>
                 <p align="center"><button class="btn btn-primary" ng-click="addAlbumWindow()"><i class="material-icons md-48">note_add</i>  Agregar Album</button></p>
                 <md-list-item ng-repeat="album in albums">
-                    <md-button layout-align="left" ng-click="selectAlbum(album)">
+                    <md-button align="left" layout-align="left" ng-click="selectAlbum(album)">
                         <img class="albumImg" ng-src={{album.images[0]}} data-err-src="../images/useravatar.svg"/> {{album.name}}
                     </md-button>
                 </md-list-item>
@@ -18,7 +18,7 @@
                 <p align="center"><img class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.svg"/></p>
                 <h4 align="center">Id: {{selected.id}}</h4>
                 <md-list class="listArtists">
-                    <h4 align="left">Artists: <em ng-repeat="artist in selected.artists">{{artist.name}}{{$last ? '' : ', '}}</em></h4>
+                    <h4 align="left">Artists: <em ng-repeat="artist in selected.artists">{{artist.name}} </br> Artist Id: {{artist.id}}{{$last ? '' : ', '}}</em></h4>
                     <em align="left">
                         <h4>Tracks:</h4>
                         <p align="left"><button class="btn btn-primary" ng-click="addTrackWindow()"><i class="material-icons md-48">note_add</i></button></p>

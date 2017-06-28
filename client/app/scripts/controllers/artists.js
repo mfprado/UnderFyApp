@@ -11,6 +11,7 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
 
     $scope.selectArtist = function(artist) {
         $scope.selected = artist;
+        $scope.update()
     };
 
     $scope.deleteArtist = function () {
@@ -18,8 +19,8 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
         $scope.updateArtists();
     };
 
-    $scope.addArtist = function (name,description,genres,images) {
-        Requester.addArtist(name,description,genres,images);
+    $scope.addArtist = function (name,genres,images) {
+        Requester.addArtist(name,genres,images);
         $scope.updateArtists();
     };
 
@@ -46,7 +47,6 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
 
     $scope.updateArtists = function () {
         if(Requester.updateUnderfy()){
-
             $scope.update();
         };
     };

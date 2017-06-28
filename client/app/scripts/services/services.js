@@ -8,6 +8,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         "crossDomain": true,
         "method": "GET",
         "headers": {"content-type": "application/x-www-form-urlencoded"},
+                    // "authorization": $sessionStorage.userData.token},
         "data":{"token": $sessionStorage.userData.token}
     };
 
@@ -29,8 +30,8 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
             for (var track in $sessionStorage.albums[album].tracks) {
                 var href = $sessionStorage.albums[album].tracks[track].href;
                 getTrackAlbum(href,album,track);
-            };
-        };
+            }
+        }
     };
 
     var getAlbumArtist = function (href,artist, album) {
@@ -137,6 +138,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.data.name = name;
         settings.data.images = images;
         settings.data.genres = genres;
+        settings.description = "";
         console.log(settings);
         $.ajax(settings).done(function (response) {
             console.log(response);
