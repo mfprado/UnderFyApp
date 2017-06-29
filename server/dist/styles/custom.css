@@ -30,7 +30,8 @@ body {
 	display: inline-block;
 	width: 45px;
     height: auto;
-    margin-bottom: 15px;
+    margin-top: -10px;
+    margin-bottom: 0px;
     vertical-align: middle;
 }
 
@@ -246,6 +247,7 @@ body {
     display: inline-block;
     overflow: hidden;
     margin: 0px;
+    margin-bottom: -5px;
     vertical-align: middle;
     zoom: 0.70;
     transform: translateZ(0);
@@ -279,4 +281,14 @@ html {
 .aAlign{
     vertical-align: middle;
     margin-bottom:5px;
+}
+
+.addSongImg{
+    width: 20px;
+    height: auto;
+}
+
+.albumPMargin{
+    margin-bottom: -50px;
+    margin-top: -50px;
 }

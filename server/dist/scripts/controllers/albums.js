@@ -50,12 +50,22 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
     };
 
     $scope.addTrackWindow = function () {
-        $window.open("../views/createTrackInAlbum.html", "Agregar Track", "width=550,height=270,left=10,top=150");
+        $window.open("../views/createTrackInAlbum.html", "Agregar Track", "width=550,height=240,left=10,top=150");
     };
 
     $scope.deleteTrack = function (id) {
         $scope.track = Requester.deleteTrack(id);
         $scope.updateAlbums();
+    };
+
+
+    $scope.HandlePopChangeImg =  function(result) {
+        $scope.selected.images = result.images;
+        Requester.changeAlbumImg($scope.selected.artistsId,$scope.selected.name,$scope.selected.genres,result.images,$scope.selected.release_date,$scope.selected.id);
+    };
+
+    $scope.changeImgWindow = function () {
+        $window.open("../views/changeAlbumImg.html", "Cambiar Imagen", "width=550,height=250,left=90,top=150");
     };
 
 }]);

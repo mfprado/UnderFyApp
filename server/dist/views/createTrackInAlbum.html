@@ -37,6 +37,11 @@
             background-color: #333;
             padding: 20px;
         }
+
+        .albumImg{
+            width: 350px;
+            height: 100px;
+        }
     </style>
     <script src="../../bower_components/jquery/dist/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
@@ -48,10 +53,12 @@
 </head>
 <body ng-controller="uploadController">
 
-<h3>Nueva Cancion</h3>
-
 <div class="container">
-    <form >
+    <div ng-hide="! formulario" align="center">
+        <p layout-align="center center"><img align="center center" class="albumImg" ng-hide="! formulario" src="../images/Loading_icon.gif"></p>
+        <p layout-align="center center"><h3 ng-hide="! formulario"><font color="white">CARGANDO</font></h3></p>
+    </div>
+    <form ng-hide="formulario">
         <label><font color="white">AlbumId: {{albumId}} </font></label>
         <label><font color="white">ArtistId: {{artistsId[0]}} </font></label>
         </br>
