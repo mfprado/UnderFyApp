@@ -35,22 +35,19 @@
     <script type="text/javascript">
 
         function create() {
-            if( aname.value && release_date.value && genres.value && images.value){
+            if(images.value){
 
-                var s = window.opener.angular.element('#artistView').scope();
-                s.HandlePopupResultAlbum(
+                var s = window.opener.angular.element('#userView').scope();
+                s.HandlePopChangeImg(
                     {
-                        "genres":genres.value.split(','),
-                        "images": [images.value],
-                        "name": aname.value,
-                        "release_date": release_date.value
+                        "images" : [images.value]
                     }
                 );
                 s.$apply();
                 window.close();
             }
             else {
-                alert("Complete todos los campos");
+                alert("Complete todos los campos obligatorios (*)");
             }
 
         }
@@ -59,24 +56,15 @@
 </head>
 <body>
 
-<h3>Formulario Nuevo Album</h3>
+<h3>Formulario Nuevo Usuario</h3>
 
 <div class="container">
     <form >
-        <label for="aname"><font color="white">Nombre: </font></label>
-        <input type="text" id="aname" name="data.name" placeholder="Album name..">
 
-        <label for="release_date"><font color="white">Fecha de Lanzamiento: </font></label>
-        <input type="text" id="release_date" name="data.albumId" placeholder="enter realease date..">
+        <label for="images"><font color="white">Image: </font></label>
+        <input type="text" id="images" name="data.images" placeholder="enter link ">
 
-        <label for="genres"><font color="white">Generos: </font></label>
-        <input type="text" id="genres" name="data.genres" placeholder="enter genres, comma separated..">
-
-        <label for="images"><font color="white">Imagen del Album: </font></label>
-        <input type="text" id="images" name="data.images" placeholder="enter link image">
-
-
-        <input type="submit" value="Crear" onclick="create()">
+        <input type="submit" value="Cambiar" onclick="create()">
     </form>
 </div>
 

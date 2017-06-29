@@ -7,11 +7,14 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
 
     $scope.selectUser = function(user) {
         $scope.selected = user;
+        $scope.users = $sessionStorage.users;
     };
 
     $scope.deleteUser = function () {
         Requester.deleteUser($scope.selected.id);
         $scope.updateUsers();
+        $scope.tracks = $sessionStorage.tracks;
+
     };
 
 
@@ -30,10 +33,20 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
 
     $scope.updateUsers = function () {
         if (Requester.getUsers()) {
-
             $scope.users = $sessionStorage.users;
         }
+        $scope.tracks = $sessionStorage.tracks;
 
     };
+
+    $scope.HandlePopChangeImg =  function(result) {
+        $scope.selected.images = result.images;
+        Requester.changeUserImg($scope.selected.userName,$scope.selected.password,$scope.selected.email,$scope.selected.firstName,$scope.selected.lastName,$scope.selected.country,result.images,$scope.selected.birthdate,$scope.selected.id);
+    };
+
+    $scope.changeImgWindow = function () {
+        $window.open("../views/changeUserImg.html", "Cambiar Imagen", "width=550,height=250,left=90,top=150");
+    };
+
 }]);
 

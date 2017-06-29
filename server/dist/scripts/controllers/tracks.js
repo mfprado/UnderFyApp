@@ -8,11 +8,13 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
 
     $scope.selectTrack = function(song) {
         $scope.selected = song;
+        $scope.tracks = $sessionStorage.tracks;
     };
 
     $scope.deleteTrack = function () {
         Requester.deleteTrack($scope.selected.id);
         $scope.updateTracks();
+        $scope.tracks = $sessionStorage.tracks;
     };
 
     $scope.addTrackWindow = function () {
@@ -24,5 +26,7 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
         if(Requester.updateUnderfy()){
             $scope.tracks = $sessionStorage.tracks;
         };
+        $scope.tracks = $sessionStorage.tracks;
+
     }
 }]);

@@ -15,7 +15,7 @@
     <div layout="column" flex id="content">
         <md-content class="marginNavs contentSide md-whiteframe-z2" flex layout-padding="5px">
             <md-list class="listArtists">
-                <p align="center"><img class="avatar" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.png"/></p>
+                <p align="center"><img ng-click="changeImgWindow()" class="avatar" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.png"/></p>
                 <h2 align="center">Username: {{selected.userName}}</h2>
                 <h3 align="center">Id: {{selected.id}}</h3>
                 <p align="left">Firstname: {{selected.firstName}}</p>

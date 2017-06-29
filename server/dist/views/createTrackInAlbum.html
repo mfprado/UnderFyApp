@@ -14,7 +14,7 @@
             resize: vertical;
         }
         input[type=submit] {
-            background-color: #4CAF50;
+            background-color: #5246c6;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -22,7 +22,7 @@
             cursor: pointer;
         }
         button[type=upload] {
-            background-color: #45a049;
+            background-color: #5246c6;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -30,7 +30,7 @@
             cursor: pointer;
         }
         input[type=submit]:hover {
-            background-color: #45a049;
+            background-color: #5246c6;
         }
         .container {
             border-radius: 5px;
@@ -48,22 +48,19 @@
 </head>
 <body ng-controller="uploadController">
 
-<h3>Formulario Nueva Cancion</h3>
+<h3>Nueva Cancion</h3>
 
 <div class="container">
     <form >
+        <label><font color="white">AlbumId: {{albumId}} </font></label>
+        <label><font color="white">ArtistId: {{artistsId[0]}} </font></label>
+        </br>
         <label for="tname"><font color="white">Nombre: </font></label>
         <input type="text" id="tname" ng-model="trackName" name="data.name" placeholder="Track name..">
 
-        <label for="albumId"><font color="white">Id de Album: </font></label>
-        <input type="text" id="albumId" ng-model="albumId" name="data.albumId" placeholder="enter Album Id Number..">
-
-        <label for="artistsIds"><font color="white">Ids de Artistas: </font></label>
-        <input type="text" id="artistsIds" ng-model="artistsIds" name="data.artistsIds" placeholder="enter Artists Ids Numbers, comma separated..">
-
         <input type="file" onchange="setFiles(this.files)" id="file" file-input="file"/>
         </br>
-        <input type="submit" value="Crear" ng-click="create()">
+        <input type="submit" value="Crear" ng-click="createInAlbum()">
 
     </form>
 </div>

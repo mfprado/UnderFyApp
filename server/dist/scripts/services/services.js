@@ -8,6 +8,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         "crossDomain": true,
         "method": "GET",
         "headers": {"content-type": "application/x-www-form-urlencoded"},
+                    // "authorization": $sessionStorage.userData.token},
         "data":{"token": $sessionStorage.userData.token}
     };
 
@@ -29,8 +30,8 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
             for (var track in $sessionStorage.albums[album].tracks) {
                 var href = $sessionStorage.albums[album].tracks[track].href;
                 getTrackAlbum(href,album,track);
-            };
-        };
+            }
+        }
     };
 
     var getAlbumArtist = function (href,artist, album) {
@@ -137,6 +138,7 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.data.name = name;
         settings.data.images = images;
         settings.data.genres = genres;
+        settings.description = "";
         console.log(settings);
         $.ajax(settings).done(function (response) {
             console.log(response);
@@ -147,6 +149,26 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         settings.url = urlBase + "/users/" + id;
         settings.method = "DELETE";
         console.log(settings);
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    };
+
+    this.changeUserImg = function (userName,password,email,firstName,lastName,country,images,birthdate,id) {
+        settings.url = urlBase + "/users/" + id;
+        settings.method = "PUT";
+        settings.data.userName = userName;
+        settings.data.password = password;
+        settings.data.email = email;
+        settings.data.firstName = firstName;
+        settings.data.lastName = lastName;
+        settings.data.country = country;
+        settings.data.images = images;
+        settings.data.birthdate = birthdate;
+
+        console.log('update img: ');
+        console.log(settings);
+
         $.ajax(settings).done(function (response) {
             console.log(response);
         });
@@ -210,6 +232,8 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         if (getArtists() & getAlbums() &  getTracks()){
             return true;
         }
-    }
+    };
+    
+
 
 }]);
