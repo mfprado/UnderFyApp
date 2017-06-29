@@ -21,7 +21,10 @@
                     <p></p>
                     <p>Duracion: {{selected.duration}} milisegundos</p>
                     <p>Artists:
-                        <em ng-repeat="artist in selected.artists">{{artist.name}}{{$last ? '' : ', '}}</em>
+                        <em ng-repeat="artist in selected.artists">{{artist.name}} {{$last ? '' : ', '}}</em>
+                    </p>
+                    <p>Album Id:
+                        {{selected.album.id}}
                     </p>
                     <p align="center"><button class="btn btn-primary" ng-click="deleteTrack()"><i class="material-icons md-48">delete_forever</i>Borrar Cancion</button></p>
             </md-list>
