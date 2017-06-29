@@ -1,5 +1,5 @@
 'use strict';
-angular.module('underfyApp').controller('LoginCtrl',['$scope','$location','Requester', function($scope,$location, Requester){
+angular.module('underfyApp').controller('LoginCtrl',['$scope','$location','Requester','$sessionStorage', function($scope,$location, Requester, $sessionStorage){
 
 
     $scope.pageSelected = "views/artists.html";
@@ -34,5 +34,9 @@ angular.module('underfyApp').controller('LoginCtrl',['$scope','$location','Reque
 
     Requester.updateUnderfy();
     Requester.getUsers();
+    $sessionStorage.trackInfo = {
+        albumId : 1,
+        artistId: [1]
+    };
 
 }]);

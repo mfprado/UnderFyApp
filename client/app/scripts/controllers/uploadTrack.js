@@ -3,6 +3,10 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
     var token = $sessionStorage.userData.token;
     $scope.file = 'asd';
 
+
+    $scope.albumId = $sessionStorage.trackInfo.albumId;
+    $scope.artistsId = $sessionStorage.trackInfo.artistId;
+
     setFiles =function (files) {
         $scope.file = files[0];
     }
@@ -31,11 +35,11 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
 
         $.ajax(settings).done(function (response) {
             console.log(response);
+            window.close();
         });
     };
 
     $scope.success = function() {
-               // window.close();
     };
     $scope.arrToInt = function (strArr){
         var intArr = [];
@@ -46,7 +50,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
 
     $scope.create = function() {
         if( tname.value && albumId.value && artistsIds.value){
-            alert('Cargando Track');
+
             var settings = {
                 "async": true,
                 "crossDomain": true,
@@ -77,4 +81,40 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
             alert("Complete todos los campos");
         }
     }
+
+    $scope.createInAlbum = function() {
+        if( tname.value){
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://immense-taiga-71996.herokuapp.com/tracks",
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/x-www-form-urlencoded"
+                },
+                "data": {
+                    "token": token,
+                    "albumId": $scope.albumId,
+                    "artists": $scope.artistsId,
+                    "name": $scope.trackName
+                },
+                "success" : function (response) {
+                    console.log(response);
+                    $scope.upload(response.id);
+                }
+            };
+            console.log(settings);
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+
+            });
+        }
+        else {
+            alert("Complete todos los campos");
+        }
+    }
+
+
 }]);
