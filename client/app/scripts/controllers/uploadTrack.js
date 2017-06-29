@@ -1,15 +1,17 @@
+
 angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope','$sessionStorage',function ($scope, $sessionStorage) {
 
     var token = $sessionStorage.userData.token;
     $scope.file = 'asd';
 
+    $scope.formulario = false;
 
     $scope.albumId = $sessionStorage.trackInfo.albumId;
     $scope.artistsId = $sessionStorage.trackInfo.artistId;
 
     setFiles =function (files) {
         $scope.file = files[0];
-    }
+    };
 
     console.log(token );
 
@@ -50,7 +52,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
 
     $scope.create = function() {
         if( tname.value && albumId.value && artistsIds.value){
-
+            $scope.formulario = true;
             var settings = {
                 "async": true,
                 "crossDomain": true,
@@ -84,6 +86,7 @@ angular.module('uploadApp',['ngStorage']).controller('uploadController',['$scope
 
     $scope.createInAlbum = function() {
         if( tname.value){
+            $scope.formulario = true;
 
             var settings = {
                 "async": true,

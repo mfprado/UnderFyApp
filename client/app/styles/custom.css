@@ -246,6 +246,7 @@ body {
     display: inline-block;
     overflow: hidden;
     margin: 0px;
+    margin-bottom: -5px;
     vertical-align: middle;
     zoom: 0.70;
     transform: translateZ(0);
@@ -279,4 +280,9 @@ html {
 .aAlign{
     vertical-align: middle;
     margin-bottom:5px;
+}
+
+.addSongImg{
+    width: 20px;
+    height: auto;
 }

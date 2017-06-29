@@ -58,4 +58,14 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
         $scope.updateAlbums();
     };
 
+
+    $scope.HandlePopChangeImg =  function(result) {
+        $scope.selected.images = result.images;
+        Requester.changeAlbumImg($scope.selected.artistsId,$scope.selected.name,$scope.selected.genres,result.images,$scope.selected.release_date,$scope.selected.id);
+    };
+
+    $scope.changeImgWindow = function () {
+        $window.open("../views/changeAlbumImg.html", "Cambiar Imagen", "width=550,height=250,left=90,top=150");
+    };
+
 }]);

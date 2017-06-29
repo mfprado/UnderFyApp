@@ -5,7 +5,7 @@
                 <p align="center"><button class="btn btn-primary" ng-click="addAlbumWindow()"><i class="material-icons md-48">note_add</i>  Agregar Album</button></p>
                 <md-list-item ng-repeat="album in albums">
                     <md-button align="left" layout-align="left" ng-click="selectAlbum(album)">
-                        <img class="albumImg" ng-src={{album.images[0]}} data-err-src="../images/useravatar.svg"/> {{album.name}}
+                        <img  class="md-avatar"  ng-src={{album.images[0]}} data-err-src="../images/useravatar.svg"/> {{album.name}}
                     </md-button>
                 </md-list-item>
             </md-list>
@@ -15,24 +15,24 @@
         <div layout="column" flex id="content">
             <md-content class="marginNavs contentSide md-whiteframe-z2" flex layout-padding="5px">
                 <h2 align="center">{{selected.name}}</h2>
-                <p align="center"><img class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.svg"/></p>
+                <p align="center"><img ng-click="changeImgWindow()" class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.svg"/></p>
                 <h4 align="center">Id: {{selected.id}}</h4>
                 <md-list class="listArtists">
                     <h4 align="left">Artists: <em ng-repeat="artist in selected.artists">{{artist.name}} </br> Artist Id: {{artist.id}}{{$last ? '' : ', '}}</em></h4>
                     <em align="left">
                         <h4>Tracks:</h4>
-                        <p align="left"><button class="btn btn-primary" ng-click="addTrackWindow()"><i class="material-icons md-48">note_add</i></button></p>
+                        <p align="left"><button class="btn btn-primary" ng-click="addTrackWindow()"><img src="../images/newSong.png" class="addSongImg" data-err-src="../images/useravatar.svg"/></button></p>
                         <md-list-item ng-repeat="track in selected.tracks">
                                 <p>Nombre: {{track.name}}</p>
                                 <p>Id: {{track.id}}</p>
-                                <p>Popularidad: {{track.rate}}</p>
-                                <p>Duracion: {{track.duration}} milisegundos</p>
+                                <!--<p>Popularidad: {{track.rate}}</p>-->
+                                <!--<p>Duracion: {{track.duration}} milisegundos</p>-->
                                 <p align="center"><button class="btn btn-primary" ng-click="deleteTrack(track.id)"><i class="material-icons md-48">delete_forever</i></button></p>
                         </md-list-item>
                     </em>
                     <h4 align="left">Genres: <em ng-repeat="genre in selected.genres">{{genre}}{{$last ? '' : ', '}}  </em></h4>
                     <h4 align="left">Fecha de Publicacion: {{selected.release_date}}</h4>
-                    <h4 align="left">Popularidad: {{selected.popularity}}</h4>
+                    <!--<h4 align="left">Popularidad: {{selected.popularity}}</h4>-->
                     <h4 align="center"><button class="btn btn-primary" ng-click="deleteAlbum()"><i class="material-icons md-48">delete_forever</i>Borrar Album</button></h4>
                 </md-list>
             </md-content>

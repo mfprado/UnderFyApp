@@ -51,7 +51,8 @@
 <h3>Nueva Cancion</h3>
 
 <div class="container">
-    <form >
+    <h3 ng-hide="! formulario"><font color="white">CARGANDO...</font></h3>
+    <form ng-hide="formulario">
         <label><font color="white">AlbumId: {{albumId}} </font></label>
         <label><font color="white">ArtistId: {{artistsId[0]}} </font></label>
         </br>

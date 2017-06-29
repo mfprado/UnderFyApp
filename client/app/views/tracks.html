@@ -2,7 +2,7 @@
     <div layout="column">
         <md-sidenav layout="column" class="marginNavs md-sidenav-left sidenavColor md-whiteframe-z2" md-component-id="left"  md-is-locked-open="$mdMedia('gt-sm')">
             <md-list>
-                <p align="center"><button class="btn btn-primary" ng-click="addTrackWindow()"><i class="material-icons md-48">note_add</i>  Agregar Cancion</button></p>
+                <p align="center"><button class="btn btn-primary" ng-click="addTrackWindow()"><img src="../images/newSong.png" class="addSongImg" data-err-src="../images/useravatar.svg"/>  Agregar Cancion</button></p>
                 <md-list-item ng-repeat="track in tracks">
                     <md-button ng-click="selectTrack(track)">
                         <p align="left">{{track.name}}</p>
@@ -17,9 +17,9 @@
             <h2 align="center">{{selected.name}}</h2>
             <md-list class="listArtists">
                     <h3>Id: {{selected.id}}</h3>
-                    <p>Popularidad: {{selected.rate}}</p>
+                    <!--<p>Popularidad: {{selected.rate}}</p>-->
                     <p></p>
-                    <p>Duracion: {{selected.duration}} milisegundos</p>
+                    <!--<p>Duracion: {{selected.duration}} milisegundos</p>-->
                     <p>Artists:
                         <em ng-repeat="artist in selected.artists">{{artist.name}} {{$last ? '' : ', '}}</em>
                     </p>

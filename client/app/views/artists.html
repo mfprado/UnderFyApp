@@ -3,9 +3,9 @@
         <md-sidenav layout="column" class="marginNavs md-sidenav-left sidenavColor md-whiteframe-z2" md-component-id="left"  md-is-locked-open="$mdMedia('gt-sm')">
             <md-list>
                 <p align="center"><button class="btn btn-primary" ng-click="addArtistWindow()"><i class="material-icons md-48">local_hospital</i>  Agregar Artista</button></p>
-                <md-list-item ng-repeat="artist in artists">
+                <md-list-item align="left" ng-repeat="artist in artists">
                     <md-button layout-align="left" ng-click="selectArtist(artist)">
-                        <img class="albumImg" ng-src={{artist.images[0]}} data-err-src="../images/useravatan.png"/> {{artist.name}}
+                        <img  class="md-avatar"   ng-src={{artist.images[0]}} data-err-src="../images/useravatan.png"/> {{artist.name}}
                     </md-button>
                 </md-list-item>
             </md-list>
@@ -14,8 +14,8 @@
         <!--content-->
     <div layout="column" flex id="content">
         <md-content layout="column" flex class="contentSide marginNavs md-whiteframe-z2 md-padding" >
-            <p align="center"><img class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatan.png"/></p>
             <h2 align="center">{{selected.name}}</h2>
+            <p align="center"><img class="albumImg" ng-click="changeImgWindow()" ng-src={{selected.images[0]}} data-err-src="../images/useravatan.png"/></p>
             <h3 align="center"> Id: {{selected.id}}</h3>
             <md-list class="listArtists">
                 <h4 align="left">Genres:</h4>

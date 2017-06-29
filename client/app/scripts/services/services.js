@@ -145,6 +145,19 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         });
     };
 
+    this.changeArtistImg =  function (name,genres,images,id) {
+        settings.url = urlBase + "/artists/" + id;
+        settings.method = "PUT";
+        settings.data.name = name;
+        settings.data.images = images;
+        settings.data.genres = genres;
+        settings.description = "";
+        console.log(settings);
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    };
+
     this.deleteUser = function (id) {
         settings.url = urlBase + "/users/" + id;
         settings.method = "DELETE";
@@ -217,6 +230,24 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
             console.log(response);
         });
     };
+
+    this.changeAlbumImg = function (artistsIds,name,genres,images,release_date,id) {
+
+        settings.url = urlBase + "/albums/" + id;
+        settings.method = "PUT";
+        settings.data.artists = artistsIds;
+        settings.data.name = name;
+        settings.data.genres = genres;
+        settings.data.images = images;
+        settings.data.release_date = release_date;
+
+        console.log(settings);
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    };
+
 
     this.deleteAlbum = function(id){
         settings.url = urlBase + "/albums/" + id;
