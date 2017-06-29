@@ -23,11 +23,11 @@
                         <h4>Tracks:</h4>
                         <p align="left"><button class="btn btn-primary" ng-click="addTrackWindow()"><img src="../images/newSong.png" class="addSongImg" data-err-src="../images/useravatar.svg"/></button></p>
                         <md-list-item ng-repeat="track in selected.tracks">
-                                <p>Nombre: {{track.name}}</p>
-                                <p>Id: {{track.id}}</p>
+                                <p align="left">Nombre: {{track.name}}</p>
+                                <!--<p layout-align="right"></p>-->
                                 <!--<p>Popularidad: {{track.rate}}</p>-->
                                 <!--<p>Duracion: {{track.duration}} milisegundos</p>-->
-                                <p align="center"><button class="btn btn-primary" ng-click="deleteTrack(track.id)"><i class="material-icons md-48">delete_forever</i></button></p>
+                            <p align="right"><i layout-margin="right">Id: {{track.id}}</i><button class="btn btn-primary" ng-click="deleteTrack(track.id)"><i class="material-icons md-48">delete_forever</i></button></p>
                         </md-list-item>
                     </em>
                     <h4 align="left">Genres: <em ng-repeat="genre in selected.genres">{{genre}}{{$last ? '' : ', '}}  </em></h4>

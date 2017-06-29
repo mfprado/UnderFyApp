@@ -27,7 +27,7 @@
                         <p>Id: {{album.id}}</p>
                         <p align="left">Genres: <em ng-repeat="genre in album.genres">{{genre}}{{$last ? '' : ', '}}  </em></p>
                         <p align="left">Fecha de Publicacion: {{album.release_date}}</p>
-                        <p align="center"><button class="btn btn-primary" ng-click="deleteAlbum(album.id)"><i class="material-icons md-48">delete_forever</i></button></p>
+                        <p align="right"><button class="btn btn-primary" ng-click="deleteAlbum(album.id)"><i class="material-icons md-48">delete_forever</i></button></p>
                     </md-list-item>
                 </em>
                 <h4 align="left">Genres:</h4>
