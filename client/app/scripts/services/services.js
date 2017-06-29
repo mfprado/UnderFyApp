@@ -154,6 +154,26 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         });
     };
 
+    this.changeUserImg = function (userName,password,email,firstName,lastName,country,images,birthdate,id) {
+        settings.url = urlBase + "/users/" + id;
+        settings.method = "PUT";
+        settings.data.userName = userName;
+        settings.data.password = password;
+        settings.data.email = email;
+        settings.data.firstName = firstName;
+        settings.data.lastName = lastName;
+        settings.data.country = country;
+        settings.data.images = images;
+        settings.data.birthdate = birthdate;
+
+        console.log('update img: ');
+        console.log(settings);
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    };
+
     this.addUser = function (userName,password,email,firstName,lastName,country,images,birthdate) {
         settings.url = urlBase + "/users/";
         settings.method = "POST";
@@ -212,6 +232,8 @@ angular.module('underfyApp').service('Requester', ['$sessionStorage',function ($
         if (getArtists() & getAlbums() &  getTracks()){
             return true;
         }
-    }
+    };
+    
+
 
 }]);
