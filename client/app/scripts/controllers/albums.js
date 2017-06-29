@@ -50,7 +50,7 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
     };
 
     $scope.addTrackWindow = function () {
-        $window.open("../views/createTrackInAlbum.html", "Agregar Track", "width=550,height=270,left=10,top=150");
+        $window.open("../views/createTrackInAlbum.html", "Agregar Track", "width=550,height=240,left=10,top=150");
     };
 
     $scope.deleteTrack = function (id) {
