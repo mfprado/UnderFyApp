@@ -62,7 +62,7 @@ angular.module('underfyApp').controller('ArtistsController', ['$scope','$session
     };
 
     $scope.changeImgWindow = function () {
-        $window.open("../views/changeArtistImg.html", "Cambiar Imagen", "width=550,height=250,left=90,top=150");
+        $window.open("../views/changeArtistImg.html", "Cambiar Imagen", "width=550,height=178,left=90,top=150");
     };
 
 }]);

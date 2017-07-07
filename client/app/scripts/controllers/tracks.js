@@ -18,7 +18,7 @@ angular.module('underfyApp').controller('TracksController',['$scope','$sessionSt
     };
 
     $scope.addTrackWindow = function () {
-        $window.open("../views/createTrack.html", "Agregar Cancion", "width=550,height=420,left=10,top=150");
+        $window.open("../views/createTrack.html", "Agregar Cancion", "width=550,height=380,left=10,top=150");
         $scope.updateTracks();
     };
 

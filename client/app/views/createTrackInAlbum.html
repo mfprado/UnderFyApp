@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html background-color="333"  ng-app="uploadApp">
 <head>
+    <title>Underfy</title>
+    <link rel="icon" type="image/ico" href="../images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
         input[type=text], select, textarea {
@@ -39,7 +41,7 @@
         }
 
         .albumImg{
-            width: 350px;
+            width: 450px;
             height: 100px;
         }
     </style>
@@ -47,7 +49,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="../../bower_components/ngstorage/ngStorage.js"></script>
     <script src='../../bower_components/angular-upload/angular-upload.min.js'></script>
-
     <script src="../scripts/controllers/uploadTrack.js"></script>
 
 </head>
@@ -55,18 +56,21 @@
 
 <div class="container">
     <div ng-hide="! formulario" align="center">
-        <p layout-align="center center"><img align="center center" class="albumImg" ng-hide="! formulario" src="../images/Loading_icon.gif"></p>
-        <p layout-align="center center"><h3 ng-hide="! formulario"><font color="white">CARGANDO</font></h3></p>
+        <p layout-align="center center"><img align="center center" class="albumImg" src="../images/Loading_icon.gif"></p>
+        <p layout-align="center center"><h3><font color="white">CARGANDO</font></h3></p>
     </div>
-    <form ng-hide="formulario">
+    <form ng-hide=" formulario">
         <label><font color="white">AlbumId: {{albumId}} </font></label>
         <label><font color="white">ArtistId: {{artistsId[0]}} </font></label>
         </br>
         <label for="tname"><font color="white">Nombre: </font></label>
         <input type="text" id="tname" ng-model="trackName" name="data.name" placeholder="Track name..">
-
-        <input type="file" onchange="setFiles(this.files)" id="file" file-input="file"/>
         </br>
+
+        <input color="white" type="file" onchange="setFiles(this.files)" id="file" file-input="file"/>
+        </br>
+        </br>
+
         <input type="submit" value="Crear" ng-click="createInAlbum()">
 
     </form>

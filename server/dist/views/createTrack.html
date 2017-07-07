@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html background-color="333"  ng-app="uploadApp">
 <head>
+    <title>Underfy</title>
+    <link rel="icon" href="../images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
         input[type=text], select, textarea {
@@ -14,7 +16,7 @@
             resize: vertical;
         }
         input[type=submit] {
-            background-color: #4CAF50;
+            background-color: #5246c6;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -22,7 +24,7 @@
             cursor: pointer;
         }
         button[type=upload] {
-            background-color: #45a049;
+            background-color: #5246c6;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -30,7 +32,7 @@
             cursor: pointer;
         }
         input[type=submit]:hover {
-            background-color: #45a049;
+            background-color: #5246c6;
         }
         .container {
             border-radius: 5px;
@@ -54,8 +56,6 @@
 </head>
 <body ng-controller="uploadController">
 
-<h3>Formulario Nueva Cancion</h3>
-
 <div class="container">
     <div ng-hide="! formulario" align="center">
         <p layout-align="center center"><img align="center center" class="albumImg" ng-hide="! formulario" src="../images/Loading_icon.gif"></p>
@@ -70,8 +70,10 @@
 
         <label for="artistsIds"><font color="white">Ids de Artistas: </font></label>
         <input type="text" id="artistsIds" ng-model="artistsIds" name="data.artistsIds" placeholder="enter Artists Ids Numbers, comma separated..">
+        </br>
 
         <input type="file" onchange="setFiles(this.files)" id="file" file-input="file"/>
+        </br>
         </br>
         <input type="submit" value="Crear" ng-click="create()">
 

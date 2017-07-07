@@ -45,7 +45,7 @@ angular.module('underfyApp').controller('UsersController', ['$scope','$sessionSt
     };
 
     $scope.changeImgWindow = function () {
-        $window.open("../views/changeUserImg.html", "Cambiar Imagen", "width=550,height=250,left=90,top=150");
+        $window.open("../views/changeUserImg.html", "Cambiar Imagen", "width=550,height=178,left=90,top=150");
     };
 
 }]);

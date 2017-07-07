@@ -16,7 +16,7 @@
             <md-content class="marginNavs contentSide md-whiteframe-z2" flex layout-padding="5px">
                 <h2 align="center">{{selected.name}}</h2>
                 <p align="center" class="albumPMargin"><img ng-click="changeImgWindow()" class="albumImg" ng-src={{selected.images[0]}} data-err-src="../images/useravatar.svg"/></p>
-                <h4 align="center">Id: {{selected.id}}</h4>
+                <h4 align="center">Id: {{selected.id}} </h4>
                 <md-list class="listArtists">
                     <h4 align="left">Artists: <em ng-repeat="artist in selected.artists">{{artist.name}} </br> Artist Id: {{artist.id}}{{$last ? '' : ', '}}</em></h4>
                     <em align="left">

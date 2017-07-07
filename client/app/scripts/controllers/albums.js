@@ -65,7 +65,7 @@ angular.module('underfyApp').controller('AlbumsController',['$scope','$sessionSt
     };
 
     $scope.changeImgWindow = function () {
-        $window.open("../views/changeAlbumImg.html", "Cambiar Imagen", "width=550,height=250,left=90,top=150");
+        $window.open("../views/changeAlbumImg.html", "Cambiar Imagen", "width=550,height=178,left=90,top=150");
     };
 
 }]);
